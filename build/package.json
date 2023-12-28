@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@babel/core": ">=7.0.0",
+    "@babel/preset-typescript": ">=7.0.0",
+    "babel-preset-solid": ">=1.8.0"
+  },
+  "name": "ft-converged-build",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
