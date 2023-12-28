@@ -7,7 +7,7 @@ const bun =Bun.FileSystemRouter
 const start=Bun.nanoseconds()
 
 await Bun.build({
-    entrypoints: ['src/index.tsx'],
+    entrypoints: ['./src/index.ts'],
     outdir: './dist',
     external: ['solid-js', 'solid-js/web'],
     plugins: [SolidPlugin()],
