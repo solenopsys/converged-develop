@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "solid-js": "^1.8.7",
+    "@babel/core": ">=7.0.0",
+    "@babel/preset-typescript": ">=7.0.0",
+    "babel-preset-solid": ">=1.8.0"
+  },
+  "name": "convergedsolid",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
