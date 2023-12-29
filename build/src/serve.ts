@@ -188,3 +188,7 @@ console.log(bla);
 //       }
 //     },
 //   });
+
+
+
+runServers("../" )

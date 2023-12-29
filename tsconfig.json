@@ -15,7 +15,7 @@
       "~/*": [ 
         "./microfrontends/*",
         "./libs/*",
-        "./build/*"
+        "./build/src/*"
       ]
     }
   }
