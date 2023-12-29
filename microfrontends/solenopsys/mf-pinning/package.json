@@ -1,6 +1,6 @@
 {
     "name": "@solenopsys/mf-pinning",
-    "module": "index.ts",
+    "module": "src/index.ts",
     "type": "module",
     "dependencies": {},
     "devDependencies": {},

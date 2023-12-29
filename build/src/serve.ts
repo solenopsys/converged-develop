@@ -1,6 +1,6 @@
 import { fstat, existsSync, mkdir, mkdirSync, readdirSync, fstatSync, openSync, renameSync } from "fs";
 import { findEntryPointFullPath } from "./utils";
-import path from "path";
+import path, { join } from "path";
 import { SolidPlugin } from "./plugin";
 import { EXTERNALS } from "./build";
 
@@ -93,7 +93,7 @@ async function compileModule(rootDir: string, path: string): Promise<Response> {
 
   const out = await Bun.build(
       {
-          entrypoints: [rootDir + path + "/src" + "/index.ts"],
+          entrypoints: [rootDir + path + "/src" + "/index.tsx"],
           outdir: outPath,
           external: [
             ...EXTERNALS
@@ -128,10 +128,14 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
                   if (path === "/entry.json") {
                       filePath = bsDir + "/entry.json"
                   }
+               
 
                   if (path === "/") {
-                      filePath = CONF_DIR + "/index.html";
+                      filePath = join(rootDir, CONF_DIR , "/index.html");
                   }
+                  if (path === "/index.js") {
+                    filePath = join(rootDir, CONF_DIR , "/index.js");
+                }
 
                   if (existsSync(filePath)) {
                       const file = Bun.file(filePath);

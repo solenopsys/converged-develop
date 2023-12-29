@@ -1,3 +1,5 @@
 {
-    
+    "layout": {
+        "module": "@solenopsys/mf-pinning"
+    }
 }
