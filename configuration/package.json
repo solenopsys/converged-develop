@@ -1,5 +1,5 @@
 {
-    "name": "@solenopsys/ui-content",
+    "name": "@solenopsys/ui-configuration",
     "module": "index.ts",
     "type": "module",
     "dependencies": {},

@@ -1,7 +1,8 @@
+// @ts-ignore
 import { transformAsync } from "@babel/core";
- 
+ // @ts-ignore
 import ts from "@babel/preset-typescript";
- 
+ // @ts-ignore
 import solid from "babel-preset-solid";
 import { type BunPlugin } from "bun";
 
