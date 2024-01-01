@@ -3,6 +3,8 @@ import { findEntryPointFullPath } from "./utils";
 import path, { join } from "path";
 import { SolidPlugin } from "./plugin";
 import { EXTERNALS } from "./build";
+import {browserResolvePackage} from "./resolve"
+import { resolve } from "bun";
 
 const CONF_DIR = "./configuration"
 
@@ -43,14 +45,21 @@ function extractBootstrapsDirs(rootDir: string): { [name: string]: string } {
   return dirs;
 }
 
+ 
+
 async function serveLibraries(rootDir: string, pathUri: string): Promise<Response> {
-  console.log("search lib rootdir", rootDir, "path", pathUri)
+
   let libName = pathUri.replace("/library/", "").replace(".mjs", "");
 
 
-  let founded = path.resolve(await Bun.resolveSync(libName, rootDir))
-  console.log("FUND", founded)
+  let brs=await browserResolvePackage(libName, rootDir)
 
+
+  let founded = path.resolve(rootDir,"node_modules",brs)
+
+
+ 
+  console.log("search lib rootdir", rootDir, "path", pathUri,"entry",founded)
 
 
   const outPath = join(rootDir, "../dist/libraries/", libName);

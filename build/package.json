@@ -10,12 +10,11 @@
   "devDependencies": {
     "@types/bun": "^1.0.0",
     "bun-types": "latest"
-    
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "serve":"bun ./src/serve.ts"
+    "serve": "bun ./src/serve.ts"
   }
 }
