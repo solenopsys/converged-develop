@@ -36,6 +36,16 @@ function fileResponse(filePath: string): Response {
   }
 }
 
+async function remoteResponse(host:string,path: string): Promise<Response> {
+  const remoteUrl = host + path;
+  console.log("REMOTE URL",remoteUrl)
+  const data = await fetch(remoteUrl);
+  const buffer = await data.arrayBuffer();
+   return new Response(buffer,{ headers: {
+    'Content-Type': 'application/json',
+}})
+}
+
 interface HendlerFunc {
   (req: { path: string }): Promise<Response>;
 }
@@ -56,14 +66,17 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   }
 
   hendlers["/dag*"] = async (req: { path: string }) => {
-    const remoteUrl = "http://solenopsys.org" + req.path;
-    console.log("REMOTE URL",remoteUrl)
-    const data = await fetch(remoteUrl);
-    const buffer = await data.arrayBuffer();
-     return new Response(buffer,{ headers: {
-      'Content-Type': 'application/json',
-  }})
+   return await remoteResponse("http://solenopsys.org",req.path)
   }
+
+  hendlers["/stat"] = async (req: { path: string }) => {
+    return await remoteResponse("http://pinning.solenopsys.org",req.path)
+   }
+
+   hendlers["/select"] = async (req: { path: string }) => {
+    return await remoteResponse("http://pinning.solenopsys.org",req.path)
+   }
+
 
   hendlers["/"] = async (req: { path: string }) => {
     return fileResponse(join(rootDir, CONF_DIR, "/index.html"))
@@ -79,8 +92,6 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
       
       const url = new URL(request.url)
       const path = url.pathname+url.search
-  
-    
 
       const handlerKey: string | undefined = Object.keys(hendlers).find(item => {
         const pattern = "^" + item.replace("*", ".*") + "$";
