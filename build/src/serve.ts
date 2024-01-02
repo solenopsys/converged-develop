@@ -54,6 +54,17 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/entry.json"] = async (req: { path: string }) => {
     return fileResponse(join(bsDir, "/entry.json"))
   }
+
+  hendlers["/dag*"] = async (req: { path: string }) => {
+    const remoteUrl = "http://solenopsys.org" + req.path;
+    console.log("REMOTE URL",remoteUrl)
+    const data = await fetch(remoteUrl);
+    const buffer = await data.arrayBuffer();
+     return new Response(buffer,{ headers: {
+      'Content-Type': 'application/json',
+  }})
+  }
+
   hendlers["/"] = async (req: { path: string }) => {
     return fileResponse(join(rootDir, CONF_DIR, "/index.html"))
   }
@@ -65,11 +76,14 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   const server = Bun.serve({
     port: port,
     async fetch(request) {
+      
       const url = new URL(request.url)
-      const path = url.pathname
+      const path = url.pathname+url.search
+  
+    
 
       const handlerKey: string | undefined = Object.keys(hendlers).find(item => {
-        const pattern =  "^"+item.replace("*", ".*")+"$";
+        const pattern = "^" + item.replace("*", ".*") + "$";
         return path.match(pattern)
       });
 
