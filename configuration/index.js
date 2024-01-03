@@ -8,9 +8,6 @@ async function start() {
     console.log("MODULE URL", modUrl)
     const mod = await import(modUrl)
      mod.INIT()
-
-   
-
 }
 
 console.log("START")

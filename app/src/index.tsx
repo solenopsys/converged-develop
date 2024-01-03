@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web';
-import { createSignal, For } from 'solid-js';
+import { Component, createSignal, For } from 'solid-js';
 import Butt from './butt';
 
 
@@ -26,4 +26,15 @@ function App() {
 }
 
 export default App
+
+
+
+const Counter: Component = () => {
+  const [count, setCount] = createSignal(0);
+  return (
+      <div onClick={() => setCount((c) => c + 1)}>
+          {count()}
+      </div>
+  );
+};
 

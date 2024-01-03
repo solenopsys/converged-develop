@@ -1,6 +1,7 @@
+import {UiButton} from "@solenopsys/ui-navigate"
 
 function PinnginStat() {
-    return ( <div>ok</div> );
+    return ( <div>ok<UiButton title={"bla"}></UiButton></div> );
 }
 
 
