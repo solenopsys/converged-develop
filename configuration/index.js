@@ -4,7 +4,7 @@ async function start() {
     const entry = await (await fetch("/entry.json")).json()
     console.log("ENTRY", entry)
 
-    const modUrl = entry.layout.module.replace("@", "/microfrontends/");
+    const modUrl = entry.layout.module.replace("@", "/packages/");
     console.log("MODULE URL", modUrl)
     const mod = await import(modUrl)
      mod.INIT()

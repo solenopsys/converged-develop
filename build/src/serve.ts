@@ -60,7 +60,7 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/library/*"] = (req: { path: string }) => {
     return serveLibraries(join(rootDir, "configuration"), req.path)
   }
-  hendlers["/microfrontends/*"] = (req: { path: string }) => {
+  hendlers["/packages/*"] = (req: { path: string }) => {
     return compileModule(rootDir, req.path)
   }
   hendlers["/entry.json"] = async (req: { path: string }) => {

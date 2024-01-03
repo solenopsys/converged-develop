@@ -17,20 +17,6 @@ async function jsToResponse(jsFile:string){  // todo it hotfi bun bug
   }
   
 
-export const EXTERNALS= ['solid-js', 'solid-js/web'];
-
-// await Bun.build({
-//   entrypoints: ['./src/index.ts'],
-//   outdir: './dist',
-//   external:EXTERNALS,
-//   plugins: [SolidPlugin()],
-// }).catch((err) => {
-//   console.error(err);
-// }).then(() => {
-//   const end = Bun.nanoseconds();
-//   const time = (end - start) / 1000000;
-//   console.log('Build complete! ', time);
-// });
 
 export async function compileModule(rootDir: string, path: string): Promise<Response> {
     console.log("Start load module: " + path);
@@ -39,6 +25,11 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
      if (!existsSync(outPath)) {
       mkdirSync(outPath, { recursive: true });
     }
+
+    const packagesFile=join(rootDir, path, "/package.json");
+    console.log("PACKAGES PATH: ",packagesFile)
+    const tsConfigJson:any = await Bun.file(packagesFile).json();
+    console.log("PACKAGES JSON: ",tsConfigJson)
   
   
     const entryPoint = join(rootDir, path, "/src", "/index.tsx");
@@ -47,7 +38,7 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
         entrypoints: [entryPoint],
         outdir: outPath,
         external: [
-          ...EXTERNALS
+          ...tsConfigJson["external"]
         ],
         plugins: [
           SolidPlugin()

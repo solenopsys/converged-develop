@@ -9,6 +9,11 @@
         "typescript": "^5.0.0"
     },
     "scripts": {
-        "build":"bun ../../../build/build.ts"
-    }
+        "build": "bun ../../../build/build.ts"
+    },
+    "external": [
+        "solid-js",
+        "solid-js/web",
+        "@solenopsys/ui-navigate"
+    ]
 }
