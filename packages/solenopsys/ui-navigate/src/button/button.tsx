@@ -1,6 +1,11 @@
 import { createSignal, Component ,createEffect} from 'solid-js';
 import { render } from 'solid-js/web';
 
+ 
+import styles from "./button.module.css";
+
+
+
 interface UiButtonProps {
   title: string;
   onButtonClick?: () => void;
@@ -26,7 +31,7 @@ export const UiButton: Component<UiButtonProps> = (props) => {
 
   return (
     <>
-      <button onClick={handleClick} title={state()}>
+      <button class={styles.button} onClick={handleClick} title={state()}>
         {state()} 
       </button>
     </>

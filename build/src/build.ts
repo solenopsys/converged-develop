@@ -3,6 +3,8 @@ import { fstat, existsSync, mkdir, mkdirSync, readdirSync, fstatSync, openSync, 
 import {browserResolvePackage} from "./resolve"
 import path, { join } from "path";
 import { SolidPlugin } from "./plugin";
+import lightningcss from 'bun-lightningcss'
+
 
 // import { SolidPlugin } from "./plugin";
 
@@ -41,7 +43,8 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
           ...tsConfigJson["external"]
         ],
         plugins: [
-          SolidPlugin()
+          SolidPlugin(),
+          lightningcss()
         ]
       });
 
