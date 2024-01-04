@@ -1,6 +1,6 @@
 {
     "name": "@solenopsys/ui-navigate",
-    "module": "index.tsx",
+    "module": "index.ts",
     "type": "module",
     "dependencies": {},
     "peerDependencies": {

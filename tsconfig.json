@@ -13,6 +13,9 @@
     "paths": {
       "@solenopsys/ui-navigate": [
         "packages/solenopsys/ui-navigate/src/index.tsx"
+      ],
+      "@solenopsys/ui-controls": [
+        "packages/solenopsys/ui-controls/src/index.tsx"
       ]
     }
   }
