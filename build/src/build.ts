@@ -1,5 +1,5 @@
 console.log('Building...');
-import { fstat, existsSync, mkdir, mkdirSync, readdirSync, fstatSync, openSync, renameSync } from "fs";
+import { fstat, existsSync, mkdir, mkdirSync, readdirSync, fstatSync, openSync, renameSync, copyFile, copyFileSync } from "fs";
 import {browserResolvePackage} from "./resolve"
 import path, { join } from "path";
 import { SolidPlugin } from "./plugin";
@@ -27,9 +27,9 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
     }
 
     const packagesFile=join(rootDir, path, "/package.json");
-    console.log("PACKAGES PATH: ",packagesFile)
+   
     const tsConfigJson:any = await Bun.file(packagesFile).json();
-    console.log("PACKAGES JSON: ",tsConfigJson)
+  
   
   
     const entryPoint = join(rootDir, path, "/src", "/index.tsx");
@@ -44,6 +44,8 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
           SolidPlugin()
         ]
       });
+
+     console.log("BUILD->  ",path,out.logs) 
     return jsToResponse(outPath + "/index.js");
   }
 
@@ -83,27 +85,34 @@ export async function serveLibraries(rootDir: string, pathUri: string): Promise<
       // const file = Bun.file(fileFromCache);
       // return new Response(file);
     } else {
+        const newPathToFile=join(absoluteOutPath,"index.js")
+        
+        copyFileSync(founded,newPathToFile)
  //     console.log("COMPILE LIB", absoluteOutPath);
-      const out = await Bun.build(
-        {
-          entrypoints: [founded],
-          outdir: absoluteOutPath,
-          external: [
-          ],
-          plugins: [
-            SolidPlugin()
-          ],
-          format: "esm",
-          target: "browser"
-        });
+      // const out = await Bun.build(
+      //   {
+          
+      //     entrypoints: [founded],
+      //     outdir: absoluteOutPath,
+          
+      //     external: [
+      //       "solid-js"
+      //     ],
+      
+      //     plugins: [
+      //     //  SolidPlugin()
+      //     ],
+      //     format: "esm",
+      //     target: "browser"
+      //   });
   
   
   //    console.log("Build result", out);
   
-      const pathToFile = out.outputs[0].path;
+   //   const pathToFile = out.outputs[0].path;
   
   
-      const newPathToFile = renameFileToInxexJs(pathToFile)
+     // const newPathToFile = renameFileToInxexJs(pathToFile)
       return jsToResponse(newPathToFile);
     }
   }

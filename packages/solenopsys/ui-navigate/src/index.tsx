@@ -1,3 +1,3 @@
-export * as UiButton  from "./button/button"
+export { UiButton } from "./button/button"
 
  
