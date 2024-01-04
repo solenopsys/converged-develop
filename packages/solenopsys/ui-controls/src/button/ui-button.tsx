@@ -2,7 +2,7 @@ import { createSignal, Component ,createEffect} from 'solid-js';
 import { render } from 'solid-js/web';
 
  
-import styles from "./button.module.css";
+import styles from "./ui-button.module.css";
 
 
 
