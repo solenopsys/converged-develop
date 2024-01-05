@@ -11,18 +11,7 @@
     "isolatedModules": true,
     "baseUrl": "./",
     "paths": {
-      "@solenopsys/ui-navigate": [
-        "packages/solenopsys/ui-navigate/src/index.tsx"
-      ],
-      "@solenopsys/ui-controls": [
-        "packages/solenopsys/ui-controls/src/index.tsx"
-      ],
-       "@solenopsys/ui-lists": [
-        "packages/solenopsys/ui-lists/src/index.tsx"
-      ],
-      "@solenopsys/ui-content": [
-        "packages/solenopsys/ui-content/src/index.tsx"
-      ]
+      "@solenopsys/*": ["packages/solenopsys/*/src/index.tsx"]
     }
   }
 }

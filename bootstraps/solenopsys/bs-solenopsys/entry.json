@@ -1,6 +1,6 @@
 {
     "layout": {
-        "module": "@solenopsys/mf-pinning"
+        "module": "@solenopsys/lt-website"
     },
 
     "routes": {

@@ -1,7 +1,9 @@
 {
-    "name": "@solenopsys/mf-pinning",
+   
+    "name": "@solenopsys/lt-website",
+    "description": "Layout website",
+
     "module": "src/index.tsx",
-    "description": "Microfrontend pinning",
     "type": "module",
     "dependencies": {},
     "devDependencies": {},

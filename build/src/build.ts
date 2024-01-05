@@ -37,6 +37,7 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
     const entryPoint = join(rootDir, path, "/src", "/index.tsx");
     const out = await Bun.build(
       {
+        sourcemap:"none",
         entrypoints: [entryPoint],
         outdir: outPath,
         external: [
