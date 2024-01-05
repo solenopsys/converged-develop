@@ -1,0 +1,17 @@
+.tab_style {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 12px;
+    height: 29px;
+    border-bottom: 4px;
+    font-size: 14px;
+    border-bottom-style: solid;
+    cursor: pointer;
+    border-bottom-color: transparent;
+    font-weight: normal;
+}
+
+.selected { 
+    border-bottom-color: #51504f;
+    font-weight: bold;
+} 

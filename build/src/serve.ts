@@ -89,10 +89,10 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   
 
 
-  hendlers["/"] = async (req: { path: string }) => {
+  hendlers["*/"] = async (req: { path: string }) => {
     return fileResponse(join(rootDir, CONF_DIR, "/index.html"))
   }
-  hendlers["/index.js"] = async (req: { path: string }) => {
+  hendlers["*/index.js"] = async (req: { path: string }) => {
     return fileResponse(join(rootDir, CONF_DIR, "/index.js"))
   }
 

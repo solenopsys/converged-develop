@@ -1,8 +1,9 @@
 import { Dynamic } from "solid-js/web";
 import { createSignal, Component, createResource } from "solid-js";
 import styles from "./layout.module.css"
-import { UiTreeMenu } from "@solenopsys/ui-navigate";
+import { UiTreeMenu,UiTabs } from "@solenopsys/ui-navigate";
 import { MdView } from "@solenopsys/ui-content";
+ 
 
 const Empty: Component = () => {
     return (<div>Empty</div>)
@@ -11,6 +12,7 @@ const Empty: Component = () => {
 const EMPTY: string = "EMPTY"
 const MENU: string = "MENU"
 const MD: string = "MD"
+const TABS: string = "TABS"
 
 const components: { [name: string]: Component } = {
     EMPTY: Empty
@@ -25,8 +27,12 @@ const fetchMdData = async () =>
 const [menuData] = createResource(fetchMenuData);
 const [mdData] = createResource(fetchMdData);
 
-components[MENU] = () => { return <> {menuData() && <UiTreeMenu data={menuData()}></UiTreeMenu>}</> }
-components[MD] = () => { return  <> {mdData() && <MdView data={mdData()}></MdView>} </>}
+const tabs= [{id:"tab1",title:"Title1"},{id:"tab2",title:"Title2"}]
+
+
+components[MENU] = () => { return <> {menuData() && <UiTreeMenu data={menuData()}/>}</> }
+components[MD] = () => { return  <> {mdData() && <MdView data={mdData()}/>} </>}
+components[TABS] = () => { return  <> {  <UiTabs selected="tab1" tabs={tabs}/>} </>}
 
 
 const [top, setTop] = createSignal(EMPTY);
@@ -36,6 +42,7 @@ const [left, setLeft] = createSignal(EMPTY);
 
 setLeft(MENU)
 setCentral(MD)
+setTop(TABS)
 
 
 export const SiteLayout: Component = () => {
