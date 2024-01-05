@@ -19,8 +19,15 @@ export async function browserResolvePackage(packName: string, rootDir: string): 
 
     const data = JSON.parse(String(jsonString));
 
-    const imp=data.exports["."+sub].browser.import
-    console.log(imp);
+    try {
+        const imp=data.exports["."+sub].browser.import
+        return join(currName,imp );
+    } catch (e) {
+        const imp=data.exports["."].default
+        return join(currName,imp );
+    }
 
-    return join(currName,imp );
+   
+
+
 }

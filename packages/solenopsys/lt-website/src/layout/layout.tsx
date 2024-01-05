@@ -1,9 +1,11 @@
 import { Dynamic } from "solid-js/web";
 import { createSignal, Component, createResource } from "solid-js";
 import styles from "./layout.module.css"
-import { UiTreeMenu,UiTabs } from "@solenopsys/ui-navigate";
-import { MdView } from "@solenopsys/ui-content";
- 
+import { UiTreeMenu, UiTabs } from "@solenopsys/ui-navigate";
+import { MdDynamic } from "./mddynamic"
+import { Router, Route, A } from "@solidjs/router";
+
+
 
 const Empty: Component = () => {
     return (<div>Empty</div>)
@@ -21,18 +23,25 @@ const components: { [name: string]: Component } = {
 const fetchMenuData = async () =>
     (await fetch(`/dag?key=menu&cid=bafyreicpz3bnf3xqabciyypjssfue54csygb3fn4soz3wbztppvzdfahsy`)).json();
 
-const fetchMdData = async () =>
-    (await fetch(`/dag?key=md&cid=bafyreienpilu4q7xgxvwyeb6prawxju2jq6axojffv63v4744ncogem4gy`)).json();
 
 const [menuData] = createResource(fetchMenuData);
-const [mdData] = createResource(fetchMdData);
-
-const tabs= [{id:"tab1",title:"Title1"},{id:"tab2",title:"Title2"}]
 
 
-components[MENU] = () => { return <> {menuData() && <UiTreeMenu data={menuData()}/>}</> }
-components[MD] = () => { return  <> {mdData() && <MdView data={mdData()}/>} </>}
-components[TABS] = () => { return  <> {  <UiTabs selected="tab1" tabs={tabs}/>} </>}
+const tabs = [{ id: "tab1", title: "Title1" }, { id: "tab2", title: "Title2" }]
+
+ 
+
+components[MENU] = () => { return <> {menuData() && <UiTreeMenu data={menuData()} baseUrl="/article"/>}</> }
+
+components[TABS] = () => { return <> {<UiTabs selected="tab1" tabs={tabs} />} </> }
+
+components[MD] = () => {
+    return (
+        <Router>
+            <Route path="/article/:id" component={MdDynamic} />
+        </Router>
+    )
+}
 
 
 const [top, setTop] = createSignal(EMPTY);
@@ -68,6 +77,9 @@ export const SiteLayout: Component = () => {
         </div>
     );
 }
+
+
+
 
 
 
