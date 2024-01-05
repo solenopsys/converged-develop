@@ -1,12 +1,16 @@
 {
     "name": "@solenopsys/ui-content",
-    "module": "index.ts",
+    "module": "index.tsx",
     "type": "module",
     "dependencies": {},
-    "devDependencies": {},
     "peerDependencies": {
         "solid-js": "^1.8.7",
+        "solid-js/web": "^1.8.7",
         "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "@types/bun": "^1.0.0",
+        "bun-types": "latest"
     },
     "external": [
         "solid-js",

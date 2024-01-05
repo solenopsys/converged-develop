@@ -19,6 +19,9 @@
       ],
        "@solenopsys/ui-lists": [
         "packages/solenopsys/ui-lists/src/index.tsx"
+      ],
+      "@solenopsys/ui-content": [
+        "packages/solenopsys/ui-content/src/index.tsx"
       ]
     }
   }

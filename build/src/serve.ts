@@ -70,6 +70,13 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/dag*"] = async (req: { path: string }) => {
     return await remoteResponse("http://solenopsys.org", req.path)
   }
+  hendlers["/ipfs*"] = async (req: { path: string }) => {
+    return await remoteResponse("http://solenopsys.org", req.path)
+  }
+
+  hendlers["/ipns*"] = async (req: { path: string }) => {
+    return await remoteResponse("http://solenopsys.org", req.path)
+  }
 
   hendlers["/stat"] = async (req: { path: string }) => {
     return await remoteResponse("http://pinning.solenopsys.org", req.path)
@@ -78,6 +85,8 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/select"] = async (req: { path: string }) => {
     return await remoteResponse("http://pinning.solenopsys.org", req.path)
   }
+
+  
 
 
   hendlers["/"] = async (req: { path: string }) => {
