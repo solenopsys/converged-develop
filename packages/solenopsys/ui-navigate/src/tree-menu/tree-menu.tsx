@@ -16,14 +16,18 @@ export interface MenuItemData {
 
 type MenuProps<P = {}> = P & {
   data: MenuItemData;
+  onClickLink: (link: string) => void;
 };
 
 type MenuComponent<P = {}> = Component<ItemProps<P>>;
 
 export const UiTreeMenu: MenuComponent = (props) => {
+ 
+ 
+ 
   return (
     <div>
-      <MenuItem data={props.data} onClick={props.onClick} baseUrl={props.baseUrl} />
+      <MenuItem data={props.data} onClickLink={props.onClickLink} baseUrl={props.baseUrl} />
     </div>
   );
 };
@@ -32,25 +36,30 @@ type ItemProps<P = {}> = P & {
     baseUrl?:string
     collapsed?: boolean;
     data: MenuItemData;
-    onClick: (link: string) => void;
+    onClickLink: (link: string) => void;
   };
 
 type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
+
+
 const MenuItem: ParentComponent = (props) => {
     const [collapsed] = createSignal<boolean>(props.collapsed ?? false);
+
+ 
+
   
     return (
       <>
         <div class={styles.item}>
-          <a class={styles.link} onClick={() => props.onClick && props.onClick(props.data.cid)
-        } href={`${props.baseUrl}/${props.data.cid}/`}>
+          <a class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
+         href={`${props.baseUrl}/${props.data.cid}/`}>
             {props.data.name} 
           </a>
         </div>
         {props.data.children.map((sub_item) => (
           <div class={styles.sub_item}>
-            <MenuItem data={sub_item} baseUrl={props.baseUrl}/>
+            <MenuItem data={sub_item} baseUrl={props.baseUrl} onClickLink={ props.onClickLink}/>
           </div>
         ))}
       </>

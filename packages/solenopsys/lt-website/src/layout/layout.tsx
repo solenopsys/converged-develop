@@ -35,7 +35,6 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                     </div>
                 </div>
                 <div class={styles.main_content}>
-                    <UiButton title="bla" ></UiButton>
                     <Dynamic component={props.components[central()]} />
                 </div>
             </div>

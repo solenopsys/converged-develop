@@ -1,6 +1,6 @@
 import { MdView } from "@solenopsys/ui-content";
-import { createSignal, Component, createResource } from "solid-js";
-import { useParams } from "@solidjs/router";
+import { createSignal, Component, createResource, createEffect, Show } from "solid-js";
+import { useParams,A, } from "@solidjs/router";
 
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();
@@ -9,7 +9,7 @@ async function fetchArticle(id) {
 async function cascadeFetch(menuId) {
   const menuObj = await (await fetch(`/dag?key=object&cid=${menuId}`)).json();
   const articlesIds = menuObj.articles;
-  
+
   const articlesData = [];
   for (const id of articlesIds) {
     const articleData = await fetchArticle(id);
@@ -19,19 +19,30 @@ async function cascadeFetch(menuId) {
   return articlesData;
 }
 
-export const MdDynamic: Component = (props) => {
+
+
+interface Props {
+
+}
+
+export const MdDynamic: Component<Props> = (props) => {
   const params = useParams();
+  
 
-  const fetchMdData = () => cascadeFetch(params.id);
-
-  const [mdData] = createResource(fetchMdData);
+  const ftch=()=>cascadeFetch(params.id)
+  const [mdData]=createResource<any[]>(ftch)
 
   return (
     <>
+     
       {mdData() &&
-        mdData().map((element) => (
+        mdData()?.map((element) => ( <>
+    
           <MdView key={element.id} data={element} />
+       
+          </>
         ))}
+        
     </>
   );
 };
