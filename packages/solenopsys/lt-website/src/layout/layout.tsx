@@ -1,9 +1,11 @@
 import { Dynamic } from "solid-js/web";
 import { createSignal, Component, createResource } from "solid-js";
 import styles from "./layout.module.css"
+import "./layout.css"
 import { UiTreeMenu, UiTabs } from "@solenopsys/ui-navigate";
 import { MdDynamic } from "./mddynamic"
 import { Router, Route, A } from "@solidjs/router";
+import { UiButton } from '@solenopsys/ui-controls';
 
 
 
@@ -71,9 +73,11 @@ export const SiteLayout: Component = () => {
                     </div>
                 </div>
                 <div class={styles.main_content}>
+                <UiButton title="bla" ></UiButton>
                     <Dynamic component={components[central()]} />
                 </div>
             </div>
+
         </div>
     );
 }

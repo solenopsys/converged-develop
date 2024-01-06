@@ -1,0 +1,28 @@
+:root {
+    --main-bg-color: brown;
+    --control-color: #48af65;
+  }
+
+html *
+{
+  font-family:Roboto  ;
+}
+
+
+a{color: black}
+a:active{color: red}
+
+
+@font-face {
+  font-family: Roboto;
+  src:   url('/fonts/Mono/JetBrainsMono-Regular.ttf')  format('truetype');
+}
+
+
+@font-face {
+  font-family: "Roboto Light";
+  src:   url('/fonts/Mono/JetBrainsMono-Light.ttf')  format('truetype');
+}
+
+
+

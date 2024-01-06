@@ -13,8 +13,10 @@ interface MdItemComponentProps {
 }
 
 export const MdView: Component<MdItemComponentProps> = (props) => {
-  return (
-    <MdBlock data={props.data}> </MdBlock>
+  return (<div class={styles.mdview}>
+    <MdBlock data={props.data} > </MdBlock>
+  </div>
+    
   );
 };
 
