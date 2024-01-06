@@ -26,7 +26,7 @@ export const UiTabs: ParentComponent = (props) => {
 
     return (
         <div style={{ display: "flex" }}>
-            {props.tabs.map((tab) => (
+            {props.tabs?.map((tab) => (
                 <div
                     onClick={() => tabClickHandler(tab.id)}
                     classList={{ [styles.tab_style]: true,  [styles.selected]: selected() === tab.id}}

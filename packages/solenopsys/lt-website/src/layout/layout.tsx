@@ -2,7 +2,7 @@ import { Dynamic } from "solid-js/web";
 import { createSignal, Component, createResource } from "solid-js";
 import styles from "./layout.module.css"
 import "./layout.css"
-import { UiTreeMenu, UiTabs } from "@solenopsys/ui-navigate";
+import { UiTreeMenu, UiTabs,UiTopPane } from "@solenopsys/ui-navigate";
 import { MdDynamic } from "./mddynamic"
 import { Router, Route, A } from "@solidjs/router";
 import { UiButton } from '@solenopsys/ui-controls';
@@ -35,7 +35,7 @@ const tabs = [{ id: "tab1", title: "Title1" }, { id: "tab2", title: "Title2" }]
 
 components[MENU] = () => { return <> {menuData() && <UiTreeMenu data={menuData()} baseUrl="/article"/>}</> }
 
-components[TABS] = () => { return <> {<UiTabs selected="tab1" tabs={tabs} />} </> }
+components[TABS] = () => { return <> {<UiTopPane logo={"/images/logo.svg"} tabsState={tabs} />} </> }
 
 components[MD] = () => {
     return (

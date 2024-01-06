@@ -1,0 +1,25 @@
+ 
+
+.top-pane {
+    position: relative;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    background-color: azure;
+  }
+  
+  .logo-container {
+    padding: 5px;
+    margin-left: 10px;
+  }
+  
+  .tabs-container {
+    margin-left: 20px;
+  }
+  
+  .actions-container {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+  
