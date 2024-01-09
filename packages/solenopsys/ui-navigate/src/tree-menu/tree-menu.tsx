@@ -52,10 +52,10 @@ const MenuItem: ParentComponent = (props) => {
     return (
       <>
         <div class={styles.item}>
-          <a class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
+          <A class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
          href={`${props.baseUrl}/${props.data.cid}/`}>
             {props.data.name} 
-          </a>
+          </A>
         </div>
         {props.data.children.map((sub_item) => (
           <div class={styles.sub_item}>

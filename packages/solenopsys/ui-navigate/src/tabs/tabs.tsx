@@ -1,5 +1,6 @@
 import { createSignal, Component } from "solid-js";
-import styles from './tabs.module.css';  
+import styles from './tabs.module.css';
+import {   A } from "@solidjs/router";
 
 
 export type Tab = {
@@ -16,8 +17,9 @@ export type TabsProps<P = {}> = P & {
 export type ParentComponent<P = {}> = Component<TabsProps<P>>;
 export const UiTabs: ParentComponent = (props) => {
     const [selected, setSelected] = createSignal<string | undefined>(props.selected);
+    const [tabs] = createSignal(props.tabs);
 
-    const tabClickHandler = (tabId:string) => {
+    const tabClickHandler = (tabId: string) => {
         setSelected(tabId);
         if (props.tabClick) {
             props.tabClick(tabId);
@@ -26,16 +28,17 @@ export const UiTabs: ParentComponent = (props) => {
 
     return (
         <div style={{ display: "flex" }}>
-            {props.tabs?.map((tab) => (
-                <div
-                    onClick={() => tabClickHandler(tab.id)}
-                    classList={{ [styles.tab_style]: true,  [styles.selected]: selected() === tab.id}}
-                >
-                    {tab.title}
-                </div>
+            {tabs()?.map((tab) => (
+               
+                    <div
+                        onClick={() => tabClickHandler(tab.id)}
+                        classList={{ [styles.tab_style]: true, [styles.selected]: selected() === tab.id }}
+
+                    >
+                        {tab.title}
+                    </div>
             ))}
         </div>
     );
 };
 
- 

@@ -1,6 +1,25 @@
 {
     "layout": {
-        "module": "@solenopsys/lt-website"
+        "module": "@solenopsys/lt-website",
+        "data": {
+          "logo": "/images/logo.svg",
+          "favicon": "/assets/favicon.svg",
+          "title": "Solenopsys vc",
+          "navigate": {
+            "/solenopsys": {
+              "title": "Solenopsys"
+            },
+            "/robotization": {
+              "title": "Robotization"
+            },
+            "/consepts": {
+              "title": "Сoncepts"
+            },
+            "/technologies": {
+              "title": "Technologies"
+            }
+          }
+        }
     },
 
     "routes": {

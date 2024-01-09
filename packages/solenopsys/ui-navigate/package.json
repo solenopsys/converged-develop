@@ -1,6 +1,6 @@
 {
     "name": "@solenopsys/ui-navigate",
-    "module": "index.tsx",
+    "module": "src/index.tsx",
     "type": "module",
     "dependencies": {},
     "peerDependencies": {
@@ -14,6 +14,8 @@
     },
     "external": [
         "solid-js",
-        "solid-js/web"
+        "solid-js/web",
+        "solid-js/store",
+        "@solidjs/router"
     ]
 }

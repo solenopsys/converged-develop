@@ -1,11 +1,9 @@
-:root {
-    --main-bg-color: brown;
-    --control-color: #48af65;
-  }
+ 
 
 html *
 {
   font-family:Roboto  ;
+  background-color: var(--main-bg-color);
 }
 
 

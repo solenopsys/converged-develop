@@ -1,16 +1,13 @@
 {
-   
-    "name": "@solenopsys/lt-website",
-    "description": "Layout website",
-
+    "name": "@solenopsys/mf-landing",
     "module": "src/index.tsx",
+    "description": "Microfrontend landing",
     "type": "module",
     "dependencies": {},
     "devDependencies": {},
     "peerDependencies": {
         "solid-js": "^1.8.7",
-        "typescript": "^5.0.0",
-        "@solidjs/router": "^0.10.6"
+        "typescript": "^5.0.0"
     },
     "scripts": {
         "build": "bun ../../../build/build.ts"
@@ -18,10 +15,6 @@
     "external": [
         "solid-js",
         "solid-js/web",
-        "@solenopsys/ui-navigate",
-        "@solenopsys/ui-controls",
-        "@solenopsys/ui-layouts",
-        "solid-js/store",
-        "@solidjs/router"
+        "@solenopsys/ui-navigate"
     ]
 }

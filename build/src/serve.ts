@@ -26,6 +26,8 @@ function extractBootstrapsDirs(rootDir: string): { [name: string]: string } {
   return dirs;
 }
 
+
+
 function fileResponse(filePath: string): Response {
   if (existsSync(filePath)) {
     const file = Bun.file(filePath);
@@ -63,9 +65,9 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/packages/*"] = (req: { path: string }) => {
     return compileModule(rootDir, req.path)
   }
-  hendlers["/entry.json"] = async (req: { path: string }) => {
-    return fileResponse(join(bsDir, "/entry.json"))
-  }
+  // hendlers["/entry.json"] = async (req: { path: string }) => {
+  //   return fileResponse(join(bsDir, "/entry.json"))
+  // }
 
   hendlers["/dag*"] = async (req: { path: string }) => {
     return await remoteResponse("http://solenopsys.org", req.path)
@@ -86,15 +88,15 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
     return await remoteResponse("http://pinning.solenopsys.org", req.path)
   }
 
-  
+
 
 
   hendlers["*/"] = async (req: { path: string }) => {
     return fileResponse(join(rootDir, CONF_DIR, "/index.html"))
   }
-  hendlers["*/index.js"] = async (req: { path: string }) => {
-    return fileResponse(join(rootDir, CONF_DIR, "/index.js"))
-  }
+  // hendlers["*/index.js"] = async (req: { path: string }) => {
+  //   return fileResponse(join(rootDir, CONF_DIR, "/index.js"))
+  // }
 
 
   const server = Bun.serve({

@@ -1,21 +1,20 @@
 import { Dynamic } from "solid-js/web";
 import { createSignal, Component, createResource } from "solid-js";
 import styles from "./layout.module.css"
-import "./layout.css"
+
 
 import { UiButton } from '@solenopsys/ui-controls';
 
 interface MdItemComponentProps {
-    top: Component,
-    central: Component,
-    left: Component,
+    top: string,
+    central: string,
+    left: string,
     components: { [name: string]: Component }
 }
 
 
 export const SiteLayout: Component<MdItemComponentProps> = (props) => {
     const [mobileMenu, mobileMenuTop] = createSignal(false);
-
     const [top, setTop] = createSignal(props.top);
     const [central, setCentral] = createSignal(props.central);
     const [left, setLeft] = createSignal(props.left);
@@ -35,6 +34,7 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                     </div>
                 </div>
                 <div class={styles.main_content}>
+                    <UiButton title="bla" ></UiButton>
                     <Dynamic component={props.components[central()]} />
                 </div>
             </div>
