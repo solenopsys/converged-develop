@@ -14,7 +14,6 @@ async function loadModule(moduleName) {
 
 
 async function start() {
-    const entry = await (await fetch("/entry.json")).json()
     const moduleName = entry.layout.module;
     const mod = await loadModule(moduleName)
     mod.createLayout("layout",loadModule, entry.layout.data, entry.routes)
