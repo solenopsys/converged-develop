@@ -1,5 +1,9 @@
 import { Site } from "./layout/site"
 import { render } from "solid-js/web";
+import {  } from "solid-js";
+ 
+
+ 
 
 export const createLayout = (tagId: string,loadModule: (name:string)=>{}, conf: any,routes:any) => {
     console.log("CONF",conf,routes)

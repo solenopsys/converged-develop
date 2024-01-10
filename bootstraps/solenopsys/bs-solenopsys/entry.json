@@ -1,54 +1,74 @@
 {
-    "layout": {
-        "module": "@solenopsys/lt-website",
-        "data": {
-          "logo": "/images/logo.svg",
-          "favicon": "/assets/favicon.svg",
-          "title": "Solenopsys vc",
-          "navigate": {
-            "/solenopsys": {
-              "title": "Solenopsys"
-            },
-            "/robotization": {
-              "title": "Robotization"
-            },
-            "/consepts": {
-              "title": "Сoncepts"
-            },
-            "/technologies": {
-              "title": "Technologies"
+  "layout": {
+    "module": "@solenopsys/lt-website",
+    "state": {
+      "page": {
+        "favicon": "/assets/favicon.svg",
+        "title": "Solenopsys vc"
+      },
+      "top": {
+        "component": "UiTopPane",
+        "items": [
+          {
+            "module": "@solenopsys/ui-navigate",
+            "component":"UiLogo",
+            "props": {
+              "logo": "/images/logo.svg"
             }
+          },
+          {
+            "module": "@solenopsys/ui-navigate",
+            "component":"UiTabs",
+            "props":{"tabs":[
+              {
+                "id": "/solenopsys",
+                "title": "Solenopsys"
+              },
+              {
+                "id": "/robotization",
+                "title": "Robotization"
+              },
+              {
+                "id": "/consepts",
+                "title": "Сoncepts"
+              },
+              {
+                "id": "/technologies",
+                "title": "Technologies"
+              }
+            ]} 
           }
-        }
-    },
-
-    "routes": {
-        "/": {
-          "module": "@solenopsys/mf-landing"
-        },
-        "/robotization": {
-          "module": "@solenopsys/mf-content",
-          "data": {
-            "ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
-          }
-        },
-        "/solenopsys": {
-          "module": "@solenopsys/mf-content",
-          "data": {
-            "ipfs": "bafyreif3iw7smjolcgwucw3bgy3s2mbpg4edjj2wlsdjc3quchmwcadtd4"
-          }
-        },
-        "/consepts": {
-          "module": "@solenopsys/mf-content",
-          "data": {
-            "ipfs": "bafyreicwgwwzby5uwfzcz5hjhfxguyfxen7w2hncydpccmbg7pfhb5ri2i"
-          }
-        },
-        "/technologies": {
-          "module": "@solenopsys/mf-content",
-          "data": {
-            "ipfs": "bafyreiczcbnn6if7onqac37j4bbdqidt5aznl5kbd6fws4phctomvjaouy"
-          }
-        }
+        ]
       }
+    }
+  },
+  "routes": {
+    "/": {
+      "module": "@solenopsys/mf-landing"
+    },
+    "/robotization": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
+      }
+    },
+    "/solenopsys": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreif3iw7smjolcgwucw3bgy3s2mbpg4edjj2wlsdjc3quchmwcadtd4"
+      }
+    },
+    "/consepts": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreicwgwwzby5uwfzcz5hjhfxguyfxen7w2hncydpccmbg7pfhb5ri2i"
+      }
+    },
+    "/technologies": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreiczcbnn6if7onqac37j4bbdqidt5aznl5kbd6fws4phctomvjaouy"
+      }
+    }
+  }
 }
