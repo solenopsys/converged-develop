@@ -2,6 +2,7 @@ import { fstat, existsSync, mkdir, mkdirSync, readdirSync, fstatSync, openSync, 
 import path, { join } from "path";
 import { compileModule, serveLibraries } from "./build";
 
+import { indexHtmlTransform } from "./html";
 import { resolve } from "bun";
 
 const CONF_DIR = "./configuration"
@@ -26,6 +27,32 @@ function extractBootstrapsDirs(rootDir: string): { [name: string]: string } {
   return dirs;
 }
 
+
+async function indexResponse(dirPath: string, dirBs: string): Promise<Response> {
+
+  const htmlStrng = await Bun.file(join(dirPath, "/index.html")).text();
+  const scriptString = await Bun.file(join(dirPath, "/index.js")).text();
+  const entryString = await Bun.file(join(dirBs, "/entry.json")).text();
+
+  const imports= {
+    "solid-js": "/library/solid-js.mjs",
+    "solid-js/web": "/library/solid-js/web.mjs",
+    "solid-js/store": "/library/solid-js/store.mjs",
+    "@solenopsys/ui-navigate": "/packages/solenopsys/ui-navigate",
+    "@solenopsys/ui-controls": "/packages/solenopsys/ui-controls",
+    "@solenopsys/ui-layouts": "/packages/solenopsys/ui-layouts",
+    "@solenopsys/mf-conten": "/packages/solenopsys/ui-conten",
+    "@solenopsys/ui-content": "/packages/solenopsys/ui-content"
+}
+
+  const htmlContent = await indexHtmlTransform(htmlStrng, scriptString, imports, entryString);
+  return new Response(htmlContent, {
+    headers: {
+      'Content-Type': 'text/html',
+    }
+  });
+
+}
 
 
 function fileResponse(filePath: string): Response {
@@ -92,7 +119,7 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
 
 
   hendlers["*/"] = async (req: { path: string }) => {
-    return fileResponse(join(rootDir, CONF_DIR, "/index.html"))
+    return await indexResponse(join(rootDir, CONF_DIR), join(rootDir, bsDir))
   }
   // hendlers["*/index.js"] = async (req: { path: string }) => {
   //   return fileResponse(join(rootDir, CONF_DIR, "/index.js"))

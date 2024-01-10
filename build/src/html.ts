@@ -2,11 +2,11 @@
 
 
 export function indexHtmlTransform(
-    indexHtmlBody: string,
+    indexHtmlBody: Response,
     indexJs: string,
     imports: any,
     entry: any
-) {
+):Response {
     const rewriter = new HTMLRewriter();
 
     rewriter.on('*', {
@@ -15,11 +15,12 @@ export function indexHtmlTransform(
 
             if (el.tagName === 'script') {
                 if (el.getAttribute('type') === 'module') {
-                    const src=`const entry=JSON.parse(${entry});\n`+indexJs;
-                    el.setInnerContent(src);
+                    const src=`const entry=JSON.parse(\`${entry}\`);\n`+indexJs;
+                 
+                    el.setInnerContent(src,{html:false});
                 }
                 if (el.getAttribute('type') === 'importmap') {
-                    el.setInnerContent(JSON.stringify({ imports }));
+                    el.setInnerContent(JSON.stringify({ imports }),{html:false});
                 }
             }
         },

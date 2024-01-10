@@ -16,7 +16,6 @@
         "solid-js",
         "solid-js/web",
         "solid-js/store",
-        "@solidjs/router",
         "@solenopsys/ui-content",
         "@solenopsys/ui-navigate"
     ]

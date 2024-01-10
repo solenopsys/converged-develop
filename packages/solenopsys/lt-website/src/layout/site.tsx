@@ -1,6 +1,5 @@
 
 import "./layout.css"
-import { Router, Route, A, useNavigate } from "@solidjs/router";
 
 
 import { lazy, Component, createSignal } from "solid-js";
@@ -60,7 +59,7 @@ export const Site: Component<Props> = (props) => {
         return <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: tabs, tabClick: tabClick }} />
     }
 
-    components["top"] = () => { return (<Router>  <Route path={"/*"} component={TopPanel} /></Router>) }
+    components["top"] = () => { return (<TopPanel/>) }
     setTopComponentName("top")
 
     return () => {

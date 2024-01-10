@@ -1,6 +1,5 @@
 import { MdView } from "@solenopsys/ui-content";
 import { createSignal, Component, createResource, createEffect, Show } from "solid-js";
-import { useParams,A, } from "@solidjs/router";
 
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();

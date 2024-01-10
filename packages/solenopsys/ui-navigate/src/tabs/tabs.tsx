@@ -1,7 +1,5 @@
 import { createSignal, Component } from "solid-js";
 import styles from './tabs.module.css';
-import {   A } from "@solidjs/router";
-
 
 export type Tab = {
     id: string,

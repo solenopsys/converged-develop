@@ -1,7 +1,6 @@
 import { createSignal } from 'solid-js';
 import type { JSX, Component } from 'solid-js';
-import styles from './tree-menu.module.css'; // Make sure to import your styles
-import {   A } from "@solidjs/router";
+import styles from './tree-menu.module.css'; 
 
 type CID = string;
 
@@ -52,10 +51,10 @@ const MenuItem: ParentComponent = (props) => {
     return (
       <>
         <div class={styles.item}>
-          <A class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
+          <a class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
          href={`${props.baseUrl}/${props.data.cid}/`}>
             {props.data.name} 
-          </A>
+          </a>
         </div>
         {props.data.children.map((sub_item) => (
           <div class={styles.sub_item}>

@@ -27,8 +27,6 @@ const mdDynamicWrapper = () => {
 components[MD] = () => {
 
     return (
-        <Router>
-            <Route path="/article/:id/" component={mdDynamicWrapper} />
-        </Router>
+        <mdDynamicWrapper/>
     )
 }

@@ -19,9 +19,12 @@ async function start() {
     mod.createLayout("layout",loadModule, entry.layout.data, entry.routes)
 }
 
-start().then(res => {
-    console.log("OK")
-    console.log(res)
-}).catch(e => {
+
+function resFunc(res){
+        console.log("OK")
+}
+
+function errFunc(e){
     console.log("ERR", e)
-})
+}
+start().then( resFunc).catch(errFunc)

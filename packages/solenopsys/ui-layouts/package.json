@@ -16,7 +16,6 @@
         "solid-js",
         "solid-js/web",
         "@solenopsys/ui-controls",
-        "solid-js/store",
-        "@solidjs/router"
+        "solid-js/store"
     ]
 }
