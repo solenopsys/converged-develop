@@ -2,7 +2,7 @@
   "type": "module",
   "dependencies": {
     "browser-resolve": "^2.0.0",
-    "solid-js": "^1.8.7",
+
     "typescript": "^5.0.0"
   }
 }

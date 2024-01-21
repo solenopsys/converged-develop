@@ -1,4 +1,4 @@
-import { Component, createEffect, JSX, onCleanup } from 'solid-js';
+import { Component, createEffect, JSX, onCleanup } from '@solenopsys/converged';
  
 import {IconButton} from '../icon-button/icon-button'
 

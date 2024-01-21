@@ -1,5 +1,5 @@
-import { createSignal } from 'solid-js';
-import type { JSX, Component } from 'solid-js';
+import { createSignal } from '@solenopsys/converged';
+import type { JSX, Component } from '@solenopsys/converged';
 import styles from './tree-menu.module.css'; 
 
 type CID = string;

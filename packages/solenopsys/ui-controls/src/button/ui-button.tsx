@@ -1,4 +1,4 @@
-import { createSignal, Component ,createEffect} from 'solid-js';
+import { createSignal, Component ,createEffect} from '@solenopsys/converged';
 import { render } from 'solid-js/web';
 
  
@@ -15,7 +15,7 @@ export const UiButton: Component<UiButtonProps> = (props) => {
   const [state, setState] = createSignal(props.title);
 
   createEffect(() => {
-    console.log('The count is now', state());
+    console.log('Title', state());
 });
   
 
@@ -30,10 +30,13 @@ export const UiButton: Component<UiButtonProps> = (props) => {
   
 
   return (
-    <>
+    <>yes
       <button class={styles.button} onClick={handleClick} title={state()}>
         {state()} 
       </button>
     </>
   );
 };
+
+
+export default UiButton

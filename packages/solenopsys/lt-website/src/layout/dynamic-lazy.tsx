@@ -1,14 +1,19 @@
-import { lazy, Component, createSignal } from "solid-js";
+ 
+import { lazy,createSignal } from '@solenopsys/converged';
 
+ export function lazyLoadComponentFromModule(component, liburl) {
+    const [Comp, setComp] = createSignal<JSX.Element>(null);
 
-interface Props {
-    component: string;
-    props: any;
-}
+    return (props: any) => {
+        (async () => {
+          try {
+            const mod = await import(liburl);
+            setComp(() => mod[component]);
+          } catch (error) {
+            console.error('Error loading module:', error);
+          }
+        })();
 
-const DunamicLazy: Component<Props> = (props) => {
-    const [libName, compName] = props.component.split(":")
-    const LoadedComp = lazy(async() => await import(libName)[compName]);
-
-    return (<LoadedComp props={...props.props} />)
+            return  Comp&& <Comp {...props} />;
+      };
 }

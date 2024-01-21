@@ -1,4 +1,4 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal } from '@solenopsys/converged';
 import styles from './TopPane.module.css';
 import { TabsProps, UiTabs } from '../tabs/tabs';
 import { UiLogo } from '../logo/logo';

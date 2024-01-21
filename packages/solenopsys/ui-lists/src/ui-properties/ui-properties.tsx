@@ -1,4 +1,4 @@
-import { createSignal, Component, createEffect } from 'solid-js';
+import { createSignal, Component, createEffect } from '@solenopsys/converged';
 import styles from "./ui-properties.module.css";
 
 interface UiPropertiesProps {
