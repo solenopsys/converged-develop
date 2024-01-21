@@ -2,7 +2,7 @@
   "type": "module",
   "dependencies": {
     "browser-resolve": "^2.0.0",
-
+    "dom-expressions": "^0.37.15",
     "typescript": "^5.0.0"
   }
 }

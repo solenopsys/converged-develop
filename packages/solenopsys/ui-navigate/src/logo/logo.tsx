@@ -1,4 +1,4 @@
-import { createSignal, Component } from "solid-js";
+import { createSignal, Component } from "@solenopsys/converged";
 
 import styles from './logo.module.css';  
 

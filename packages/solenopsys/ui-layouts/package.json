@@ -4,8 +4,7 @@
     "type": "module",
     "dependencies": {},
     "peerDependencies": {
-        "solid-js": "^1.8.7",
-        "solid-js/web": "^1.8.7",
+        "@solenopsys/converged": "^0.0.1",
         "typescript": "^5.0.0"
     },
     "devDependencies": {
@@ -13,8 +12,7 @@
         "bun-types": "latest"
     },
     "external": [
-        "solid-js",
-        "solid-js/web",
+        "@solenopsys/converged",
         "@solenopsys/ui-controls",
         "solid-js/store"
     ]

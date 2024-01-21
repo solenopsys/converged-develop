@@ -1,5 +1,5 @@
 // colorSchemesStore.tsx
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal, onCleanup } from "@solenopsys/converged";
 
 import { ColorSchemesStore, Theme } from "./interface";
 

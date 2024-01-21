@@ -2,7 +2,7 @@
 import "./layout.css"
 
 
-import { lazy, Component, createSignal } from "solid-js";
+import { lazy, Component, createSignal } from "@solenopsys/converged";
 import { UiTopPane } from "@solenopsys/ui-navigate"
 import { SiteLayout } from "@solenopsys/ui-layouts"
 

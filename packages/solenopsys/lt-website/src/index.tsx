@@ -1,7 +1,6 @@
-// import { Site } from "./layout/site"
-import { render } from "solid-js/web";
-import { lazy } from "solid-js";
-import { lazyLoadFromModule } from "./layout/dynamic-lazy"
+
+import { lazy, render } from "@solenopsys/converged";
+import { lazyLoadComponentFromModule } from "./layout/dynamic"
 
 
 const CONST = {
@@ -18,18 +17,16 @@ const CONST = {
     ]
 }
 
- 
+const UiButton = lazyLoadComponentFromModule('UiButton', '/packages/solenopsys/ui-controls');
 
-const UiButton = lazyLoadFromModule('UiButton', '/packages/solenopsys/ui-controls');
 
- 
 
 
 //<Site logo={conf.logo} navigate={conf.navigate} routes={routes}/>
 export const createLayout = (tagId: string, loadModule: (name: string) => {}, conf: any, routes: any) => {
     //   console.log("CONF",conf,routes)
     // @ts-ignore
-    render(() => { return (UiButton &&<UiButton  ></UiButton>) }, document.getElementById(tagId))
+    render(() => { return (UiButton && <UiButton  ></UiButton>) }, document.getElementById(tagId))
 }
 
 document.documentElement.style.setProperty(`--control-color`, "blue");

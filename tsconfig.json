@@ -12,7 +12,7 @@
     "baseUrl": "./",
     "paths": {
       "@solenopsys/*": ["packages/solenopsys/*/src/index.tsx"],
-      "@solenopsys/converged": ["converged/packages/converged-core/src/index.ts"]
+      "@solenopsys/converged": ["converged/src/index.ts"]
     }
   }
 }

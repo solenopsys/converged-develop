@@ -1,5 +1,5 @@
 import { Dynamic } from "solid-js/web";
-import { createSignal, Component, createResource } from "solid-js";
+import { createSignal, Component, createResource } from "@solenopsys/converged";
 import styles from "./layout.module.css"
 
 
