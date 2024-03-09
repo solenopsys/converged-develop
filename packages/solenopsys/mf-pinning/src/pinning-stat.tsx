@@ -3,7 +3,7 @@ import { UiProperties } from "@solenopsys/ui-lists";
 
 
 
-import { createSignal, Component,createResource } from '@solenopsys/converged';
+import { signal, Component,createResource } from '@solenopsys/converged';
  
 
 const fetchProperties = async () =>

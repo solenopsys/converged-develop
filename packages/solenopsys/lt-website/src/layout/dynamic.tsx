@@ -1,8 +1,8 @@
 
-import { lazy, createSignal } from '@solenopsys/converged';
+import { lazy, signal } from '@solenopsys/converged';
 
 export function lazyLoadComponentFromModule(component, liburl) {
-  const [Comp, setComp] = createSignal<JSX.Element>(null);
+  const [Comp, setComp] = signal<JSX.Element>(null);
 
   return (props: any) => {
     (async () => {

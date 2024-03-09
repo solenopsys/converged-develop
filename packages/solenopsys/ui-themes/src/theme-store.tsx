@@ -1,13 +1,13 @@
 // colorSchemesStore.tsx
-import { createSignal, onCleanup } from "@solenopsys/converged";
+import {   signal } from "@solenopsys/converged";
 
 import { ColorSchemesStore, Theme } from "./interface";
 
 export const createThemesStore = (themes: Theme[]): ColorSchemesStore => {
-  const [schemes] = createSignal(themes); // todo move to props
+  const [schemes] = signal(themes); // todo move to props
 
-  const [current, setCurrent] = createSignal(localStorage.getItem('colorScheme') || 'white');
-  const [style, setStyle] = createSignal<any>(null);
+  const [current, setCurrent] = signal(localStorage.getItem('colorScheme') || 'white');
+  const [style, setStyle] = signal<any>(null);
 
   const refreshStyle = () => {
     const scheme = schemes()[current()];
@@ -19,10 +19,6 @@ export const createThemesStore = (themes: Theme[]): ColorSchemesStore => {
   const initColors = (styleInstance: any) => {
     setStyle(styleInstance);
     refreshStyle();
-
-    onCleanup(() => {
-      // Cleanup tasks, if any
-    });
   };
 
   return {

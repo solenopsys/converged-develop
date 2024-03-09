@@ -1,4 +1,4 @@
-import { createSignal, Component } from "@solenopsys/converged";
+import { signal, Component } from "@solenopsys/converged";
 
 import styles from './logo.module.css';  
 

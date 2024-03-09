@@ -1,5 +1,5 @@
 import { Dynamic } from "solid-js/web";
-import { createSignal, Component, createResource } from "@solenopsys/converged";
+import { signal, Component, createResource } from "@solenopsys/converged";
 import styles from "./layout.module.css"
 
 
@@ -14,10 +14,10 @@ interface MdItemComponentProps {
 
 
 export const SiteLayout: Component<MdItemComponentProps> = (props) => {
-    const [mobileMenu, mobileMenuTop] = createSignal(false);
-    const [top, setTop] = createSignal(props.top);
-    const [central, setCentral] = createSignal(props.central);
-    const [left, setLeft] = createSignal(props.left);
+    const [mobileMenu, mobileMenuTop] = signal(false);
+    const [top, setTop] = signal(props.top);
+    const [central, setCentral] = signal(props.central);
+    const [left, setLeft] = signal(props.left);
 
 
     return (

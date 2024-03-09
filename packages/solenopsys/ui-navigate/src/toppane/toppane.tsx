@@ -1,4 +1,4 @@
-import { Component, createSignal } from '@solenopsys/converged';
+import { Component, signal } from '@solenopsys/converged';
 import styles from './TopPane.module.css';
 import { TabsProps, UiTabs } from '../tabs/tabs';
 import { UiLogo } from '../logo/logo';
@@ -14,8 +14,8 @@ interface TopPaneProps {
 }
 
 export const UiTopPane: Component<TopPaneProps> = (props) => {
-  const [logo] = createSignal(props.logo);
-  const [tabs] = createSignal(props.tabsState);
+  const [logo] = signal(props.logo);
+  const [tabs] = signal(props.tabsState);
 
   return (
     <div class={styles['top-pane']} >

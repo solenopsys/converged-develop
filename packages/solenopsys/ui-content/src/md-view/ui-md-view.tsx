@@ -1,5 +1,5 @@
 
-import { createSignal, Component, createEffect } from '@solenopsys/converged';
+import { signal, Component, effect } from '@solenopsys/converged';
 import styles from "./ui-md-view.module.css";
 
 
@@ -21,7 +21,7 @@ export const MdView: Component<MdItemComponentProps> = (props) => {
 };
 
 const MdBlock: Component<MdItemComponentProps> = (props) => {
-  const [MsgRef] = createSignal(
+  const [MsgRef] = signal(
     props.data?.children?.map((item, index) => (
       <MdBlock data={item} />
     ))

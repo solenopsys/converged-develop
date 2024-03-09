@@ -1,4 +1,4 @@
-import { createSignal, Component } from "@solenopsys/converged";
+import { signal, Component } from "@solenopsys/converged";
 import styles from './tabs.module.css';
 
 export type Tab = {
@@ -14,8 +14,8 @@ export type TabsProps<P = {}> = P & {
 
 export type ParentComponent<P = {}> = Component<TabsProps<P>>;
 export const UiTabs: ParentComponent = (props) => {
-    const [selected, setSelected] = createSignal<string | undefined>(props.selected);
-    const [tabs] = createSignal(props.tabs);
+    const [selected, setSelected] = signal<string | undefined>(props.selected);
+    const [tabs] = signal(props.tabs);
 
     const tabClickHandler = (tabId: string) => {
         setSelected(tabId);

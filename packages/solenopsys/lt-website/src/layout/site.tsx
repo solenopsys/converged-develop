@@ -2,7 +2,7 @@
 import "./layout.css"
 
 
-import { lazy, Component, createSignal } from "@solenopsys/converged";
+import { lazy, Component,   signal } from "@solenopsys/converged";
 import { UiTopPane } from "@solenopsys/ui-navigate"
 import { SiteLayout } from "@solenopsys/ui-layouts"
 
@@ -30,9 +30,9 @@ export const Site: Component<Props> = (props) => {
 
     const tabs = navigateToTab(props.navigate);
 
-    const [topComponentName, setTopComponentName] = createSignal("")
-    const [centralComponentName, setCentralComponentName] = createSignal("")
-    const [leftComponentName, setLeftComponentName] = createSignal("")
+    const [topComponentName, setTopComponentName] = signal("")
+    const [centralComponentName, setCentralComponentName] = signal("")
+    const [leftComponentName, setLeftComponentName] = signal("")
 
     const components: { [key: string]: Component } = {}
 

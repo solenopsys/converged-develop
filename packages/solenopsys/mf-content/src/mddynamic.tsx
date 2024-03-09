@@ -1,5 +1,5 @@
 import { MdView } from "@solenopsys/ui-content";
-import { createSignal, Component, createResource, createEffect, Show } from "@solenopsys/converged";
+import { signal, Component, createResource, effect, Show } from "@solenopsys/converged";
 
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();

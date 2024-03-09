@@ -1,4 +1,4 @@
-import { createSignal } from '@solenopsys/converged';
+import { signal } from '@solenopsys/converged';
 import type { JSX, Component } from '@solenopsys/converged';
 import styles from './tree-menu.module.css'; 
 
@@ -43,7 +43,7 @@ type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
 
 const MenuItem: ParentComponent = (props) => {
-    const [collapsed] = createSignal<boolean>(props.collapsed ?? false);
+    const [collapsed] = signal<boolean>(props.collapsed ?? false);
 
  
 

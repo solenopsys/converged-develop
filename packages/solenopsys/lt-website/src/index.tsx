@@ -17,6 +17,8 @@ const CONST = {
     ]
 }
 
+
+
 const UiButton = lazyLoadComponentFromModule('UiButton', '/packages/solenopsys/ui-controls');
 
 
@@ -24,7 +26,7 @@ const UiButton = lazyLoadComponentFromModule('UiButton', '/packages/solenopsys/u
 
 //<Site logo={conf.logo} navigate={conf.navigate} routes={routes}/>
 export const createLayout = (tagId: string, loadModule: (name: string) => {}, conf: any, routes: any) => {
-    //   console.log("CONF",conf,routes)
+      console.log("CONF",tagId)
     // @ts-ignore
     render(() => { return (UiButton && <UiButton  ></UiButton>) }, document.getElementById(tagId))
 }

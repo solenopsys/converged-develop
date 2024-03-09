@@ -18,7 +18,6 @@
         "@solenopsys/converged",
         "@solenopsys/ui-navigate",
         "@solenopsys/ui-controls",
-        "@solenopsys/ui-layouts",
-        "solid-js/store"
+        "@solenopsys/ui-layouts"
     ]
 }
