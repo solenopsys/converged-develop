@@ -1,5 +1,5 @@
 
-import { lazy, render } from "@solenopsys/converged";
+import { lazy, render } from "@solenopsys/converged-renderer";
 import { lazyLoadComponentFromModule } from "./layout/dynamic"
 
 

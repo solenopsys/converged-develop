@@ -1,14 +1,15 @@
 
-import { lazy, signal } from '@solenopsys/converged';
+import { lazy } from "@solenopsys/converged-renderer";
+import $ from "@solenopsys/converged-reactive";
 
 export function lazyLoadComponentFromModule(component, liburl) {
-  const [Comp, setComp] = signal<JSX.Element>(null);
+  const Comp = $.signal(null);
 
   return (props: any) => {
     (async () => {
       try {
         const mod = await import(liburl);
-        setComp(() => mod[component]);
+        Comp.set(() => mod[component]);
       } catch (error) {
         console.error('Error loading module:', error);
       }

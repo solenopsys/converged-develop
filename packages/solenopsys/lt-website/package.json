@@ -1,23 +1,24 @@
 {
-   
-    "name": "@solenopsys/lt-website",
-    "description": "Layout website",
-
-    "module": "src/index.tsx",
-    "type": "module",
-    "dependencies": {},
-    "devDependencies": {},
-    "peerDependencies": {
-        "@solenopsys/converged": "^0.0.1",
-        "typescript": "^5.0.0"
-    },
-    "scripts": {
-        "build": "bun ../../../build/build.ts"
-    },
-    "external": [
-        "@solenopsys/converged",
-        "@solenopsys/ui-navigate",
-        "@solenopsys/ui-controls",
-        "@solenopsys/ui-layouts"
-    ]
+  "name": "@solenopsys/lt-website",
+  "description": "Layout website",
+  "module": "src/index.tsx",
+  "type": "module",
+  "dependencies": {
+    "@solenopsys/converged-reactive": "^1.0.7",
+    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-style": "^1.0.1"
+  },
+  "devDependencies": { "browserslist": "^4.23.0", "lightningcss": "^1.24.1" },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "bundle": "bun build.ts"
+  },
+  "external": [
+    "@solenopsys/converged-renderer",
+    "@solenopsys/converged-ui-navigate",
+    "@solenopsys/converged-ui-controls",
+    "@solenopsys/converged-ui-layouts"
+  ]
 }
