@@ -1,4 +1,5 @@
-import { signal, Component } from "@solenopsys/converged";
+import {  Component } from "@solenopsys/converged-renderer";
+import $ from "@solenopsys/converged-reactive";
 import styles from './tabs.module.css';
 
 export type Tab = {
@@ -14,11 +15,11 @@ export type TabsProps<P = {}> = P & {
 
 export type ParentComponent<P = {}> = Component<TabsProps<P>>;
 export const UiTabs: ParentComponent = (props) => {
-    const [selected, setSelected] = signal<string | undefined>(props.selected);
-    const [tabs] = signal(props.tabs);
+    const selected= $ <string | undefined>(props.selected);
+    const tabs= $ (props.tabs);
 
     const tabClickHandler = (tabId: string) => {
-        setSelected(tabId);
+        selected(tabId);
         if (props.tabClick) {
             props.tabClick(tabId);
         }
@@ -26,7 +27,7 @@ export const UiTabs: ParentComponent = (props) => {
 
     return (
         <div style={{ display: "flex" }}>
-            {tabs()?.map((tab) => (
+            {tabs()?.map((tab:any) => (
                
                     <div
                         onClick={() => tabClickHandler(tab.id)}

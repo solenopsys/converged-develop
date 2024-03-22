@@ -1,7 +1,7 @@
 
 import "./layout.css"
 import { lazy, Component } from "@solenopsys/converged-renderer";
-import $ from "@solenopsys/converged-renderer";
+import $ from "@solenopsys/converged-reactive";
 import { UiTopPane } from "@solenopsys/ui-navigate"
 import { SiteLayout } from "@solenopsys/ui-layouts"
 
@@ -29,16 +29,16 @@ export const Site: Component<Props> = (props) => {
 
     const tabs = navigateToTab(props.navigate);
 
-    const topComponentName= $.signal("")
-    const centralComponentName = $.signal("")
-    const leftComponentName= $.signal("")
+    const topComponentName= $("")
+    const centralComponentName = $("")
+    const leftComponentName= $("")
 
     const components: { [key: string]: Component } = {}
 
     const TopPanel = () => {
-        const navigate = useNavigate();
+      //  const navigate = useNavigate();
         const tabClick = async (tabId: string) => {
-            navigate(`${tabId}/`)
+          //  navigate(`${tabId}/`)
 
             const rt = props.routes[tabId];
             const importPath = rt.module.replace("@", "/packages/")
@@ -51,15 +51,15 @@ export const Site: Component<Props> = (props) => {
                 }
                
             )
-            centralComponentName.set("central")
-            leftComponentName.set("left")
+            centralComponentName("central")
+            leftComponentName("left")
 
         }
         return <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: tabs, tabClick: tabClick }} />
     }
 
     components["top"] = () => { return (<TopPanel/>) }
-    topComponentName.set("top")
+    topComponentName("top")
 
     return () => {
         return (<SiteLayout

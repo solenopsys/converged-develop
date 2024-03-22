@@ -1,8 +1,8 @@
 {
   "type": "module",
   "dependencies": {
+    "@solenopsys/converged-renderer": "^1.0.4",
     "browser-resolve": "^2.0.0",
-    "dom-expressions": "^0.37.15",
     "typescript": "^5.0.0"
   }
 }

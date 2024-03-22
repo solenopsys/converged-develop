@@ -1,4 +1,4 @@
-import { Component, createEffect, JSX, onCleanup } from '@solenopsys/converged';
+import { Component } from '@solenopsys/converged-renderer';
  
 import {IconButton} from '../icon-button/icon-button'
 

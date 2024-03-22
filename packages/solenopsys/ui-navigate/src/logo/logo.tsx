@@ -1,4 +1,6 @@
-import { signal, Component } from "@solenopsys/converged";
+import {  Component } from "@solenopsys/converged-renderer";
+
+
 
 import styles from './logo.module.css';  
 
@@ -8,6 +10,7 @@ export type LogoProps<P = {}> = P & {
 };
 
 export type LogoComponent<P = {}> = Component<LogoProps<P>>;
-export const UiLogo: LogoComponent = (props) => {
+
+export const UiLogo: LogoComponent = (props:LogoProps) => {
     return (<img alt={props.alt} class={styles.logo} src={props.logo}/>)
 }

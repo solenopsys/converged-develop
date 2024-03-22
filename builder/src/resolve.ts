@@ -6,7 +6,15 @@ export async function browserResolvePackage(packName: string, rootDir: string): 
     let currName=packName
     let sub=""
     try {
-        packageJson = Bun.resolveSync(currName + "/package.json", rootDir);
+        try {
+            packageJson = Bun.resolveSync(currName + "/package.json", rootDir);
+        } catch (e){
+            const fullName="@"+currName
+            packageJson = Bun.resolveSync( fullName+ "/package.json", rootDir);
+
+            currName=fullName
+        }
+  
     } catch (e) {
         const parts = packName.split("/");
         currName=parts[0]
@@ -23,7 +31,10 @@ export async function browserResolvePackage(packName: string, rootDir: string): 
         const imp=data.exports["."+sub].browser.import
         return join(currName,imp );
     } catch (e) {
-        const imp=data.exports["."].default
+        let imp=data.exports["."].default
+        if(!imp){
+             imp=data.exports["."].import;
+        }
         return join(currName,imp );
     }
 

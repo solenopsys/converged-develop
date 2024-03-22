@@ -1,4 +1,5 @@
-import { Component, signal } from '@solenopsys/converged';
+import { Component } from '@solenopsys/converged-renderer';
+import $ from '@solenopsys/converged-reactive';
 import styles from './TopPane.module.css';
 import { TabsProps, UiTabs } from '../tabs/tabs';
 import { UiLogo } from '../logo/logo';
@@ -14,8 +15,8 @@ interface TopPaneProps {
 }
 
 export const UiTopPane: Component<TopPaneProps> = (props) => {
-  const [logo] = signal(props.logo);
-  const [tabs] = signal(props.tabsState);
+  const logo= $(props.logo);
+  const tabs= $(props.tabsState);
 
   return (
     <div class={styles['top-pane']} >

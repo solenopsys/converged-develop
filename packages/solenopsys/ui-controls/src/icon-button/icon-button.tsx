@@ -1,4 +1,4 @@
-import { Component, JSX, onCleanup } from 'solid-js';
+import { Component } from '@solenopsys/converged-renderer';
 
 interface IconButtonProps {
   icon?: string;

@@ -5,14 +5,16 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsxImportSource": "@solenopsys/converged-renderer",
+   
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
     "baseUrl": "./",
     "paths": {
-      "@solenopsys/*": ["packages/solenopsys/*/src/index.tsx"],
-      "@solenopsys/converged": ["converged/src/index.ts"]
+      "@solenopsys/converged-renderer/jsx-dev-runtime":["./node_modules/@solenopsys/converged-renderer/dist/jsx/runtime.js"],
+      "@solenopsys/converged-renderer/jsx-dev":["./node_modules/@solenopsys/converged-renderer/dist/runtime.d.ts"],
+
     }
   }
 }

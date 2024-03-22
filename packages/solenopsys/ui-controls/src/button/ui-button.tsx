@@ -1,5 +1,6 @@
-import { signal, Component ,effect} from '@solenopsys/converged';
-import { render } from 'solid-js/web';
+import {  Component } from '@solenopsys/converged-renderer';
+
+import $ from '@solenopsys/converged-reactive';;
 
  
 import styles from "./ui-button.module.css";
@@ -12,15 +13,15 @@ interface UiButtonProps {
 }
 
 export const UiButton: Component<UiButtonProps> = (props) => {
-  const [state, setState] = signal(props.title);
+  const state = $(props.title);
 
-  effect(() => {
+  $.effect(() => {
     console.log('Title', state());
 });
   
 
   const handleClick = () => {
-    setState("Button Clicked!");
+    state("Button Clicked!");
     console.log("CLICK", state());
     if (props.onButtonClick) {
       props.onButtonClick();
@@ -29,13 +30,13 @@ export const UiButton: Component<UiButtonProps> = (props) => {
 
   
 
-  return (
-    <>yes
+  return ()=>{
+    return<>
       <button class={styles.button} onClick={handleClick} title={state()}>
         {state()} 
       </button>
     </>
-  );
+  };
 };
 
 

@@ -2,10 +2,11 @@
   "name": "@solenopsys/ui-configuration",
   "module": "index.ts",
   "type": "module",
-  "dependencies": { },
+  "dependencies": { "@solenopsys/converged-style": "^1.0.5" },
   "devDependencies": {},
   "peerDependencies": {
-    "solid-js": "^1.8.7",
+    "@solenopsys/converged-reactive": "^1.0.7",
+    "@solenopsys/converged-renderer": "^1.0.4",
     "typescript": "^5.0.0"
   }
 }

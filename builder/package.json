@@ -1,13 +1,10 @@
 {
-  "dependencies": {
-    "@babel/core": ">=7.0.0",
-    "@babel/preset-typescript": ">=7.0.0",
-    "babel-preset-solid": ">=1.8.0"
-  },
+  "dependencies": { "@solenopsys/converged-reactive": "^1.0.7", "@solenopsys/converged-renderer": "^1.0.4" },
   "name": "ft-converged-build",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@solenopsys/converged-style": "^1.0.3",
     "@types/bun": "^1.0.0",
     "bun-lightningcss": "^0.2.0",
     "bun-types": "latest"

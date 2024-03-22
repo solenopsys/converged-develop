@@ -1,5 +1,5 @@
-import { signal } from '@solenopsys/converged';
-import type { JSX, Component } from '@solenopsys/converged';
+import $ from '@solenopsys/converged-reactive';
+import type {  Component } from '@solenopsys/converged-renderer';
 import styles from './tree-menu.module.css'; 
 
 type CID = string;
@@ -20,8 +20,7 @@ type MenuProps<P = {}> = P & {
 
 type MenuComponent<P = {}> = Component<ItemProps<P>>;
 
-export const UiTreeMenu: MenuComponent = (props) => {
- 
+export const UiTreeMenu: MenuComponent = (props:ItemProps) => {
  
  
   return (
@@ -42,8 +41,8 @@ type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
 
 
-const MenuItem: ParentComponent = (props) => {
-    const [collapsed] = signal<boolean>(props.collapsed ?? false);
+const MenuItem: ParentComponent = (props:ItemProps) => {
+    const collapsed = $<boolean>(props.collapsed ?? false);
 
  
 

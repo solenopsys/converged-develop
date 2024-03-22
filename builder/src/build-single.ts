@@ -1,4 +1,3 @@
-import lightningcssPlugin from '@solenopsys/converged-style/src/plugins/lightningcss-plugin' ;
 
 await Bun.build({
   entrypoints: ['./src/index.tsx'],

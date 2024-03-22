@@ -16,6 +16,7 @@ async function loadModule(moduleName) {
 async function start() {
     const moduleName = entry.layout.module;
     const mod = await loadModule(moduleName)
+    console.log("LAYOUT",entry)
     mod.createLayout("layout",loadModule, entry.layout.data, entry.routes)
 }
 

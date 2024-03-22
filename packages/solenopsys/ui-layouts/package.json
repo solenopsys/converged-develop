@@ -1,19 +1,24 @@
 {
-    "name": "@solenopsys/ui-layouts",
-    "module": "src/index.tsx",
-    "type": "module",
-    "dependencies": {},
-    "peerDependencies": {
-        "@solenopsys/converged": "^0.0.1",
-        "typescript": "^5.0.0"
-    },
-    "devDependencies": {
-        "@types/bun": "^1.0.0",
-        "bun-types": "latest"
-    },
-    "external": [
-        "@solenopsys/converged",
-        "@solenopsys/ui-controls",
-        "solid-js/store"
-    ]
+  "name": "@solenopsys/ui-layouts",
+  "module": "src/index.tsx",
+  "type": "module",
+  "dependencies": {
+    "@solenopsys/converged-reactive": "^1.0.7",
+    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-style": "^1.0.8",
+    "@solenopsys/ui-controls": "workspace:../ui-controls"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "external": [
+    "@solenopsys/converged-renderer",
+    "@solenopsys/converged-reactive",
+    "@solenopsys/converged-style",
+    "@solenopsys/ui-controls"
+  ]
 }

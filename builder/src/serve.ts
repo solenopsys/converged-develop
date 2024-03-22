@@ -38,9 +38,12 @@ async function indexResponse(dirPath: string, dirBs: string): Promise<Response> 
   const entryString = await Bun.file(join(dirBs, "/entry.json")).text();
 
   const imports= {
-    "solid-js": "/library/solid-js.mjs",
-    "solid-js/web": "/library/solid-js/web.mjs",
-    "solid-js/store": "/library/solid-js/store.mjs",
+    "@solenopsys/converged-reactive":"/library/solenopsys/converged-reactive.mjs",
+    "@solenopsys/converged-renderer":"/library/solenopsys/converged-renderer.mjs",
+    "@solenopsys/converged-renderer/jsx-dev-runtime":"/library/solenopsys/converged-renderer.mjs",
+    
+    "@solenopsys/converged-style":"/library/solenopsys/converged-style.mjs",
+
     "@solenopsys/ui-navigate": "/packages/solenopsys/ui-navigate",
     "@solenopsys/ui-controls": "/packages/solenopsys/ui-controls",
     "@solenopsys/ui-layouts": "/packages/solenopsys/ui-layouts",

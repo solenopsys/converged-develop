@@ -1,5 +1,6 @@
-import { Dynamic } from "solid-js/web";
-import { signal, Component, createResource } from "@solenopsys/converged";
+
+import { Component, Dynamic,If } from "@solenopsys/converged-renderer";
+import $ from "@solenopsys/converged-reactive";
 import styles from "./layout.module.css"
 
 
@@ -14,33 +15,44 @@ interface MdItemComponentProps {
 
 
 export const SiteLayout: Component<MdItemComponentProps> = (props) => {
-    const [mobileMenu, mobileMenuTop] = signal(false);
-    const [top, setTop] = signal(props.top);
-    const [central, setCentral] = signal(props.central);
-    const [left, setLeft] = signal(props.left);
+    const mobileMenu = $(false);
+    const top = $(props.top);
+    const central = $(props.central);
+    const left = $(props.left);
 
 
-    return (
-        <div class={styles.body_wrapper}>
+    return () => {
+        const compTop=  props.components[top()];
+
+        const compCentral=  props.components[central()];
+
+        const compLeft=  props.components[left()];
+        return <div class={styles.body_wrapper}>
             <div class={styles.full_height}>
                 <div class={styles.top_pane_wrapper} >
-                    <Dynamic component={props.components[top()]} />
+                    <Dynamic component={compTop} /> 
                 </div>
                 <div class={styles.left_block}>
                     <div class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu} >
                         <div class={styles.main_menu_wrapper}  >
-                            <Dynamic component={props.components[left()]} />
+
+                        <If when={compLeft}>
+                        <Dynamic component={compLeft} /> 
+                         </If>
+                          
+                            
                         </div>
                     </div>
                 </div>
                 <div class={styles.main_content}>
                     <UiButton title="bla" ></UiButton>
-                    <Dynamic component={props.components[central()]} />
+                    <If when={compCentral}>
+                    <Dynamic component={compCentral} /> 
+                    </If>
                 </div>
             </div>
-
         </div>
-    );
+    };
 }
 
 
