@@ -3,9 +3,9 @@
   "module": "src/index.tsx",
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-reactive": "^1.0.7",
-        "@solenopsys/converged-renderer": "^1.0.4",
-        "@solenopsys/converged-style": "^1.0.8"
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-style": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

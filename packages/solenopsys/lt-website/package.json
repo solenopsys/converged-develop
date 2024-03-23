@@ -4,12 +4,11 @@
   "module": "src/index.tsx",
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-reactive": "^1.0.7",
-    "@solenopsys/converged-renderer": "^1.0.4",
-    "@solenopsys/converged-style": "^1.0.1",
-    "@solenopsys/ui-controls": "workspace:../ui-controls",
-    "@solenopsys/ui-navigate":"workspace:../ui-navigate",
-    "@solenopsys/ui-layouts":"workspace:../ui-layouts"
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-style": "latest",
+    "@solenopsys/ui-navigate":"latest",
+    "@solenopsys/ui-layouts":"latest"
   },
   "devDependencies": { "browserslist": "^4.23.0", "lightningcss": "^1.24.1" },
   "peerDependencies": {

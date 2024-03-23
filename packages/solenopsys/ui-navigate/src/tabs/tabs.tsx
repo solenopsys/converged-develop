@@ -1,4 +1,4 @@
-import {  Component } from "@solenopsys/converged-renderer";
+import type {  Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 import styles from './tabs.module.css';
 
@@ -7,16 +7,14 @@ export type Tab = {
     title: string
 }
 
-export type TabsProps<P = {}> = P & {
+export type TabsProps<P > = P & {
     selected: string,
     tabs: Tab[],
     tabClick?: (tabId: string) => void;
 };
 
-export type ParentComponent<P = {}> = Component<TabsProps<P>>;
+export type ParentComponent<P > = Component<TabsProps<P>>;
 export const UiTabs: ParentComponent = (props) => {
-
-    console.log("PROPS2",props)
     const selected= $ <string | undefined>(props.selected);
     const tabs= $ (props.tabs);
 
@@ -29,12 +27,10 @@ export const UiTabs: ParentComponent = (props) => {
 
     return (
         <div style={{ display: "flex" }}>
-            {tabs()?.map((tab:any) => (
-               
+            {tabs()?.map((tab:object) => (
                     <div
-                        onClick={() => tabClickHandler(tab.id)}
+                        onKeyUp={() => tabClickHandler(tab.id)}
                         class={{ [styles.tab_style]: true, [styles.selected]: selected() === tab.id }}
-
                     >
                         {tab.title}
                     </div>

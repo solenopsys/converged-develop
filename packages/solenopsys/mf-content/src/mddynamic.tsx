@@ -1,12 +1,13 @@
 import { MdView } from "@solenopsys/ui-content";
-import {  Component, useResource, If } from "@solenopsys/converged-renderer";
-import {  useParams } from "@solenopsys/converged-router";
+import {  Component, useResource, If, usePromise } from "@solenopsys/converged-renderer";
+import {  useLocation } from "@solenopsys/converged-router";
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();
 }
 
 async function cascadeFetch(menuId:string) {
   console.log("MENUID MD",menuId)
+  menuId="bafyreicpz3bnf3xqabciyypjssfue54csygb3fn4soz3wbztppvzdfahsy"
   const menuObj = await (await fetch(`/dag?key=object&cid=${menuId}`)).json();
   const articlesIds = menuObj.articles;
 
@@ -26,26 +27,28 @@ interface Props {
 }
 
 export const MdDynamic: Component<Props> = (props) => {
-  console.log("PARAMS MD")
-  const params = useParams();
 
+  const location = useLocation();
+
+  console.log("PARAMS MD",location)
   
-  
 
-  const ftch=()=>cascadeFetch(params.id)
-  const mdData=useResource<any[]>(ftch)
+  const ftch=()=>cascadeFetch("bla")
+  const mdData=usePromise<any[]>(ftch)
 
-  return (
+
+  return ()=>{
+    const res=mdData()
+   console.log("RES",res)
+
+    return
     <>
      
-      {mdData() &&
-        mdData()?.map((element) => ( <>
-    
-          <MdView key={element.id} data={element} />
+      {res &&  <MdView key={res.value?.cid} data={res.value} />}
        
-          </>
-        ))}
+        
+      
         
     </>
-  );
+  };
 };

@@ -42,10 +42,11 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                 <div class={styles.left_block}>
                     <div class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu} >
                         <div class={styles.main_menu_wrapper}  >
-                        ok left1
+                     
                         <If when={compLeft}>
-                        ok left2
-                        {/* <Dynamic component={compLeft} />  */}
+                  
+                  Menu header
+                           {/* <Dynamic component={compLeft} /> */}
                          </If>
                           
                             
@@ -53,8 +54,9 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                     </div>
                 </div>
                 <div class={styles.main_content}>
-                    <UiButton title="bla" ></UiButton>
+                   
                     <If when={compCentral}>
+                    <UiButton title="bla" ></UiButton>
                     <Dynamic component={compCentral} /> 
                     </If>
                 </div>

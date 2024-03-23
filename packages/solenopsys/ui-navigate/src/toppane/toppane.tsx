@@ -1,10 +1,8 @@
-import { Component } from '@solenopsys/converged-renderer';
+import type { Component } from '@solenopsys/converged-renderer';
 import $ from '@solenopsys/converged-reactive';
-import styles from './TopPane.module.css';
-import { TabsProps, UiTabs } from '../tabs/tabs';
-import { UiLogo } from '../logo/logo';
-
-
+import styles from './toppane.module.css';
+import type { TabsProps, UiTabs } from '../tabs/tabs';
+import  UiLogo from '../logo/logo';
 
 interface TopPaneProps {
   logo: string;
@@ -20,11 +18,11 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
 
   console.log("TABS",props.tabsState)
 
-  return (
-    <div class={styles['top-pane']} >
+  return ()=>(
+   <div class={styles['top-pane']} >
 
       <div class={styles['logo-container']}>
-        <UiLogo logo={logo()}></UiLogo>
+        <UiLogo logo={logo()}/>
       </div>
       <div class={styles['tabs-container']}>
 
@@ -34,7 +32,7 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
           tabs={tabs().tabs}
           tabClick={tabs().tabClick}
           
-        ></UiTabs>
+        />
       </div>
 
       <div class={styles['actions-container']}>
@@ -43,6 +41,6 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
           emmitAction={(event) => props.actionSelect(event)}
         ></ui-button-group> */}
       </div>
-    </div>
-  );
+    </div>)
+
 };
