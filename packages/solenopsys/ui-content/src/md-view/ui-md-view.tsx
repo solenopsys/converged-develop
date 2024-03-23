@@ -1,5 +1,6 @@
 
-import { signal, Component, effect } from '@solenopsys/converged';
+import {  Component } from '@solenopsys/converged-renderer';
+import $ from '@solenopsys/converged-reactive';
 import styles from "./ui-md-view.module.css";
 
 
@@ -21,7 +22,7 @@ export const MdView: Component<MdItemComponentProps> = (props) => {
 };
 
 const MdBlock: Component<MdItemComponentProps> = (props) => {
-  const [MsgRef] = signal(
+  const MsgRef = $(
     props.data?.children?.map((item, index) => (
       <MdBlock data={item} />
     ))

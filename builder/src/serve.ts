@@ -40,6 +40,7 @@ async function indexResponse(dirPath: string, dirBs: string): Promise<Response> 
   const imports= {
     "@solenopsys/converged-reactive":"/library/solenopsys/converged-reactive.mjs",
     "@solenopsys/converged-renderer":"/library/solenopsys/converged-renderer.mjs",
+    "@solenopsys/converged-router":"/library/solenopsys/converged-router.mjs",
     "@solenopsys/converged-renderer/jsx-dev-runtime":"/library/solenopsys/converged-renderer.mjs",
     
     "@solenopsys/converged-style":"/library/solenopsys/converged-style.mjs",

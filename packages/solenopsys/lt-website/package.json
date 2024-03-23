@@ -19,9 +19,6 @@
     "bundle": "bun build.ts"
   },
   "external": [
-    "@solenopsys/converged-renderer",
-    "@solenopsys/converged-reactive",
-    "@solenopsys/converged-style",
     "@solenopsys/ui-navigate",
     "@solenopsys/ui-controls",
     "@solenopsys/ui-layouts"

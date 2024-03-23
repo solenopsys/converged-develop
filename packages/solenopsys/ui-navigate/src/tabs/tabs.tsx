@@ -15,6 +15,8 @@ export type TabsProps<P = {}> = P & {
 
 export type ParentComponent<P = {}> = Component<TabsProps<P>>;
 export const UiTabs: ParentComponent = (props) => {
+
+    console.log("PROPS2",props)
     const selected= $ <string | undefined>(props.selected);
     const tabs= $ (props.tabs);
 
@@ -31,7 +33,7 @@ export const UiTabs: ParentComponent = (props) => {
                
                     <div
                         onClick={() => tabClickHandler(tab.id)}
-                        classList={{ [styles.tab_style]: true, [styles.selected]: selected() === tab.id }}
+                        class={{ [styles.tab_style]: true, [styles.selected]: selected() === tab.id }}
 
                     >
                         {tab.title}

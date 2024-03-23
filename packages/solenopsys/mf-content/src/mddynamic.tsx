@@ -1,6 +1,6 @@
 import { MdView } from "@solenopsys/ui-content";
-import { signal, Component, createResource, effect, Show } from "@solenopsys/converged";
-
+import {  Component, useResource, If } from "@solenopsys/converged-renderer";
+import {  useParams } from "@solenopsys/converged-router";
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();
 }
@@ -29,7 +29,7 @@ export const MdDynamic: Component<Props> = (props) => {
   
 
   const ftch=()=>cascadeFetch(params.id)
-  const [mdData]=createResource<any[]>(ftch)
+  const mdData=useResource<any[]>(ftch)
 
   return (
     <>

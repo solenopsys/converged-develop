@@ -2,7 +2,7 @@
   "name": "@solenopsys/ui-configuration",
   "module": "index.ts",
   "type": "module",
-  "dependencies": { "@solenopsys/converged-style": "^1.0.5" },
+  "dependencies": { "@solenopsys/converged-router": "^0.2.2", "@solenopsys/converged-style": "^1.0.8" },
   "devDependencies": {},
   "peerDependencies": {
     "@solenopsys/converged-reactive": "^1.0.7",

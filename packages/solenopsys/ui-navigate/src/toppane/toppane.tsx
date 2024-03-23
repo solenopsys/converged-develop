@@ -18,6 +18,8 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
   const logo= $(props.logo);
   const tabs= $(props.tabsState);
 
+  console.log("TABS",props.tabsState)
+
   return (
     <div class={styles['top-pane']} >
 

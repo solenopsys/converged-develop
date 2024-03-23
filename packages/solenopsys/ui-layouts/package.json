@@ -16,8 +16,6 @@
     "bun-types": "latest"
   },
   "external": [
-    "@solenopsys/converged-renderer",
-    "@solenopsys/converged-reactive",
     "@solenopsys/converged-style",
     "@solenopsys/ui-controls"
   ]

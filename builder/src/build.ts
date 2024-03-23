@@ -35,14 +35,22 @@ export async function compileModule(rootDir: string, path: string): Promise<Resp
 
   const entryPoint = join(rootDir, path, "/src", "/index.tsx");
 
-  console.log("EXTERNAL", tsConfigJson["external"])
+  const packagesFromExternal = tsConfigJson["external"];
+  console.log("EXTERNAL", packagesFromExternal)
+
+  const combinedExternal= packagesFromExternal.concat([
+    "@solenopsys/converged-renderer",
+    "@solenopsys/converged-reactive",
+    "@solenopsys/converged-style",
+    "@solenopsys/converged-router"
+  ])
   const out = await Bun.build(
     {
       sourcemap: "none",
       entrypoints: [entryPoint],
       outdir: outPath,
       external: [
-        ...tsConfigJson["external"]
+        ...combinedExternal
       ],
       plugins: [
         lightningcssPlugin()

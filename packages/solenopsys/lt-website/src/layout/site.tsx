@@ -55,7 +55,8 @@ export const Site: Component<Props> = (props) => {
             leftComponentName("left")
 
         }
-        return <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: tabs, tabClick: tabClick }} />
+        console.log("TABS-0",props.navigate)
+        return <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: props.navigate.tabs, tabClick: tabClick }} />
     }
 
     components["top"] = () => { return (<TopPanel/>) }

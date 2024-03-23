@@ -1,19 +1,20 @@
 {
-    "name": "@solenopsys/ui-themes",
-    "module": "src/index.tsx",
-    "type": "module",
-    "dependencies": {},
-    "peerDependencies": {
-        "@solenopsys/converged": "^0.0.1",
-        "typescript": "^5.0.0"
-    },
-    "devDependencies": {
-        "@types/bun": "^1.0.0",
-        "bun-types": "latest"
-    },
-    "external": [
-        "@solenopsys/converged",
-        "@solenopsys/ui-content",
-        "@solenopsys/ui-navigate"
-    ]
+  "name": "@solenopsys/ui-themes",
+  "module": "src/index.tsx",
+  "type": "module",
+  "dependencies": { "@solenopsys/converged-router": "^0.2.1" },
+  "peerDependencies": {
+    "@solenopsys/converged-reactive": "^1.0.7",
+    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-style": "^1.0.1",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "external": [
+    "@solenopsys/ui-content",
+    "@solenopsys/ui-navigate"
+  ]
 }
