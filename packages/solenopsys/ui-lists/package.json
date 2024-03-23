@@ -4,7 +4,9 @@
     "type": "module",
     "dependencies": {},
     "peerDependencies": {
-        "@solenopsys/converged": "^0.0.1",
+        "@solenopsys/converged-reactive": "^1.0.7",
+    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-style": "^1.0.1",
         "typescript": "^5.0.0"
     },
     "devDependencies": {
@@ -12,6 +14,5 @@
         "bun-types": "latest"
     },
     "external": [
-        "@solenopsys/converged"
     ]
 }

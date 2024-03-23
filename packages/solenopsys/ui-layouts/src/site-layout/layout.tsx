@@ -2,6 +2,8 @@
 import { Component, Dynamic,If } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 import styles from "./layout.module.css"
+import { Router } from "@solenopsys/converged-router";
+
 
 
 import { UiButton } from '@solenopsys/ui-controls';
@@ -26,18 +28,24 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
 
         const compCentral=  props.components[central()];
 
+        
         const compLeft=  props.components[left()];
-        return <div class={styles.body_wrapper}>
+        console.log("COMP LEFT UPDATE",compLeft)
+
+        return <Router><div class={styles.body_wrapper}>
             <div class={styles.full_height}>
                 <div class={styles.top_pane_wrapper} >
+                <If when={compTop}>
                     <Dynamic component={compTop} /> 
+                    </If>
                 </div>
                 <div class={styles.left_block}>
                     <div class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu} >
                         <div class={styles.main_menu_wrapper}  >
-
+                        ok left1
                         <If when={compLeft}>
-                        <Dynamic component={compLeft} /> 
+                        ok left2
+                        {/* <Dynamic component={compLeft} />  */}
                          </If>
                           
                             
@@ -52,6 +60,7 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                 </div>
             </div>
         </div>
+        </Router>
     };
 }
 

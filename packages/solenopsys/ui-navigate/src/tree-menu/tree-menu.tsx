@@ -21,6 +21,8 @@ type MenuProps<P = {}> = P & {
 type MenuComponent<P = {}> = Component<ItemProps<P>>;
 
 export const UiTreeMenu: MenuComponent = (props:ItemProps) => {
+
+  console.log("MENU",props.data)
  
  
   return (

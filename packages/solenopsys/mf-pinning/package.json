@@ -6,14 +6,15 @@
     "dependencies": {},
     "devDependencies": {},
     "peerDependencies": {
-        "@solenopsys/converged": "^0.0.1",
+        "@solenopsys/converged-reactive": "^1.0.7",
+        "@solenopsys/converged-renderer": "^1.0.4",
+        "@solenopsys/converged-style": "^1.0.1",
         "typescript": "^5.0.0"
     },
     "scripts": {
         "build": "bun ../../../build/build.ts"
     },
     "external": [
-        "@solenopsys/converged",
         "@solenopsys/ui-navigate"
     ]
 }

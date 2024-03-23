@@ -39,6 +39,8 @@ export const Site: Component<Props> = (props) => {
       //  const navigate = useNavigate();
         const tabClick = async (tabId: string) => {
           //  navigate(`${tabId}/`)
+            console.log("CLICK TAB",tabId);
+            console.log("ROUTES", props.routes)
 
             const rt = props.routes[tabId];
             const importPath = rt.module.replace("@", "/packages/")

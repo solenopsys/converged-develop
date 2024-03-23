@@ -5,7 +5,8 @@ async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();
 }
 
-async function cascadeFetch(menuId) {
+async function cascadeFetch(menuId:string) {
+  console.log("MENUID MD",menuId)
   const menuObj = await (await fetch(`/dag?key=object&cid=${menuId}`)).json();
   const articlesIds = menuObj.articles;
 
@@ -25,7 +26,10 @@ interface Props {
 }
 
 export const MdDynamic: Component<Props> = (props) => {
+  console.log("PARAMS MD")
   const params = useParams();
+
+  
   
 
   const ftch=()=>cascadeFetch(params.id)

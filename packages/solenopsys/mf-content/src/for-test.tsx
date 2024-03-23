@@ -1,8 +1,13 @@
+import { useParams } from "@solenopsys/converged-router";
+import { useResource,If } from "@solenopsys/converged-renderer";
+import {UiTreeMenu} from "@solenopsys/ui-navigate";
+
+
 const fetchMenuData = async () =>
     (await fetch(`/dag?key=menu&cid=bafyreicpz3bnf3xqabciyypjssfue54csygb3fn4soz3wbztppvzdfahsy`)).json();
 
 
-const [menuData] = createResource(fetchMenuData);
+const menuData= useResource(fetchMenuData);
 
 
 const LeftMenu=() => {
@@ -19,7 +24,7 @@ const mdDynamicWrapper = () => {
     const params = useParams();
 
     return <>
-        <Show when={params.id} keyed ><MdDynamic /></Show>
+        <If when={params.id} keyed ><MdDynamic /></If>
     </>;
 };
 
