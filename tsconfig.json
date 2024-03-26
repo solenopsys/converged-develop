@@ -11,9 +11,8 @@
     "noEmit": true,
     "isolatedModules": true,
     "baseUrl": "./",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
-      "@solenopsys/converged-renderer/jsx-dev-runtime":["./node_modules/@solenopsys/converged-renderer/dist/jsx/runtime.js"],
-      "@solenopsys/converged-renderer/jsx-dev":["./node_modules/@solenopsys/converged-renderer/dist/runtime.d.ts"],
       "@solenopsys/ui-content":["./packages/solenopsys/ui-content"],
       "@solenopsys/ui-layouts":["./packages/solenopsys/ui-layouts"],
       "@solenopsys/ui-lists":["./packages/solenopsys/ui-lists"],
@@ -22,5 +21,6 @@
       "@solenopsys/ui-controls":["./packages/solenopsys/ui-controls"],
   
     }
-  }
+  },
+  "types": ["bun-types"]
 }

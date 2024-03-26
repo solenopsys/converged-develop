@@ -3,9 +3,10 @@
   "module": "src/index.tsx",
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-reactive": "^1.0.7",
-    "@solenopsys/converged-renderer": "^1.0.4",
-    "@solenopsys/converged-style": "^1.0.8",
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-router": "latest",
+    "@solenopsys/converged-style": "latest",
     "@solenopsys/ui-controls": "workspace:../ui-controls"
   },
   "peerDependencies": {

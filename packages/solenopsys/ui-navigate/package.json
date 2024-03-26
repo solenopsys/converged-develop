@@ -11,12 +11,16 @@
     "typescript": "^5.0.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.0.0",
-    "bun-types": "latest"
+    "@happy-dom/global-registrator": "^14.3.2",
+    "@types/bun": "^1.0.10",
+    "happy-dom": "latest"
   },
   "external": [
     "@solenopsys/converged-ui-navigate",
     "@solenopsys/converged-ui-controls",
     "@solenopsys/converged-ui-layouts"
-  ]
+  ],
+  "scripts": {
+    "tests": " bun test  "
+  }
 }

@@ -45,8 +45,8 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
                      
                         <If when={compLeft}>
                   
-                  Menu header
-                           {/* <Dynamic component={compLeft} /> */}
+    
+                            <Dynamic component={compLeft} /> 
                          </If>
                           
                             

@@ -1,8 +1,13 @@
 {
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-router": "latest",
+    "@types/bun": "^1.0.10",
     "browser-resolve": "^2.0.0",
     "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript-plugin-css-modules": "^5.1.0"
   }
 }

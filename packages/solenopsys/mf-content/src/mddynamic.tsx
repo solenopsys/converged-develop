@@ -6,8 +6,8 @@ async function fetchArticle(id) {
 }
 
 async function cascadeFetch(menuId:string) {
-  console.log("MENUID MD",menuId)
-  menuId="bafyreicpz3bnf3xqabciyypjssfue54csygb3fn4soz3wbztppvzdfahsy"
+  console.log("MENUID MD FETH",menuId)
+
   const menuObj = await (await fetch(`/dag?key=object&cid=${menuId}`)).json();
   const articlesIds = menuObj.articles;
 
@@ -23,17 +23,14 @@ async function cascadeFetch(menuId:string) {
 
 
 interface Props {
+  menuId:string
 
 }
 
 export const MdDynamic: Component<Props> = (props) => {
-
   const location = useLocation();
-
-  console.log("PARAMS MD",location)
-  
-
-  const ftch=()=>cascadeFetch("bla")
+  console.log("PARAMS MdDynamic",location)
+  const ftch=()=>cascadeFetch(props.menuId)
   const mdData=usePromise<any[]>(ftch)
 
 
@@ -43,12 +40,7 @@ export const MdDynamic: Component<Props> = (props) => {
 
     return
     <>
-     
       {res &&  <MdView key={res.value?.cid} data={res.value} />}
-       
-        
-      
-        
     </>
   };
 };

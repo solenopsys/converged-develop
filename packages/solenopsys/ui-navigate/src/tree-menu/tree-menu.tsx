@@ -1,5 +1,6 @@
 import $ from '@solenopsys/converged-reactive';
 import type {  Component } from '@solenopsys/converged-renderer';
+// @ts-ignore
 import styles from './tree-menu.module.css'; 
 
 type CID = string;
@@ -22,7 +23,7 @@ type MenuComponent<P = {}> = Component<ItemProps<P>>;
 
 export const UiTreeMenu: MenuComponent = (props:ItemProps) => {
 
-  console.log("MENU",props.data)
+  console.log("MENU UiTreeMenu",props.data)
  
  
   return (
@@ -43,17 +44,14 @@ type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
 
 
-const MenuItem: ParentComponent = (props:ItemProps) => {
+const MenuItem: ParentComponent<ItemProps> = (props:ItemProps) => {
     const collapsed = $<boolean>(props.collapsed ?? false);
-
- 
-
-  
-    return (
+    const cid= props.data.cid
+    return ()=>(
       <>
         <div class={styles.item}>
-          <a class={styles.link} onClick={ ()=>props.onClickLink(props.data.cid)}
-         href={`${props.baseUrl}/${props.data.cid}/`}>
+          <a class={styles.link} onClick={ ()=>props.onClickLink(cid)}
+         href={`${props.baseUrl}/${cid}/`}>
             {props.data.name} 
           </a>
         </div>

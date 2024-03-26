@@ -1,41 +1,52 @@
-import type {  Component } from "@solenopsys/converged-renderer";
+import type { Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
-import styles from './tabs.module.css';
+// @ts-ignore
+import styles from "./tabs.module.css";
+import { css } from "../css";
+
+const tabStyleClass = css(styles, ".tab_style");
+const selectedClass = css(styles, ".selected");
 
 export type Tab = {
-    id: string,
-    title: string
-}
-
-export type TabsProps<P > = P & {
-    selected: string,
-    tabs: Tab[],
-    tabClick?: (tabId: string) => void;
+	id: string;
+	title: string;
 };
 
-export type ParentComponent<P > = Component<TabsProps<P>>;
-export const UiTabs: ParentComponent = (props) => {
-    const selected= $ <string | undefined>(props.selected);
-    const tabs= $ (props.tabs);
-
-    const tabClickHandler = (tabId: string) => {
-        selected(tabId);
-        if (props.tabClick) {
-            props.tabClick(tabId);
-        }
-    };
-
-    return (
-        <div style={{ display: "flex" }}>
-            {tabs()?.map((tab:object) => (
-                    <div
-                        onKeyUp={() => tabClickHandler(tab.id)}
-                        class={{ [styles.tab_style]: true, [styles.selected]: selected() === tab.id }}
-                    >
-                        {tab.title}
-                    </div>
-            ))}
-        </div>
-    );
+export type TabsProps = {
+	selected: string;
+	tabs: Tab[];
+	tabClick?: (tabId: string) => void;
 };
 
+export type TabsComponent = Component<TabsProps>;
+
+export const UiTabs: TabsComponent = (props: TabsProps) => {
+
+	const selected = $<string | undefined>(props.selected);
+	const tabs = $(props.tabs);
+	const tabClickHandler = (tabId: string) => {
+		console.log("TABS CLICK", tabId);
+		selected(tabId);
+		if (props.tabClick) {
+			props.tabClick(tabId);
+		}
+	};
+
+	return () => {
+		return (
+			<div style={{ display: "flex" }}>
+				{tabs()?.map((tab: Tab) => (
+					<div
+						onClick={() => tabClickHandler(tab.id)}
+						class={{
+							[tabStyleClass]: true,
+							[selectedClass]: selected() === tab.id,
+						}}
+					>
+						{tab.title}
+					</div>
+				))}
+			</div>
+		);
+	};
+};

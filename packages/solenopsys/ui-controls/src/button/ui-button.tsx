@@ -1,41 +1,43 @@
 import {  Component } from '@solenopsys/converged-renderer';
 
 import $ from '@solenopsys/converged-reactive';;
+import {EffectFunction} from '@solenopsys/converged-reactive';;
 
- 
 import styles from "./ui-button.module.css";
 
 
 
 interface UiButtonProps {
   title: string;
-  onButtonClick?: () => void;
+  onButtonClick?: EffectFunction;
 }
 
 export const UiButton: Component<UiButtonProps> = (props) => {
+
+console.log("CREATE BUTTON")
   const state = $(props.title);
 
-  $.effect(() => {
-    console.log('Title', state());
-});
+  $.effect(() => console.log('Title', state()));
+ 
+
   
 
+  return ()=>{
+    
   const handleClick = () => {
-    state("Button Clicked!");
-    console.log("CLICK", state());
+
+    state("Button Clicked2!");
     if (props.onButtonClick) {
       props.onButtonClick();
     }
   };
 
-  
-
-  return ()=>{
-    return<>
+    return ()=>
+    (<>
       <button class={styles.button} onClick={handleClick} title={state()}>
         {state()} 
       </button>
-    </>
+    </>)
   };
 };
 

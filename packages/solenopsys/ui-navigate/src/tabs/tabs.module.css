@@ -10,10 +10,11 @@
     border-bottom-color: transparent;
     font-weight: normal;
     color: black;
+    user-select: none;          /* Likely future */
 }
 
-.selected { 
+.selected {
     border-bottom-color: #51504f;
     font-weight: bold;
     color: black;
-} 
+}

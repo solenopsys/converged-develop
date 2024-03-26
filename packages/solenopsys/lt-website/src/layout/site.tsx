@@ -4,6 +4,8 @@ import { lazy, Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 import { UiTopPane } from "@solenopsys/ui-navigate"
 import { SiteLayout } from "@solenopsys/ui-layouts"
+import { useNavigate } from "@solenopsys/converged-router";
+
 
 interface Props {
     navigate: { [path: string]: string };
@@ -36,9 +38,9 @@ export const Site: Component<Props> = (props) => {
     const components: { [key: string]: Component } = {}
 
     const TopPanel = () => {
-      //  const navigate = useNavigate();
+        const navigate = useNavigate();
         const tabClick = async (tabId: string) => {
-          //  navigate(`${tabId}/`)
+           navigate(`${tabId}/`)
             console.log("CLICK TAB",tabId);
             console.log("ROUTES", props.routes)
 
@@ -46,12 +48,11 @@ export const Site: Component<Props> = (props) => {
             const importPath = rt.module.replace("@", "/packages/")
 
             const importModule = await import(importPath)
-            const componentsMap = importModule.createMicrofronend()
+            const componentsMap = await importModule.createMicrofronend(rt.data)
             Object.keys(componentsMap).forEach(
                 key => {
                     components[key] = componentsMap[key]
                 }
-               
             )
             centralComponentName("central")
             leftComponentName("left")

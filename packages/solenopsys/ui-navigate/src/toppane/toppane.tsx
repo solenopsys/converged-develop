@@ -1,8 +1,8 @@
 import type { Component } from '@solenopsys/converged-renderer';
 import $ from '@solenopsys/converged-reactive';
 import styles from './toppane.module.css';
-import type { TabsProps, UiTabs } from '../tabs/tabs';
-import  UiLogo from '../logo/logo';
+import  { TabsProps, UiTabs } from '../tabs/tabs';
+import  {UiLogo} from '../logo/logo';
 
 interface TopPaneProps {
   logo: string;
