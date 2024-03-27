@@ -1,10 +1,11 @@
 
 import "./layout.css"
-import { lazy, Component } from "@solenopsys/converged-renderer";
+import { lazy, Component,KeepAlive,createContext } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 import { UiTopPane } from "@solenopsys/ui-navigate"
 import { SiteLayout } from "@solenopsys/ui-layouts"
 import { useNavigate } from "@solenopsys/converged-router";
+import { loadModule } from "@solenopsys/ui-state";
 
 
 interface Props {
@@ -27,7 +28,13 @@ function navigateToTab(navigate: any) {
 
 
 
+
 export const Site: Component<Props> = (props) => {
+    console.log("SITE RERENDER")
+
+    const SiteContext= createContext<any>({
+        
+    })
 
     const tabs = navigateToTab(props.navigate);
 
@@ -35,43 +42,40 @@ export const Site: Component<Props> = (props) => {
     const centralComponentName = $("")
     const leftComponentName= $("")
 
-    const components: { [key: string]: Component } = {}
+    const mfCache = new MFCache();
 
-    const TopPanel = () => {
-        const navigate = useNavigate();
-        const tabClick = async (tabId: string) => {
-           navigate(`${tabId}/`)
-            console.log("CLICK TAB",tabId);
-            console.log("ROUTES", props.routes)
+   
 
-            const rt = props.routes[tabId];
-            const importPath = rt.module.replace("@", "/packages/")
+    const tabClick = async (tabId: string) => {
+       //  const navigate = useNavigate();
+   //     navigate(`${tabId}/`)
+         console.log("CLICK TAB",tabId);
 
-            const importModule = await import(importPath)
-            const componentsMap = await importModule.createMicrofronend(rt.data)
-            Object.keys(componentsMap).forEach(
-                key => {
-                    components[key] = componentsMap[key]
-                }
-            )
-            centralComponentName("central")
-            leftComponentName("left")
+         const rt = props.routes[tabId];
+         const importPath = rt.module
 
-        }
-        console.log("TABS-0",props.navigate)
-        return <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: props.navigate.tabs, tabClick: tabClick }} />
-    }
+        await  mfCache.load(importPath,rt.data)
 
-    components["top"] = () => { return (<TopPanel/>) }
+         centralComponentName("central")
+         leftComponentName("left")
+
+     }
+
+
+ 
+
+    console.log("TABS-01")
+    mfCache.set("top",    <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: props.navigate.tabs, tabClick: tabClick }} /> )
     topComponentName("top")
 
     return () => {
-        return (<SiteLayout
-            components={components}
-            top={topComponentName()}
-            central={centralComponentName()}
-            left={leftComponentName()}
-        />)
+        console.log("SiteLayout RERENDER" )
+        return (<SiteContext.Provider>
+            <SiteLayout
+                components={mfCache.components}
+            />
+        </SiteContext.Provider>)    
+      
     }
 }
 

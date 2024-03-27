@@ -11,9 +11,7 @@
     "typescript": "^5.0.0"
   },
   "devDependencies": {
-    "@happy-dom/global-registrator": "^14.3.2",
-    "@types/bun": "^1.0.10",
-    "happy-dom": "latest"
+    "@types/bun": "^1.0.10"
   },
   "external": [
     "@solenopsys/converged-ui-navigate",

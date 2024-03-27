@@ -1,0 +1,19 @@
+{
+  "name": "@solenopsys/ui-state",
+  "module": "src/index.tsx",
+  "type": "module",
+  "dependencies": {
+    "@solenopsys/converged-reactive": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.10"
+  },
+  "external": [
+  ],
+  "scripts": {
+    "tests": "bun test"
+  }
+}

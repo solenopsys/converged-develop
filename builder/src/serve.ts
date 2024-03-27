@@ -49,7 +49,8 @@ async function indexResponse(dirPath: string, dirBs: string): Promise<Response> 
     "@solenopsys/ui-controls": "/packages/solenopsys/ui-controls",
     "@solenopsys/ui-layouts": "/packages/solenopsys/ui-layouts",
     "@solenopsys/mf-conten": "/packages/solenopsys/ui-conten",
-    "@solenopsys/ui-content": "/packages/solenopsys/ui-content"
+    "@solenopsys/ui-content": "/packages/solenopsys/ui-content",
+    "@solenopsys/ui-state": "/packages/solenopsys/ui-state"
 }
 
   const htmlContent = await indexHtmlTransform(htmlStrng, scriptString, imports, entryString);
@@ -96,8 +97,8 @@ function startServer(rootDir: string, name: string, bsDir: string, port: number)
   hendlers["/library/*"] = (req: { path: string }) => {
     return serveLibraries(join(rootDir, "configuration"), req.path)
   }
-  hendlers["/packages/*"] = (req: { path: string }) => {
-    return compileModule(rootDir, req.path)
+  hendlers["/packages/*"] = async (req: { path: string }) => {
+    return await compileModule(rootDir, req.path)
   }
   // hendlers["/entry.json"] = async (req: { path: string }) => {
   //   return fileResponse(join(bsDir, "/entry.json"))

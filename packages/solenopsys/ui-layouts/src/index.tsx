@@ -1,1 +1,1 @@
-export {SiteLayout}  from './site-layout/layout';
+export {SiteLayout}  from './site-layout/component';
