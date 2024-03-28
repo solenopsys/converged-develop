@@ -16,9 +16,12 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
 	const logo = $(props.logo);
 	const tabs = $(props.tabsState);
 
-	console.log("TOP PANEL INSIDE", props.tabsState);
 
-	return () => (
+
+	return () => {
+		console.log("TOP RENDER");
+
+		return (
 		<div class={styles["top-pane"]}>
 			<div class={styles["logo-container"]}>
 				<UiLogo logo={logo()} />
@@ -38,6 +41,6 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
           emmitAction={(event) => props.actionSelect(event)}
         ></ui-button-group> */}
 			</div>
-		</div>
-	);
+		</div>);
+	};
 };

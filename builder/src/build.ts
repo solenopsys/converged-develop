@@ -1,4 +1,4 @@
-console.log("Building...");
+
 import { mkdirSync, renameSync } from "fs";
 import { browserResolvePackage } from "./resolve";
 import path, { join } from "path";
@@ -41,7 +41,7 @@ export async function compileModule(
 
 	console.log("COMPLILE", outJsPath);
 
-	if (!(await existsFile(outJsPath))) {
+	if (!(await existsFile(outJsPath))|| forse) {
 		if (!(await existsFile(outPath))) {
 			mkdirSync(outPath, { recursive: true });
 		}
@@ -53,7 +53,7 @@ export async function compileModule(
 		const entryPoint = join(rootDir, path, "/src", "/index.tsx");
 
 		const packagesFromExternal = tsConfigJson["external"];
-		console.log("EXTERNAL", packagesFromExternal);
+		//console.log("EXTERNAL", packagesFromExternal);
 
 		const combinedExternal = packagesFromExternal.concat([
 			"@solenopsys/converged-renderer",
@@ -156,7 +156,6 @@ function renameFileToInxexJs(pathToFile: string): string {
 	const dir = path.dirname(pathToFile);
 	const fileName = path.basename(pathToFile);
 	const newPath = dir + "/index.js";
-	console.log("RENAME", newPath);
 	renameSync(pathToFile, newPath);
 	return newPath;
 }

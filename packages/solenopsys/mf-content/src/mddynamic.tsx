@@ -1,6 +1,6 @@
 import { MdView } from "@solenopsys/ui-content";
 import {  Component, useResource, If, usePromise } from "@solenopsys/converged-renderer";
-import {  useLocation } from "@solenopsys/converged-router";
+//import {  useLocation } from "@solenopsys/converged-router";
 async function fetchArticle(id) {
   return (await fetch(`/dag?key=md&cid=${id}`)).json();
 }
@@ -28,8 +28,8 @@ interface Props {
 }
 
 export const MdDynamic: Component<Props> = (props) => {
-  const location = useLocation();
-  console.log("PARAMS MdDynamic",location)
+  // const location = useLocation();
+  // console.log("PARAMS MdDynamic",location)
   const ftch=()=>cascadeFetch(props.menuId)
   const mdData=usePromise<any[]>(ftch)
 

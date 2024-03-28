@@ -18,6 +18,7 @@
   },
   "external": [
     "@solenopsys/converged-style",
-    "@solenopsys/ui-controls"
+    "@solenopsys/ui-controls",
+    "@solenopsys/ui-state"
   ]
 }

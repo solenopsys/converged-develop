@@ -1,81 +1,84 @@
-
-import "./layout.css"
-import { lazy, Component,KeepAlive,createContext } from "@solenopsys/converged-renderer";
+import "./layout.css";
+import {
+	lazy,
+	Component,
+	KeepAlive,
+	createContext,
+	useContext,
+} from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
-import { UiTopPane } from "@solenopsys/ui-navigate"
-import { SiteLayout } from "@solenopsys/ui-layouts"
-import { useNavigate } from "@solenopsys/converged-router";
-import { loadModule } from "@solenopsys/ui-state";
-
+import { UiTopPane } from "@solenopsys/ui-navigate";
+import { SiteLayout } from "@solenopsys/ui-layouts";
+import { useNavigate, Router } from "@solenopsys/converged-router";
+import { MfCache, UiContext } from "@solenopsys/ui-state";
 
 interface Props {
-    navigate: { [path: string]: string };
-    logo: string;
-    routes: {
-        [path: string]: {
-            module: string,
-            data: {
-                ipfs: string
-            }
-        }
-    }
+	navigate: { [path: string]: string };
+	logo: string;
+	routes: {
+		[path: string]: {
+			module: string;
+			data: {
+				ipfs: string;
+			};
+		};
+	};
 }
-
 
 function navigateToTab(navigate: any) {
-    return Object.keys(navigate).map((key: string) => { return { id: key, title: navigate[key]['title'] } });
+	return Object.keys(navigate).map((key: string) => {
+		return { id: key, title: navigate[key]["title"] };
+	});
 }
-
-
-
 
 export const Site: Component<Props> = (props) => {
-    console.log("SITE RERENDER")
+	console.log("SITE RERENDER");
 
-    const SiteContext= createContext<any>({
-        
-    })
+	const uiState: any = useContext(UiContext);
 
-    const tabs = navigateToTab(props.navigate);
+	const tabs = navigateToTab(props.navigate);
 
-    const topComponentName= $("")
-    const centralComponentName = $("")
-    const leftComponentName= $("")
+	const tabClick = async (tabId: string) => {
+		//  const navigate = useNavigate();
+		//     navigate(`${tabId}/`)
+		console.log("CLICK TAB", tabId);
 
-    const mfCache = new MFCache();
+		const rt = props.routes[tabId];
+		const importPath = rt.module;
 
-   
+		uiState.leftData = rt.data;
+		await MfCache.load(importPath);
+		
+		uiState.central = "central";
+		uiState.left = "left";
 
-    const tabClick = async (tabId: string) => {
-       //  const navigate = useNavigate();
-   //     navigate(`${tabId}/`)
-         console.log("CLICK TAB",tabId);
+		console.log("STATE",uiState)
+	};
 
-         const rt = props.routes[tabId];
-         const importPath = rt.module
+	const topComponent = (
+		<UiTopPane
+			logo={props.logo}
+			tabsState={{
+				selected: "/solenopsys",
+				tabs: props.navigate.tabs,
+				tabClick: tabClick,
+			}}
+		/>
+	);
 
-        await  mfCache.load(importPath,rt.data)
+	uiState.top = "top";
 
-         centralComponentName("central")
-         leftComponentName("left")
+	console.log("STATE INSIDE", uiState);
 
-     }
+	MfCache.set("top", topComponent);
 
+	return () => {
+		console.log("SiteLayout RERENDER");
 
- 
-
-    console.log("TABS-01")
-    mfCache.set("top",    <UiTopPane logo={props.logo} tabsState={{ selected: "/solenopsys", tabs: props.navigate.tabs, tabClick: tabClick }} /> )
-    topComponentName("top")
-
-    return () => {
-        console.log("SiteLayout RERENDER" )
-        return (<SiteContext.Provider>
-            <SiteLayout
-                components={mfCache.components}
-            />
-        </SiteContext.Provider>)    
-      
-    }
-}
-
+		return (
+			<Router>
+				<SiteLayout components={MfCache.components} />
+			</Router>
+		);
+	};
+};

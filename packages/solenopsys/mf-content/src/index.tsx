@@ -1,26 +1,37 @@
 import { MdDynamic } from "./mddynamic";
 import { UiTreeMenu } from "@solenopsys/ui-navigate";
-import { useResource, useResolved, If } from "@solenopsys/converged-renderer";
+import { usePromise, useResolved, If,Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 
 const fetchMenuData = async (cid: string) =>
 	(await fetch(`/dag?key=menu&cid=${cid}`)).json();
 
-export const createMicrofronend = async (conf: any) => {
-	console.log("CONF2", conf);
-	const menuResource = await useResolved(fetchMenuData(conf.ipfs));
 
-	const $id = $(conf.ipfs);
-
+const ContentMenu:Component<any> =  (props: any) => {
 	const onClickLink = (link: string) => console.log("LINK1", link);
+	
+	const menuResource =  usePromise(fetchMenuData(props.ipfs));
+	console.log("EFFECT3RENDER", props);
+	return ()=>{ 
+		const state=menuResource()
+		if (state.pending) return <div>pending...</div>;
+		if (state.error) return <div>{state.error.message}</div>;
+		return(
+		<div class="p-7">
+			
+		
+				 <UiTreeMenu data={state.value} onClickLink={onClickLink} baseUrl="/" /> 
+			
+		</div>
+	)};
+};
 
-	console.log("RES LOAD", menuResource);
+const Article = (props: any) => <MdDynamic menuId={$id()} />;
+
+export const createMicrofronend = async () => {
+	console.log("CREATE2");
 	return {
-		central: () => <MdDynamic menuId={$id()} />,
-		left: (
-			<div class="p-2">
-				<UiTreeMenu data={menuResource} onClickLink={onClickLink} baseUrl="/" />
-			</div>
-		), //  todo need params for menu
+		// central: Article,
+		left: ContentMenu,
 	};
 };
