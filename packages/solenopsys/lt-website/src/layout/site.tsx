@@ -47,9 +47,10 @@ export const Site: Component<Props> = (props) => {
 		const importPath = rt.module;
 
 		uiState.leftData = rt.data;
+		uiState.centerData=rt.data;
 		await MfCache.load(importPath);
 		
-		uiState.central = "central";
+		uiState.center = "center";
 		uiState.left = "left";
 
 		console.log("STATE",uiState)

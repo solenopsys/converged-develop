@@ -18,7 +18,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 
 	return ()=> {
 		const compLeft=props.components[context.left];
-	//	const compCentral=props.components[context.central];
+		const compCenter=props.components[context.center];
 		
 		return(
 		<>
@@ -33,14 +33,14 @@ export const MenuLayout: Component<any> = (props: any) => {
 					</div>
 				</div>
 			</div>
-			{/* <div class={styles.main_content}>
-				<If when={compCentral}>
-					<Dynamic component={compCentral} />
+			<div class={styles.main_content}>
+				<If when={compCenter  && context.centerData}>
+					<Dynamic component={compCenter} props={context.centerData} />
 				</If>
-				<If when={!compCentral}>
+				<If when={!compCenter}>
 					loading...
 				</If>
-			</div> */}
+			</div>
 		</>
 	)};
 };

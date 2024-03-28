@@ -53,10 +53,11 @@ class MicroFrontendsCache<T> {
 
 const uiState = store ({
 	top: undefined,
-	central: undefined,
+	center: undefined,
 	left: undefined,
 	bottom: undefined,
 	leftData:undefined,
+	centerData:undefined
 });
 
 

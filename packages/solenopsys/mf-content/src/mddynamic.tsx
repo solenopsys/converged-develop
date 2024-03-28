@@ -27,20 +27,21 @@ interface Props {
 
 }
 
-export const MdDynamic: Component<Props> = (props) => {
+
+export const MdDynamic: Component<Props> = (props:any) => {
   // const location = useLocation();
-  // console.log("PARAMS MdDynamic",location)
-  const ftch=()=>cascadeFetch(props.menuId)
+ console.log("PARAMS MdDynamic",props)
+  const ftch=()=>cascadeFetch(props.ipfs)
   const mdData=usePromise<any[]>(ftch)
 
 
   return ()=>{
-    const res=mdData()
-   console.log("RES",res)
+    const state=mdData()
+   console.log("RES",state)
+   if (state.pending) return <div>pending...</div>;
 
-    return
-    <>
-      {res &&  <MdView key={res.value?.cid} data={res.value} />}
-    </>
+   
+    return<MdView key={state.value?.cid} data={state.value} />
+   
   };
 };
