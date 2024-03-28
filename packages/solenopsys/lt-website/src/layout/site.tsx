@@ -33,14 +33,14 @@ function navigateToTab(navigate: any) {
 
 export const Site: Component<Props> = (props) => {
 	console.log("SITE RERENDER");
-
+	const navigate = useNavigate();
 	const uiState: any = useContext(UiContext);
 
 	const tabs = navigateToTab(props.navigate);
 
 	const tabClick = async (tabId: string) => {
-		//  const navigate = useNavigate();
-		//     navigate(`${tabId}/`)
+
+		     navigate(`${tabId}/`)
 		console.log("CLICK TAB", tabId);
 
 		const rt = props.routes[tabId];
@@ -48,6 +48,7 @@ export const Site: Component<Props> = (props) => {
 
 		uiState.leftData = rt.data;
 		uiState.centerData=rt.data;
+		
 		await MfCache.load(importPath);
 		
 		uiState.center = "center";
@@ -73,13 +74,7 @@ export const Site: Component<Props> = (props) => {
 
 	MfCache.set("top", topComponent);
 
-	return () => {
-		console.log("SiteLayout RERENDER");
-
-		return (
-			<Router>
-				<SiteLayout components={MfCache.components} />
-			</Router>
-		);
-	};
+	return 	<SiteLayout components={MfCache.components} />
+		
+	
 };

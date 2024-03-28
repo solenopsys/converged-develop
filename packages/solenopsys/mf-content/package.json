@@ -18,6 +18,7 @@
   },
   "external": [
     "@solenopsys/ui-content",
-    "@solenopsys/ui-navigate"
+    "@solenopsys/ui-navigate",
+    "@solenopsys/ui-state"
   ]
 }

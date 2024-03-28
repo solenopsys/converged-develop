@@ -2,7 +2,7 @@
 import { lazy, render } from "@solenopsys/converged-renderer";
 
 import { Site } from "./layout/site"
-
+import {  Router } from "@solenopsys/converged-router";
 
 const CONST = {
     "tabs": [
@@ -39,7 +39,7 @@ const CONST = {
 export const createLayout = (tagId: string, loadModule: (name: string) => {}, conf: any, routes: any) => {
       console.log("CONF",conf)
     // @ts-ignore
-    render(() => { return (  <Site logo="/images/logo.svg" navigate={CONST} routes={routes}/>) }, document.getElementById(tagId))
+    render(() => { return ( <Router> <Site logo="/images/logo.svg" navigate={CONST} routes={routes}/></Router>) }, document.getElementById(tagId))
 }
 
 document.documentElement.style.setProperty(`--control-color`, "blue");

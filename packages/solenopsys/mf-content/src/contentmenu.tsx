@@ -3,25 +3,35 @@ import {
 	usePromise,
 	useResolved,
 	If,
-	Component,
+	Component,useContext
 } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
+import { useNavigate } from "@solenopsys/converged-router";
+import { UiContext } from "@solenopsys/ui-state";
 
-const fetchMenuData = async (cid: string) =>
-	(await fetch(`/dag?key=menu&cid=${cid}`)).json();
+import { GROUP_SERVICE } from "./menuservice";
 
 export const ContentMenu: Component<any> = (props: any) => {
-	const onClickLink = (link: string) => console.log("LINK1", link);
+    const uiState:any = useContext(UiContext);
+    const navigate = useNavigate();
+	const onClickLink = (link: string) =>{
+        console.log("LINK1", link);
+        navigate(link)
 
-	const menuResource = usePromise(fetchMenuData(props.ipfs));
+       const id = GROUP_SERVICE.urlToId(link);
+       console.log("ID",uiState);
+       uiState.centerData={ipfs:id};
+    } 
+
+	const menuResource = usePromise(GROUP_SERVICE.loadMenu(props.ipfs));
 
 	return () => {
 		const state = menuResource();
 		if (state.pending) return <div>pending...</div>;
 		if (state.error) return <div>{state.error.message}</div>;
 		return (
-			<div class="p-7">
-				<UiTreeMenu data={state.value} onClickLink={onClickLink} baseUrl="/" />
+			<div class="p-5">
+				<UiTreeMenu data={state.value} onClickLink={onClickLink} baseUrl="" />
 			</div>
 		);
 	};

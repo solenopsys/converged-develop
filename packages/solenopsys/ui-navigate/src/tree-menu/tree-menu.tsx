@@ -5,14 +5,12 @@ import styles from "./tree-menu.module.css";
 
 type CID = string;
 
-export interface MenuItemData {
-	cid: CID;
+export type MenuItemData = {
 	name: string;
-	path: string;
-	type: string;
-	articles: CID[];
-	children: MenuItemData[];
-}
+	link: string;
+	icon?: string;
+	items?: MenuItemData[];
+};
 
 type MenuProps<P = {}> = P & {
 	data: MenuItemData;
@@ -26,7 +24,7 @@ export const UiTreeMenu: MenuComponent = (props: ItemProps) => {
 
 	return (
 		<div>
-			<MenuItem
+			<MenuItemGroup
 				data={props.data}
 				onClickLink={props.onClickLink}
 				baseUrl={props.baseUrl}
@@ -36,44 +34,35 @@ export const UiTreeMenu: MenuComponent = (props: ItemProps) => {
 };
 
 type ItemProps<P = {}> = P & {
-	baseUrl?: string;
 	collapsed?: boolean;
-	data: MenuItemData;
+	data: MenuItemData[];
 	onClickLink: (link: string) => void;
 };
 
 type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
-const MenuItem: ParentComponent<ItemProps> = (props: ItemProps) => {
+const MenuItemGroup: ParentComponent<ItemProps> = (props: ItemProps) => {
 	const collapsed = $<boolean>(props.collapsed ?? false);
-	const cid = props.data.cid;
-	const path = props.data.path;
-	const baseUrl = props.baseUrl + "/" + path;
 	return () => (
 		<>
-			<div class={styles.item}>
-				<a
-					class={styles.link}
-					onClick={(event) => {
-						event.preventDefault();
-						props.onClickLink(cid);
-					}}
-					href={`${baseUrl}/`}
-				>
-					{props.data.name}
-				</a>
-			</div>
-			{props.data.children.map((sub_item) => (
-				<div class={styles.sub_item}>
-					<MenuItem
-						data={sub_item}
-						baseUrl={baseUrl}
-						onClickLink={props.onClickLink}
-					/>
+			{props.data.map((item) => (
+				<div class={styles.item}>
+					<a
+						class={styles.link}
+						onClick={(event) => {
+							event.preventDefault();
+							props.onClickLink(item.link);
+						}}
+						href={`${item.link}/`}
+					>
+						{item.name}
+					</a>
+
+					<div class={styles.sub_item}>
+						<MenuItemGroup data={item.items} onClickLink={props.onClickLink} />
+					</div>
 				</div>
 			))}
 		</>
 	);
 };
-
-export default MenuItem;

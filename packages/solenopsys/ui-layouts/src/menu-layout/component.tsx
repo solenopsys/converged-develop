@@ -9,6 +9,8 @@ import {
 	useContext,
 } from "@solenopsys/converged-renderer";
 
+import { Router } from "@solenopsys/converged-router";
+
 export const MenuLayout: Component<any> = (props: any) => {
 
 	const context:any = useContext(UiContext);
@@ -21,7 +23,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 		const compCenter=props.components[context.center];
 		
 		return(
-		<>
+		<Router>
 			<div class={styles.left_block}>
 				<div class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu}>
 					<div class={styles.main_menu_wrapper}>
@@ -41,6 +43,6 @@ export const MenuLayout: Component<any> = (props: any) => {
 					loading...
 				</If>
 			</div>
-		</>
+		</Router>
 	)};
 };
