@@ -1,4 +1,5 @@
-import { createSignal, Component, createEffect } from '@solenopsys/converged';
+import $ from '@solenopsys/converged-reactive';
+import { Component } from '@solenopsys/converged-renderer';
 import styles from "./ui-properties.module.css";
 
 interface UiPropertiesProps {
@@ -6,7 +7,7 @@ interface UiPropertiesProps {
 }
 
 export const UiProperties: Component<UiPropertiesProps> = (props) => {
-  const [state, setState] = createSignal(props.properties);
+  const state = $(props.properties);
 
   return (
     <>List

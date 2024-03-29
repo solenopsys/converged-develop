@@ -1,10 +1,21 @@
 import { existsSync, readdirSync, fstatSync, openSync } from "fs";
 import { join } from "path";
-import { compileModule, serveLibraries } from "./build";
+import { compileModule, copileLibrary } from "./build";
 import { indexBuild } from "./tools/html";
 
 process.chdir("../");
 const CONF_DIR = "./configuration";
+
+
+async function jsToResponse(jsFile: string) {
+  console.log("JS TO RESPONSE", jsFile)
+	// todo it hotfi bun bug
+	const headers = {
+		"Content-Type": "application/javascript",
+	};
+	const file = await Bun.file(jsFile).arrayBuffer();
+	return new Response(file, { headers });
+}
 
 function extractBootstrapsDirs(rootDir: string): { [name: string]: string } {
 	const dirs: { [name: string]: string } = {};
@@ -78,11 +89,13 @@ function startServer(
 ) {
 	const hendlers: { [key: string]: HendlerFunc } = {};
 
-	hendlers["/library/*"] = (req: { path: string }) => {
-		return serveLibraries(join(rootDir, "configuration"), req.path);
+	hendlers["/library/*"] =async (req: { path: string }) => {
+		const jsPath=await copileLibrary(join(rootDir, "configuration"), req.path);
+    return  jsToResponse(jsPath);
 	};
 	hendlers["/packages/*"] = async (req: { path: string }) => {
-		return await compileModule(rootDir, req.path);
+    const jsPath=await compileModule(rootDir, req.path,"dist")
+		return  jsToResponse(jsPath);
 	};
 
 	hendlers["/dag*"] = async (req: { path: string }) => {

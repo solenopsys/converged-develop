@@ -6,14 +6,6 @@ import { DEFAULT_EXTERNAL } from "./confs";
 
 const start = Bun.nanoseconds();
 
-async function jsToResponse(jsFile: string) {
-	// todo it hotfi bun bug
-	const headers = {
-		"Content-Type": "application/javascript",
-	};
-	const file = await Bun.file(jsFile).arrayBuffer();
-	return new Response(file, { headers });
-}
 
 function existsFile(path: string): Promise<boolean> {
 	return Bun.file(path).exists();
@@ -27,11 +19,13 @@ async function copyFile(source: string, target: string) {
 export async function compileModule(
 	rootDir: string,
 	path: string,
-): Promise<Response> {
+	distDir: string,
+	production=false,
+): Promise<string> {
 	const start = Bun.nanoseconds();
 
 	// const ngtscProgram = createCompiler("."+path,cache);
-	const outPath = rootDir + "/dist" + path;
+	const outPath = rootDir + "/" +distDir + path;
 
 	const outJsPath = outPath + "/index.js";
 
@@ -60,6 +54,7 @@ export async function compileModule(
 			sourcemap: "none",
 			entrypoints: [entryPoint],
 			outdir: outPath,
+			minify: production,
 			external: [...combinedExternal],
 			plugins: [lightningcssPlugin()],
 		}).catch((e) => {
@@ -78,13 +73,13 @@ export async function compileModule(
 	const end = Bun.nanoseconds();
 	console.log("BUILD (", state, ")", (end - start) / 1000000, outPath);
 
-	return jsToResponse(outJsPath);
+	return outJsPath;
 }
 
-export async function serveLibraries(
+export async function copileLibrary(
 	rootDir: string,
 	pathUri: string,
-): Promise<Response> {
+): Promise<string> {
 	let libName = pathUri.replace("/library/", "").replace(".mjs", "");
 
 	let brs = await browserResolvePackage(libName, rootDir);
@@ -108,7 +103,7 @@ export async function serveLibraries(
 
 		const file = Bun.file(fileFromCache);
 		const fileContent = await file.arrayBuffer();
-		return jsToResponse(fileFromCache);
+		return fileFromCache;
 
 		// const file = Bun.file(fileFromCache);
 		// return new Response(file);
@@ -141,7 +136,7 @@ export async function serveLibraries(
 		//   const pathToFile = out.outputs[0].path;
 
 		// const newPathToFile = renameFileToInxexJs(pathToFile)
-		return jsToResponse(newPathToFile);
+		return newPathToFile;
 	}
 }
 

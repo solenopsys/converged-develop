@@ -2,8 +2,9 @@ import { UiButton } from "@solenopsys/ui-controls";
 import { UiProperties } from "@solenopsys/ui-lists";
 
 
-
-import { signal, Component,createResource } from '@solenopsys/converged';
+import $ from '@solenopsys/converged-reactive';
+ 
+import {  Component,useResource } from '@solenopsys/converged-renderer';
  
 
 const fetchProperties = async () =>
@@ -18,12 +19,12 @@ interface StatProps {
 
 const PinnginStat: Component = () => {
 
-  const [properties] = createResource( fetchProperties);
+  const properties = useResource( fetchProperties);
  
 
   return (
     <div>
-      <span>{properties.loading && "Loading..."}</span>
+      <span>{properties.pending && "Loading..."}</span>
       {properties() && <UiProperties properties={properties()}></UiProperties>}
 
      

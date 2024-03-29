@@ -1,20 +1,23 @@
 {
     "name": "@solenopsys/mf-pinning",
     "module": "src/index.tsx",
-    "description": "Microfrontend pinning",
-    "type": "module",
-    "dependencies": {},
-    "devDependencies": {},
-    "peerDependencies": {
-        "@solenopsys/converged-reactive": "^1.0.7",
-        "@solenopsys/converged-renderer": "^1.0.4",
-        "@solenopsys/converged-style": "^1.0.1",
-        "typescript": "^5.0.0"
-    },
-    "scripts": {
-        "build": "bun ../../../build/build.ts"
-    },
-    "external": [
-        "@solenopsys/ui-navigate"
-    ]
+  "type": "module",
+  "dependencies": {},
+  "peerDependencies": {
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-style": "latest",
+    "@solenopsys/ui-controls": "workspace:../ui-controls",
+    "@solenopsys/ui-lists": "workspace:../ui-lists",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "external": [
+    "@solenopsys/converged-style",
+    "@solenopsys/ui-controls",
+    "@solenopsys/ui-lists"
+  ]
 }
