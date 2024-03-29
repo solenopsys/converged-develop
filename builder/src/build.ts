@@ -1,8 +1,8 @@
-
 import { mkdirSync, renameSync } from "fs";
-import { browserResolvePackage } from "./resolve";
+import { browserResolvePackage } from "./tools/resolve";
 import path, { join } from "path";
 import lightningcssPlugin from "@solenopsys/converged-style/src/plugins/lightningcss-plugin";
+import { DEFAULT_EXTERNAL } from "./confs";
 
 const start = Bun.nanoseconds();
 
@@ -41,7 +41,7 @@ export async function compileModule(
 
 	console.log("COMPLILE", outJsPath);
 
-	if (!(await existsFile(outJsPath))|| forse) {
+	if (!(await existsFile(outJsPath)) || forse) {
 		if (!(await existsFile(outPath))) {
 			mkdirSync(outPath, { recursive: true });
 		}
@@ -55,13 +55,8 @@ export async function compileModule(
 		const packagesFromExternal = tsConfigJson["external"];
 		//console.log("EXTERNAL", packagesFromExternal);
 
-		const combinedExternal = packagesFromExternal.concat([
-			"@solenopsys/converged-renderer",
-			"@solenopsys/converged-reactive",
-			"@solenopsys/converged-style",
-			"@solenopsys/converged-router",
-		]);
-		const out:any = await Bun.build({
+		const combinedExternal = packagesFromExternal.concat(DEFAULT_EXTERNAL);
+		const out: any = await Bun.build({
 			sourcemap: "none",
 			entrypoints: [entryPoint],
 			outdir: outPath,
@@ -71,11 +66,9 @@ export async function compileModule(
 			console.log("ERROR BUILD", e);
 		});
 
-		
-
-		 if(!out.success){
+		if (!out.success) {
 			console.log("RES BUILD", out);
-		 }
+		}
 
 		state = "build";
 	} else {

@@ -6,7 +6,6 @@
   "devDependencies": {
     "@solenopsys/converged-style": "^1.0.3",
     "@types/bun": "^1.0.0",
-    "bun-lightningcss": "^0.2.0",
     "bun-types": "latest"
   },
   "peerDependencies": {
