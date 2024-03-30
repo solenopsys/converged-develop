@@ -1,4 +1,4 @@
-import { indexHtmlTransform } from "./html";
+import { indexHtmlTransform } from "../src/tools/html";
 
 const SOURCE_HTML = `
 <html>
@@ -35,7 +35,7 @@ const RESULT_HTML = `
 
 </body>
 <script type="module" >
-const entry=JSON.parse({ \"bla\": \"test.json\"}); 
+const entry=JSON.parse(\`{ \"bla\": \"test.json\"}\`); 
 console.log(entry)
 </script>
 </html>

@@ -1,7 +1,7 @@
 import { mkdirSync, renameSync } from "fs";
 import { browserResolvePackage } from "./tools/resolve";
 import path, { join } from "path";
-import lightningcssPlugin from "@solenopsys/converged-style/src/plugins/lightningcss-plugin";
+import lightningcssPlugin from "@solenopsys/converged-style/plugin";
 import { DEFAULT_EXTERNAL } from "./confs";
 
 const start = Bun.nanoseconds();
@@ -78,9 +78,10 @@ export async function compileModule(
 
 export async function copileLibrary(
 	rootDir: string,
-	pathUri: string,
+	libName: string,
+	distDir: string
 ): Promise<string> {
-	let libName = pathUri.replace("/library/", "").replace(".mjs", "");
+
 
 	let brs = await browserResolvePackage(libName, rootDir);
 	console.log("BRS", brs);
@@ -89,7 +90,7 @@ export async function copileLibrary(
 
 	// console.log("search lib rootdir", rootDir, "path", pathUri,"entry",founded)
 
-	const outPath = join(rootDir, "../dist/libraries/", libName);
+	const outPath = join(rootDir, `../${distDir}/libraries/`, libName);
 	if (!(await existsFile(outPath))) {
 		mkdirSync(outPath, { recursive: true });
 	}

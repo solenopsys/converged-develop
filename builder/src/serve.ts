@@ -40,7 +40,7 @@ async function indexResponse(
 	dirBs: string,
 ): Promise<Response> {
 	
-	const htmlContent: Response = await indexBuild(
+	const htmlContent: string = await indexBuild(
 		dirPath,
 		dirBs
 	);
@@ -90,7 +90,8 @@ function startServer(
 	const hendlers: { [key: string]: HendlerFunc } = {};
 
 	hendlers["/library/*"] =async (req: { path: string }) => {
-		const jsPath=await copileLibrary(join(rootDir, "configuration"), req.path);
+    let libName = req.path.replace("/library/", "").replace(".mjs", "");
+		const jsPath=await copileLibrary(join(rootDir, "configuration"),libName,"dist");
     return  jsToResponse(jsPath);
 	};
 	hendlers["/packages/*"] = async (req: { path: string }) => {

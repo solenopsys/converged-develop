@@ -1,10 +1,16 @@
 {
-  "dependencies": { "@solenopsys/converged-reactive": "^1.0.7", "@solenopsys/converged-renderer": "^1.0.4" },
+  "dependencies": {
+    "@solenopsys/converged-router": "latest",
+    "@solenopsys/converged-style": "latest",
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "form-data": "^4.0.0",
+    "ipfs-http-client": "^60.0.1"
+  },
   "name": "ft-converged-build",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "@solenopsys/converged-style": "^1.0.3",
     "@types/bun": "^1.0.0",
     "bun-types": "latest"
   },

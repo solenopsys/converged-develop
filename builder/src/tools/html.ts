@@ -1,11 +1,11 @@
 import { join } from "path";
 
 export function indexHtmlTransform(
-	indexHtmlBody: Response,
+	indexHtmlBody: string,
 	indexJs: string,
 	imports: any,
 	entry: any,
-): Response {
+): string {
 	const rewriter = new HTMLRewriter();
 
 	rewriter.on("*", {
@@ -25,7 +25,7 @@ export function indexHtmlTransform(
 		},
 	});
 
-	return rewriter.transform(indexHtmlBody);
+	return rewriter.transform(indexHtmlBody)
 }
 
 import { CONFIG_MAP } from "../confs";
@@ -33,7 +33,7 @@ import { CONFIG_MAP } from "../confs";
 export async function indexBuild(
 	dirPath: string,
 	dirBs: string,
-): Promise<Response> {
+): Promise<string> {
 	const htmlStrng = await Bun.file(join(dirPath, "/index.html")).text();
 	const scriptString = await Bun.file(join(dirPath, "/index.js")).text();
 	const entryString = await Bun.file(join(dirBs, "/entry.json")).text();
@@ -44,5 +44,5 @@ export async function indexBuild(
 		CONFIG_MAP,
 		entryString,
 	);
-	return htmlContent;
+	return htmlContent ;
 }

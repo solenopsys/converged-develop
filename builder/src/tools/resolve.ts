@@ -10,6 +10,7 @@ export async function browserResolvePackage(
 	let sub = "";
 	try {
 		try {
+            
 			packageJson = Bun.resolveSync(currName + "/" + PACKAGE, rootDir);
 		} catch (e) {
 			const fullName = "@" + currName;
