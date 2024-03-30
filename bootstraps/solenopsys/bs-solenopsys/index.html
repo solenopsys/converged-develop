@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <script type="importmap">{"imports":{"@solenopsys/lt-website":"https://zero.node.solenopsys.org/ipfs/QmcZbo3YJhAhtABDPnBEGZdPdUzYFNhTMSTHjDg8am5Vdv","@solenopsys/mf-content":"https://zero.node.solenopsys.org/ipfs/QmU5SniaTgDfEPqABUeuFX4BMnsPdrX8W8uRwFTgtnNFYU","@solenopsys/mf-landing":"https://zero.node.solenopsys.org/ipfs/QmVZUJZjyssJ8CE2XTKnRKKtd3pt98G3Ahr9MXwMnts1eq","@solenopsys/mf-pinning":"https://zero.node.solenopsys.org/ipfs/QmbokoT5L5UeqpTvRJmkZXvBBacVpvkuHfjTjBJ3ck4fU3","@solenopsys/ui-content":"https://zero.node.solenopsys.org/ipfs/QmcxYSw7s2fVkWxzR2B1ctPEfw7oyKGa33GKTeuQdh8vFf","@solenopsys/ui-controls":"https://zero.node.solenopsys.org/ipfs/QmbcuJW26yAYpQkEgWVQV1hFemXYQ28Z9Ku8hFGvZDcUye","@solenopsys/ui-layouts":"https://zero.node.solenopsys.org/ipfs/QmT7zRN52Pd41V185SPTW8RiwPeqfDuiTokkkqZkXeTDUn","@solenopsys/ui-lists":"https://zero.node.solenopsys.org/ipfs/QmNRv68veYGCeAaFwPNR2rhQhMVcYwtWDGi5eoCCgTZ2dM","@solenopsys/ui-navigate":"https://zero.node.solenopsys.org/ipfs/QmXJ6AEg3rX6Xu9ZAF6CVYsJpbe1hoHYmZZoheKdECxuAc","@solenopsys/ui-state":"https://zero.node.solenopsys.org/ipfs/QmdPDxHCqQ9rL6Y2R9SZ1KYEkRe7Mxpmsq9PFUNerMRotU","@solenopsys/ui-themes":"https://zero.node.solenopsys.org/ipfs/QmQ5C5Tqg37vHRC4pMywa4HmMjMywr6UUWwwFofLZyn3mb","@solenopsys/converged-reactive":"https://zero.node.solenopsys.org/ipfs/QmRdiKcuidvyRGGpGr5rk9i42GpbQcwmcPEjnCBRfmeMdM","@solenopsys/converged-renderer":"https://zero.node.solenopsys.org/ipfs/QmbnqUAqXbXyxA5kUZdFwXK1Nvw2FVvwwKCrBv9V1JSFvA","@solenopsys/converged-router":"https://zero.node.solenopsys.org/ipfs/QmSmHALfGhhocVrAaQGRodmoT9pyY85acrX2DjZZGYuPK9","@solenopsys/converged-style":"https://zero.node.solenopsys.org/ipfs/QmQFx3zVJ3FTvsVWdGHBiagrfAvuXG3W7z5KBTC8ppoSr1"}}</script>
+</head>
+
+<body id="layout" style="padding: 0;margin: 0;">
+
+</body>
+<script type="module"  >const entry=JSON.parse(`{
+  "layout": {
+    "module": "@solenopsys/lt-website",
+    "state": {
+      "page": {
+        "favicon": "/assets/favicon.svg",
+        "title": "Solenopsys vc"
+      },
+      "top": {
+        "component": "UiTopPane",
+        "items": [
+          {
+            "module": "@solenopsys/ui-navigate",
+            "component":"UiLogo",
+            "props": {
+              "logo": "/images/logo.svg"
+            }
+          },
+          {
+            "module": "@solenopsys/ui-navigate",
+            "component":"UiTabs",
+            "props":{"tabs":[
+              {
+                "id": "/solenopsys",
+                "title": "Solenopsys"
+              },
+              {
+                "id": "/robotization",
+                "title": "Robotization"
+              },
+              {
+                "id": "/consepts",
+                "title": "Сoncepts"
+              },
+              {
+                "id": "/technologies",
+                "title": "Technologies"
+              }
+            ]} 
+          }
+        ]
+      }
+    }
+  },
+  "routes": {
+    "/": {
+      "module": "@solenopsys/mf-landing"
+    },
+    "/robotization": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
+      }
+    },
+    "/solenopsys": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreif3iw7smjolcgwucw3bgy3s2mbpg4edjj2wlsdjc3quchmwcadtd4"
+      }
+    },
+    "/consepts": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreicwgwwzby5uwfzcz5hjhfxguyfxen7w2hncydpccmbg7pfhb5ri2i"
+      }
+    },
+    "/technologies": {
+      "module": "@solenopsys/mf-content",
+      "data": {
+        "ipfs": "bafyreiczcbnn6if7onqac37j4bbdqidt5aznl5kbd6fws4phctomvjaouy"
+      }
+    }
+  }
+}`);
+import {init} from "@solenopsys/ui-state"
+
+function resFunc(res){
+        console.log("OK")
+}
+
+function errFunc(e){
+    console.log("ERR", e)
+}
+init(entry).then( resFunc).catch(errFunc)</script>
+
+
+</html>

@@ -2,6 +2,9 @@ import { existsSync, readdirSync, fstatSync, openSync } from "fs";
 import { join } from "path";
 import { compileModule, copileLibrary } from "./build";
 import { indexBuild } from "./tools/html";
+import { extractBootstrapsDirs } from "./tools/dirs";
+import { REMOTE_HOST, REMOTE_HOST_PINNING } from "./confs";
+
 
 process.chdir("../");
 const CONF_DIR = "./configuration";
@@ -17,23 +20,7 @@ async function jsToResponse(jsFile: string) {
 	return new Response(file, { headers });
 }
 
-function extractBootstrapsDirs(rootDir: string): { [name: string]: string } {
-	const dirs: { [name: string]: string } = {};
-	const dir = rootDir + "/bootstraps";
-	const files = readdirSync(dir);
-	for (const file of files) {
-		const filePath = dir + "/" + file;
-		const fileDescriptor = openSync(filePath, "r");
-		const idDirectory = fstatSync(fileDescriptor).isDirectory();
-		if (idDirectory) {
-			const subDirs = readdirSync(filePath);
-			for (const subdir of subDirs) {
-				dirs[subdir] = filePath + "/" + subdir;
-			}
-		}
-	}
-	return dirs;
-}
+
 
 async function indexResponse(
 	dirPath: string,
@@ -78,8 +65,7 @@ interface HendlerFunc {
 	(req: { path: string }): Promise<Response>;
 }
 
-const REMOTE_HOST = "http://solenopsys.org";
-const REMOTE_HOST_PINNING = "http://pinning.solenopsys.org";
+
 
 function startServer(
 	rootDir: string,

@@ -28,7 +28,7 @@ export function indexHtmlTransform(
 	return rewriter.transform(indexHtmlBody)
 }
 
-import { CONFIG_MAP } from "../confs";
+import { IMPORT_MAP } from "../confs";
 
 export async function indexBuild(
 	dirPath: string,
@@ -41,7 +41,7 @@ export async function indexBuild(
 	const htmlContent = await indexHtmlTransform(
 		htmlStrng,
 		scriptString,
-		CONFIG_MAP,
+		IMPORT_MAP,
 		entryString,
 	);
 	return htmlContent ;

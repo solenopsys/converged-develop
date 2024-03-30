@@ -1,6 +1,7 @@
 import { mkdirSync, renameSync } from "fs";
 import { browserResolvePackage } from "./tools/resolve";
 import path, { join } from "path";
+//@ts-ignore
 import lightningcssPlugin from "@solenopsys/converged-style/plugin";
 import { DEFAULT_EXTERNAL } from "./confs";
 

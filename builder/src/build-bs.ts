@@ -1,51 +1,19 @@
 import { join } from "path";
 import { indexHtmlTransform } from "./tools/html";
-import { copileLibrary } from "./build";
-
-function extractModules(obj: any) {
-	const modules = new Set();
-
-	function extractModulesFromObject(obj: any) {
-		if (typeof obj === "object" && obj !== null) {
-			if (obj.hasOwnProperty("module")) {
-				modules.add(obj.module);
-			}
-
-			for (const value of Object.values(obj)) {
-				extractModulesFromObject(value);
-			}
-		} else if (Array.isArray(obj)) {
-			obj.forEach(extractModulesFromObject);
-		}
-	}
-
-	extractModulesFromObject(obj);
-	return Array.from(modules);
-}
+import { PRO_DIST } from "./confs";
+import { genMap } from "./tools/bs";
+import {existsSync} from "fs";
+import { mkdirSync } from "fs";
 
 process.chdir("../");
 
-async function load() {
-	const fileName = "./bootstraps/solenopsys/bs-solenopsys/entry.json";
-
-	const modules = extractModules(await Bun.file(fileName).json());
-	console.log("MODULES", modules);
-}
-
-function buildConfigMap() {
-	const configMap: { [key: string]: string } = {};
-	
-	return configMap;
-}
-
 async function buildHtml(dirBs: string) {
-	const dirPath = "../configuration/";
+	const dirPath = "./configuration/";
 	const htmlStrng = await Bun.file(join(dirPath, "/index.html")).text();
 	const scriptString = await Bun.file(join(dirPath, "/index.js")).text();
 	const entryString = await Bun.file(join(dirBs, "/entry.json")).text();
 
-
-
+	const CONFIG_MAP = await genMap();
 
 	const htmlContent = await indexHtmlTransform(
 		htmlStrng,
@@ -53,4 +21,17 @@ async function buildHtml(dirBs: string) {
 		CONFIG_MAP,
 		entryString,
 	);
+
+	return htmlContent;
 }
+
+buildHtml("./bootstraps/solenopsys/bs-solenopsys").then((ht) => {
+	console.log("HTML", ht);
+	console.log("DONE");
+	const dir=`./${PRO_DIST}/bs-solenopsys`
+	// make dirs
+	if(!existsSync(dir)){
+		mkdirSync(dir);
+	}
+	Bun.write(`${dir}/index.html`, ht);
+});

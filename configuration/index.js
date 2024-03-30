@@ -1,3 +1,10 @@
+
+async function loadModule() {
+    console.log("LOAD MODULE");
+  }
+  
+  loadModule();
+
 import {init} from "@solenopsys/ui-state"
 
 function resFunc(res){
