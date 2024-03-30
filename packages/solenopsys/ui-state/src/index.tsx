@@ -9,7 +9,7 @@ async function modProcessing(modName: string, mod) {
 
 async function loadModule(moduleName: string) {
 	console.log("LOAD MODULE", moduleName);
-	const modUrl = moduleName.replace("@", "/packages/");
+	const modUrl =moduleName // moduleName.replace("@", "/packages/");
 
 	//@ts-ignore
 	const mod = await import(modUrl);

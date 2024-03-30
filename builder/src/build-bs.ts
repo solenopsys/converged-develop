@@ -28,7 +28,7 @@ async function buildHtml(dirBs: string) {
 buildHtml("./bootstraps/solenopsys/bs-solenopsys").then((ht) => {
 	console.log("HTML", ht);
 	console.log("DONE");
-	const dir=`./${PRO_DIST}/bs-solenopsys`
+	const dir=`./${PRO_DIST}`
 	// make dirs
 	if(!existsSync(dir)){
 		mkdirSync(dir);

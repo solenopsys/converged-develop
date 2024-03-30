@@ -22,7 +22,6 @@ export function extractModules(obj: any) {
 	return Array.from(modules);
 }
 
-
 async function loadTest() {
 	const fileName = "./bootstraps/solenopsys/bs-solenopsys/entry.json";
 
@@ -30,20 +29,16 @@ async function loadTest() {
 	console.log("MODULES", modules);
 }
 
-
-
 export async function genMap() {
 	const packages = getDirs(`./${PRO_DIST}/packages/solenopsys/`);
 	const libaries = getDirs(`./${PRO_DIST}/libraries/@solenopsys/`);
 	const all = packages.concat(libaries);
 	const res:any={}
 	for (const dir of all) {
-		const file = `${dir}/hash.txt`;
-		const fileContent = await Bun.file(file).text();
-		const end=dir.split("\/").pop();
-		 
-		res["@solenopsys/"+end]=REMOTE_PREFEIX+fileContent;
+		const items=dir.split("\/").reverse();
+		res["@solenopsys/"+items[0]]=`./${items[2]}/${items[1]}/${items[0]}/index.js`;
 	}
+	res["@solenopsys/converged-renderer/jsx-dev-runtime"]="/libraries/@solenopsys/converged-renderer/index.js";
 
 	return res;
 }

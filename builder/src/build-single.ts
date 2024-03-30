@@ -59,7 +59,7 @@ async function scanDirs() {
 async function buildAll() {
 	await compileModules();
 	await compileCoreLibs();
-	await scanDirs();
+	//await scanDirs();
 }
 
 let start = Bun.nanoseconds();

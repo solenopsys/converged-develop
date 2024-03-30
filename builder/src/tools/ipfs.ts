@@ -62,7 +62,7 @@ async function uploadFileFoIpfs(filePath:string):Promise<string>{
   });
 }
 
-
+// not working
 export async function createDirectory(jsonData:any) {
   try {
     const { path, objects } = jsonData;
