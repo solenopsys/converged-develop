@@ -2,7 +2,7 @@
   "name": "@solenopsys/ui-themes",
   "module": "src/index.tsx",
   "type": "module",
-  "dependencies": { "@solenopsys/converged-router": "^0.2.1" },
+  "dependencies": {   },
   "peerDependencies": {
     "@solenopsys/converged-reactive": "latest",
     "@solenopsys/converged-renderer": "latest",

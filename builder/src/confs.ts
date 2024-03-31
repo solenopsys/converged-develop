@@ -10,9 +10,12 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-navigate": "/packages/solenopsys/ui-navigate",
 	"@solenopsys/ui-controls": "/packages/solenopsys/ui-controls",
 	"@solenopsys/ui-layouts": "/packages/solenopsys/ui-layouts",
-	"@solenopsys/mf-conten": "/packages/solenopsys/ui-conten",
+	"@solenopsys/mf-landing": "/packages/solenopsys/mf-landing",
+	"@solenopsys/mf-content": "/packages/solenopsys/mf-content",
 	"@solenopsys/ui-content": "/packages/solenopsys/ui-content",
 	"@solenopsys/ui-state": "/packages/solenopsys/ui-state",
+	"@solenopsys/lt-website": "/packages/solenopsys/lt-website",
+
 };
 
 export const PACKAGE = "package.json";

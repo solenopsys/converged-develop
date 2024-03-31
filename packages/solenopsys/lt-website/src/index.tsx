@@ -7,6 +7,10 @@ import {  Router } from "@solenopsys/converged-router";
 const CONST = {
     "tabs": [
         {
+            "id": "/",
+            "title": "Main"
+        },
+        {
             "id": "/solenopsys",
             "title": "Solenopsys"
         },

@@ -6,9 +6,10 @@
     "dependencies": {},
     "devDependencies": {},
     "peerDependencies": {
-        "@solenopsys/converged-reactive": "^1.0.7",
-        "@solenopsys/converged-renderer": "^1.0.4",
-        "@solenopsys/converged-style": "^1.0.1",
+        "@solenopsys/converged-reactive": "latest",
+        "@solenopsys/converged-renderer": "latest",
+        "@solenopsys/converged-style": "latest",
+        "@solenopsys/converged-router": "latest",
         "typescript": "^5.0.0"
     },
     "scripts": {

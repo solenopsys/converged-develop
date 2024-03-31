@@ -31,7 +31,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 							{/* LD {context.leftData?.ipfs} */}
 							 <Dynamic component={compLeft}  props={context.leftData}/>  
 						</If>
-						<If when={!compLeft}>loading..</If>
+						
 					</div>
 				</div>
 			</div>
@@ -39,9 +39,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 				<If when={compCenter  && context.centerData}>
 					<Dynamic component={compCenter} props={context.centerData} />
 				</If>
-				<If when={!compCenter}>
-					loading...
-				</If>
+			
 			</div>
 		</Router>
 	)};

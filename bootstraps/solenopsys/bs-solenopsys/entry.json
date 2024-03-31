@@ -26,7 +26,7 @@
               },
               {
                 "id": "/robotization",
-                "title": "Robotization"
+                "title": "Robotization1"
               },
               {
                 "id": "/consepts",
@@ -44,7 +44,10 @@
   },
   "routes": {
     "/": {
-      "module": "@solenopsys/mf-landing"
+      "module": "@solenopsys/mf-landing",
+      "data": {
+        "ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
+      }
     },
     "/robotization": {
       "module": "@solenopsys/mf-content",

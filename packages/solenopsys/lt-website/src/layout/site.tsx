@@ -39,29 +39,28 @@ export const Site: Component<Props> = (props) => {
 	const tabs = navigateToTab(props.navigate);
 
 	const tabClick = async (tabId: string) => {
-
-		     navigate(`${tabId}/`)
+		navigate(`${tabId}`);
 		console.log("CLICK TAB", tabId);
 
 		const rt = props.routes[tabId];
 		const importPath = rt.module;
 
 		uiState.leftData = rt.data;
-		uiState.centerData=rt.data;
-		
+		uiState.centerData = rt.data;
+
 		await MfCache.load(importPath);
-		
+
 		uiState.center = "center";
 		uiState.left = "left";
 
-		console.log("STATE",uiState)
+		console.log("STATE", uiState);
 	};
 
-	const topComponent = (
+	const topComponent: Component = () => (
 		<UiTopPane
 			logo={props.logo}
 			tabsState={{
-				selected: "/solenopsys",
+				selected: "/",
 				tabs: props.navigate.tabs,
 				tabClick: tabClick,
 			}}
@@ -74,7 +73,5 @@ export const Site: Component<Props> = (props) => {
 
 	MfCache.set("top", topComponent);
 
-	return 	<SiteLayout components={MfCache.components} />
-		
-	
+	return <SiteLayout components={MfCache.components} />;
 };
