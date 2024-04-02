@@ -1,5 +1,5 @@
 
-export { UiTreeMenu } from "./tree-menu/tree-menu"
-export { UiTabs } from "./tabs/tabs"
-export { UiLogo } from "./logo/logo"
-export {UiTopPane} from "./toppane/toppane"
+export { UiTreeMenu } from "./tree-menu"
+export { UiTabs } from "./tabs"
+export { UiLogo } from "./logo"
+export {UiTopPane} from "./toppane"

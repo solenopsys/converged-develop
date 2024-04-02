@@ -42,7 +42,7 @@ export const MdDynamic: Component<Props> = (props: any) => {
 	return () => {
 		const state = mdData();
 		console.log("RES", state);
-		if (state.pending) return <div>pending...</div>;
+		if (state.pending) return <div></div>;
 
 		return <MdView key={state.value?.cid} data={state.value} />;
 	};

@@ -1,17 +1,15 @@
 import { existsSync, readdirSync, fstatSync, openSync } from "fs";
 import { join } from "path";
-import { compileModule, copileLibrary } from "./build";
+import { compileModule, copileLibrary,copileLocalLibrary } from "./build";
 import { indexBuild } from "./tools/html";
 import { extractBootstrapsDirs } from "./tools/dirs";
 import { REMOTE_HOST, REMOTE_HOST_PINNING } from "./confs";
 
-
 process.chdir("../");
 const CONF_DIR = "./configuration";
 
-
 async function jsToResponse(jsFile: string) {
-  console.log("JS TO RESPONSE", jsFile)
+	console.log("JS TO RESPONSE", jsFile);
 	// todo it hotfi bun bug
 	const headers = {
 		"Content-Type": "application/javascript",
@@ -20,17 +18,11 @@ async function jsToResponse(jsFile: string) {
 	return new Response(file, { headers });
 }
 
-
-
 async function indexResponse(
 	dirPath: string,
 	dirBs: string,
 ): Promise<Response> {
-	
-	const htmlContent: string = await indexBuild(
-		dirPath,
-		dirBs
-	);
+	const htmlContent: string = await indexBuild(dirPath, dirBs);
 
 	return new Response(htmlContent, {
 		headers: {
@@ -65,8 +57,6 @@ interface HendlerFunc {
 	(req: { path: string }): Promise<Response>;
 }
 
-
-
 function startServer(
 	rootDir: string,
 	name: string,
@@ -75,14 +65,20 @@ function startServer(
 ) {
 	const hendlers: { [key: string]: HendlerFunc } = {};
 
-	hendlers["/library/*"] =async (req: { path: string }) => {
-    let libName = req.path.replace("/library/", "").replace(".mjs", "");
-		const jsPath=await copileLibrary(join(rootDir, "configuration"),libName,"dist");
-    return  jsToResponse(jsPath);
+	hendlers["/library/*"] = async (req: { path: string }) => {
+		let libName = req.path.replace("/library/", "").replace(".mjs", "");
+		let libNameCompile = req.path.replace("/library/", "/libraries/").replace(".mjs", "");
+
+	
+		//const 	jsPath= await copileLibrary(join(rootDir, "configuration"), libName, "dist")
+		const jsPath = await copileLocalLibrary(rootDir, libNameCompile, "dist", false, "/src/index.ts")
+		
+		// local
+		return jsToResponse(jsPath);
 	};
 	hendlers["/packages/*"] = async (req: { path: string }) => {
-    const jsPath=await compileModule(rootDir, req.path,"dist")
-		return  jsToResponse(jsPath);
+		const jsPath = await compileModule(rootDir, req.path, "dist", false, "/src/index.tsx");
+		return jsToResponse(jsPath);
 	};
 
 	hendlers["/dag*"] = async (req: { path: string }) => {

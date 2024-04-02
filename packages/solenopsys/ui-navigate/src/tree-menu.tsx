@@ -1,7 +1,7 @@
 import $ from "@solenopsys/converged-reactive";
 import type { Component } from "@solenopsys/converged-renderer";
 // @ts-ignore
-import styles from "./tree-menu.module.css";
+import styles from "./styles/tree-menu.module.css";
 
 type CID = string;
 

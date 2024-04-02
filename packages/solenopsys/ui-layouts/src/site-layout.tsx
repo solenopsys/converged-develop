@@ -1,9 +1,9 @@
-import { Component, Dynamic, If,useContext } from "@solenopsys/converged-renderer";
-import { UiContext } from "@solenopsys/ui-state";
+import { Component, Dynamic, If,useContext,lazy } from "@solenopsys/converged-renderer";
+import { UiContext,MfCache } from "@solenopsys/ui-state";
 
 // @ts-ignore
-import styles from "./styles.module.css";
-import { MenuLayout } from "../menu-layout/component";
+import styles from "./styles/site-layout.module.css";
+import { MenuLayout } from "./menu-layout";
 
 interface MdItemComponentProps {
 	top: string;
@@ -15,28 +15,23 @@ interface MdItemComponentProps {
 export const SiteLayout: Component<MdItemComponentProps> = (props) => {
 	const uiState:any = useContext(UiContext);
 
-	const compTop = props.components[uiState.top];
-	const compBottom = props.components[uiState.bottom];
+	const compTop=lazy(()=>MfCache.loadComponent(uiState.top.module, uiState.top.component))
 
 	return () => {
-		console.log("SLR")
-		
 		return (
 		<div class={styles.body_wrapper}>
 			<div class={styles.full_height}>
 				<div class={styles.top_pane_wrapper}>
-					<If when={compTop}>
-						<Dynamic component={compTop} />
+					<If when={uiState.top}>
+						<DynamicLazy props={uiState.top} />
 					</If>
-				
 				</div>
-				<MenuLayout {...props} />
-				<div>
+				 <MenuLayout  />
+				{/* <div>
 					<If when={compBottom}>
 						<Dynamic component={compBottom} />
 					</If>
-					
-				</div>
+				</div>  */}
 			</div>
 		</div>)
 	};

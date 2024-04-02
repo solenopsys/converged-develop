@@ -1,17 +1,19 @@
 import type { Component } from "@solenopsys/converged-renderer";
-import { css } from "../css";
+import { css } from "./css";
 
-import styles from "./logo.module.css";
+// @ts-ignore
+import styles from "./styles/logo.module.css";
 
 const logo = css(styles, ".logo");
 
 export type LogoProps = {
-	logo: string;
+	image: string;
 	alt: string;
 };
 
 export type LogoComponent = Component<LogoProps>;
 
 export const UiLogo: LogoComponent = (props: LogoProps) => {
-	return <img alt={props.alt} class={logo} src={props.logo} />;
+	console.log("LOGO", props);
+	return <img alt={props.alt} class={logo} src={props.image} />;
 };

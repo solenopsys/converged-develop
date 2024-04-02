@@ -3,7 +3,7 @@ import { describe, it, beforeAll, expect, jest } from "bun:test";
 
 import { render, } from "@solenopsys/converged-renderer";
 import { tick } from "@solenopsys/converged-reactive";
-import { UiTabs } from "../src/tabs/tabs";
+import { UiTabs } from "../src/tabs";
 
 describe("UiTabs", () => {
 	it("render", async () => {

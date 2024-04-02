@@ -3,7 +3,9 @@
   "module": "src/index.tsx",
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-reactive": "latest"
+    "@solenopsys/converged-reactive": "workspace:../../../libraries/solenopsys/converged-reactive",
+    "@solenopsys/converged-renderer": "workspace:../../../libraries/solenopsys/converged-renderer"
+  
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

@@ -1,8 +1,8 @@
 import type { Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 // @ts-ignore
-import styles from "./tabs.module.css";
-import { css } from "../css";
+import styles from "./styles/tabs.module.css";
+import { css } from "./css";
 
 const tabStyleClass = css(styles, ".tab_style");
 const selectedClass = css(styles, ".selected");
