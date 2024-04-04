@@ -20,13 +20,11 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
 		<div class={styles.body_wrapper}>
 			<div class={styles.full_height}>
 				<div class={styles.top_pane_wrapper}>
-					ok1
 					<If when={uiState.top}>
-						ok2
 						<DynamicLazy {...uiState.top} />
 					</If>
 				</div>
-				 {/* <MenuLayout  /> */}
+				 <MenuLayout  />
 				{/* <div>
 					<If when={compBottom}>
 						<Dynamic component={compBottom} />

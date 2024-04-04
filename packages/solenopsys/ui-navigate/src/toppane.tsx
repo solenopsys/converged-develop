@@ -1,4 +1,4 @@
-import { If, type Component } from "@solenopsys/converged-renderer";
+import { If,  Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 // @ts-ignore
 import styles from "./styles/toppane.module.css";
@@ -14,13 +14,13 @@ interface TopPaneProps {
 }
 
 export const UiTopPane: Component<TopPaneProps> = (props) => {
-	console.log("TOP INIT", props);
+	console.log("TOP INIT242", props);
 
 
 
-	return () => {
-		console.log("TOP RENDER");
 
+	return ()=>{
+		console.log("ok1")
 		return (
 			<div class={styles["top-pane"]}>
 				<If when={props.logo}>
@@ -46,6 +46,6 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
         ></ui-button-group> */}
 				</div>
 			</div>
-		);
-	};
+		)}
+	
 };
