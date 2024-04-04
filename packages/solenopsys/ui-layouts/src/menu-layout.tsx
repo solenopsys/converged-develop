@@ -28,14 +28,14 @@ export const MenuLayout: Component<any> = (props: any) => {
 						class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu}
 					>
 						<div class={styles.main_menu_wrapper}>
-							<If when={uiState.left != undefined}>
+							<If when={uiState.left }>
 								<DynamicLazy {...uiState.left} />
 							</If>
 						</div>
 					</div>
 				</div>
 				<div class={styles.main_content}>
-					<If when={uiState.center != undefined}>
+					<If when={uiState.center }>
 						<DynamicLazy {...uiState.center} />
 					</If>
 				</div>
