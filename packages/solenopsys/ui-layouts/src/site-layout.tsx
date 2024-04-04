@@ -1,4 +1,4 @@
-import { Component, Dynamic, If,useContext,lazy } from "@solenopsys/converged-renderer";
+import { Component, DynamicLazy, If,useContext,lazy } from "@solenopsys/converged-renderer";
 import { UiContext,MfCache } from "@solenopsys/ui-state";
 
 // @ts-ignore
@@ -15,18 +15,18 @@ interface MdItemComponentProps {
 export const SiteLayout: Component<MdItemComponentProps> = (props) => {
 	const uiState:any = useContext(UiContext);
 
-	const compTop=lazy(()=>MfCache.loadComponent(uiState.top.module, uiState.top.component))
-
 	return () => {
 		return (
 		<div class={styles.body_wrapper}>
 			<div class={styles.full_height}>
 				<div class={styles.top_pane_wrapper}>
+					ok1
 					<If when={uiState.top}>
-						<DynamicLazy props={uiState.top} />
+						ok2
+						<DynamicLazy {...uiState.top} />
 					</If>
 				</div>
-				 <MenuLayout  />
+				 {/* <MenuLayout  /> */}
 				{/* <div>
 					<If when={compBottom}>
 						<Dynamic component={compBottom} />

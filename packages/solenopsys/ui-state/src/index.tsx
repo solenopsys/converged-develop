@@ -1,4 +1,4 @@
-import { createContext, useContext,loadModule } from "@solenopsys/converged-renderer";
+import { createContext, useContext,loadModule, load} from "@solenopsys/converged-renderer";
 import { store, effect, } from "@solenopsys/converged-reactive";
 
 
@@ -9,21 +9,18 @@ effect(() => {
 });
 
 const UiContext = createContext<any>(uiState);
-
 const fc = useContext(UiContext);
-
-
 
 async function init(entry: any) {
 	const moduleName = entry.layout.module;
 	const mod = await loadModule(moduleName);
 	console.log("LAYOUT", entry);
-	mod.createLayout("layout",  MfCache.loadModule, entry.layout, entry.routes);
+	mod.createLayout("layout", loadModule, entry.layout, entry.routes);
 
-	await MfCache.load("@solenopsys/mf-landing");
+	await load("@solenopsys/mf-landing");
 
 	fc.center = "center";
 	fc.centerData = {};
 }
 
-export { init,  MfCache, UiContext };
+export { init,   UiContext };
