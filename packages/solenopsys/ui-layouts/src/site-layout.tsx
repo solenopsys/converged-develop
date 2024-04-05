@@ -12,7 +12,7 @@ interface MdItemComponentProps {
 	components: { [name: string]: Component };
 }
 
-export const SiteLayout: Component<MdItemComponentProps> = (props) => {
+export const SiteLayout: Component<MdItemComponentProps> = () => {
 	const uiState:any = useContext(UiContext);
 
 	return () => {
@@ -25,11 +25,11 @@ export const SiteLayout: Component<MdItemComponentProps> = (props) => {
 					</If>
 				</div>
 				 <MenuLayout  />
-				{/* <div>
+				 <div>
 					<If when={compBottom}>
-						<Dynamic component={compBottom} />
+						<DynamicLazy component={compBottom} />
 					</If>
-				</div>  */}
+				</div>  
 			</div>
 		</div>)
 	};

@@ -1,11 +1,12 @@
 {
   "dependencies": {
-    "@solenopsys/converged-router": "latest",
-    "@solenopsys/converged-style": "latest",
     "@solenopsys/converged-reactive": "latest",
     "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-router": "latest",
+    "@solenopsys/converged-style": "latest",
     "form-data": "^4.0.0",
-    "ipfs-http-client": "^60.0.1"
+    "ipfs-http-client": "^60.0.1",
+    "lightningcss": "^1.24.1"
   },
   "name": "ft-converged-build",
   "module": "index.ts",
@@ -19,15 +20,12 @@
   },
   "scripts": {
     "serve": "bun ./src/serve.ts",
-
     "clear": "rm -rf ../distp",
-    "build-prod":"bun ./src/build-prod.ts",
-    "build-bs":"bun ./src/build-bs.ts",
-    "acopy":"cp -r ../configuration/images ../distp/images",
+    "build-prod": "bun ./src/build-prod.ts",
+    "build-bs": "bun ./src/build-bs.ts",
+    "acopy": "cp -r ../configuration/images ../distp/images",
     "pub": "xs publish dir ../distp ",
-    "build-all":"bun clear && bun build-prod && bun build-bs && bun acopy && bun pub",
+    "build-all": "bun clear && bun build-prod && bun build-bs && bun acopy && bun pub",
     "name": "xs publish name solenopsys.org"
-   
-
   }
 }

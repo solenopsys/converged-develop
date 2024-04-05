@@ -5,9 +5,7 @@ import {
 	KeepAlive,
 	createContext,
 	useContext,
-	LazyFetcher,
-	load,
-	MICROFRONTENDS_CACHE
+	LazyFetcher
 } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
 import { UiTopPane } from "@solenopsys/ui-navigate";
@@ -15,13 +13,9 @@ import { SiteLayout } from "@solenopsys/ui-layouts";
 import { useNavigate, Router } from "@solenopsys/converged-router";
 import {  UiContext } from "@solenopsys/ui-state";
 
-
-
 interface Props {
 	 [path: string]: any ;
-	
 }
-
 
 function navigateToTab(navigate: any) {
 	return Object.keys(navigate).map((key: string) => {
@@ -46,10 +40,11 @@ export const Site: Component<Props> = (props) => {
 		const rt = props.routes[tabId];
 		const importPath = rt.module;
 
+	
+		// нужно взять из  загруженного модуля
+
 		uiState.leftData = rt.data;
 		uiState.centerData = rt.data;
-
-		load(importPath);
 
 		uiState.center = "center";
 		uiState.left = "left";
