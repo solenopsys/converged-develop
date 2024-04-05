@@ -34,7 +34,7 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
 							// tabClick={(event) => props.tabSelect(event)}
 							selected={props.tabs.selected}
 							tabs={props.tabs.tabs}
-							// tabClick={tabs().tabClick}
+							 tabClick={props.tabs.tabClick}
 						/>
 					</div>
 				</If>

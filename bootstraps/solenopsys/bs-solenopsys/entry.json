@@ -1,12 +1,12 @@
 {
-	"entry": "@solenopsys/lt-website",
+	"module": "@solenopsys/lt-website",
 	"state": {
 		"ui": {
 			"top": "@solenopsys/ui-navigate:UiTopPane",
 			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
 		},
 		"page": {
-			"favicon": "/assets/favicon.svg",
+			"favicon": "/images/favicon.svg",
 			"title": "Solenopsys vc",
 			"logo": "/images/logo.svg"
 		},
@@ -23,11 +23,11 @@
 				},
 				{
 					"id": "/robotization",
-					"title": "Robotization1"
+					"title": "Robotization"
 				},
 				{
 					"id": "/consepts",
-					"title": "Сoncepts"
+					"title": "Concepts"
 				},
 				{
 					"id": "/technologies",

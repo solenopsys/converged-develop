@@ -1,26 +1,29 @@
-import { createContext, useContext,loadModule, load} from "@solenopsys/converged-renderer";
-import { store, effect, } from "@solenopsys/converged-reactive";
+import $, { store } from "@solenopsys/converged-reactive";
+import { createContext, loadModule } from "@solenopsys/converged-renderer";
+import { UiEvents } from "@solenopsys/converged-renderer";
 
 
-const uiState = store({});
+let UiContext
 
-effect(() => {
-	console.log("UI STATE", uiState);
-});
 
-const UiContext = createContext<any>(uiState);
-const fc = useContext(UiContext);
 
-async function init(entry: any) {
-	const moduleName = entry.layout.module;
-	const mod = await loadModule(moduleName);
-	console.log("LAYOUT", entry);
-	mod.createLayout("layout", loadModule, entry.layout, entry.routes);
-
-	await load("@solenopsys/mf-landing");
-
-	fc.center = "center";
-	fc.centerData = {};
+type ConfigEntry={
+	module:string;
+	state:any;
 }
 
-export { init,   UiContext };
+async function init(entry: ConfigEntry) {
+	const moduleName = entry.module;
+	const mod = await loadModule(moduleName);
+	const uiState = store(entry.state);
+	UiContext = createContext<any>(uiState);
+	
+	mod.createLayout("layout", loadModule, entry.state);
+
+
+
+//	await load("@solenopsys/mf-landing");
+}
+
+export { UiContext, init };
+

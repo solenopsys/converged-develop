@@ -25,7 +25,6 @@ export const UiTabs: TabsComponent = (props: TabsProps) => {
 	const selected = $<string | undefined>(props.selected);
 	const tabs = $(props.tabs);
 	const tabClickHandler = (tabId: string) => {
-		console.log("TABS CLICK", tabId);
 		selected(tabId);
 		if (props.tabClick) {
 			props.tabClick(tabId);

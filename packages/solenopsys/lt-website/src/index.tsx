@@ -2,23 +2,33 @@ import { lazy, render } from "@solenopsys/converged-renderer";
 
 import { Site } from "./layout/site";
 import { Router } from "@solenopsys/converged-router";
+import { UiEvents } from "@solenopsys/converged-renderer";
 
+function setPageTitle(title:string){
+	document.title=title
+}
 
+function setFavicon(href:string){
+	const link=document.querySelector("link[rel*='shortcut icon']") as HTMLAnchorElement | null
+	if(link !== null){
+		link.href=href
+	}
+}
 
 export const createLayout = (
 	tagId: string,
 	loadModule: (name: string) => {},
-	conf: any,
-	routes: any,
+	conf: any
 ) => {
-
+	UiEvents({type:"LayoutInit",tag:tagId})
+	setPageTitle(conf.page.title)
+	setFavicon(conf.page.favicon)
 	
 	// @ts-ignore
 	render(() => {
 		return (
 			<Router>
-				{" "}
-				<Site  {...conf.props}  />
+				<Site  {...conf}  />
 			</Router>
 		);
 	}, document.getElementById(tagId));
