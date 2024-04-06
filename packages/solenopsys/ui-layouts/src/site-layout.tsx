@@ -1,5 +1,6 @@
 import { Component, DynamicLazy, If,useContext,lazy } from "@solenopsys/converged-renderer";
 import { UiContext,MfCache } from "@solenopsys/ui-state";
+import { Router } from "@solenopsys/converged-router";
 
 // @ts-ignore
 import styles from "./styles/site-layout.module.css";
@@ -17,6 +18,7 @@ export const SiteLayout: Component<MdItemComponentProps> = () => {
 
 	return () => {
 		return (
+			<Router>
 		<div class={styles.body_wrapper}>
 			<div class={styles.full_height}>
 				<div class={styles.top_pane_wrapper}>
@@ -31,6 +33,6 @@ export const SiteLayout: Component<MdItemComponentProps> = () => {
 					</If>
 				</div>  
 			</div>
-		</div>)
+		</div></Router>)
 	};
 };

@@ -1,9 +1,9 @@
 {
   "type": "module",
   "dependencies": {
-    "@solenopsys/converged-renderer": "workspace:libraries/solenopsys/converged-renderer",
-    "@solenopsys/converged-reactive": "workspace:libraries/solenopsys/converged-reactive",
-    "@solenopsys/converged-router": "workspace:libraries/solenopsys/converged-router",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-router": "latest",
     "@types/bun": "^1.0.10",
     "browser-resolve": "^2.0.0",
     "typescript": "^5.0.0"
