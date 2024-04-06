@@ -26,9 +26,11 @@ async function compileModules() {
 		const clearDir = dir.replace(".", "");
 
 		console.log("COMPILE", dir);
-		await compileModule("./", clearDir, PRO_DIST, true);
+		await compileModule("./", clearDir, PRO_DIST, true,"src/index.tsx");
 	}
 }
+
+
 
 async function injectHash(fullDistDir: string) {
 	const js = `${fullDistDir}/index.js`;
