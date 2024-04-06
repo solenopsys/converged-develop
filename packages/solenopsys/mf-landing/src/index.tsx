@@ -7,3 +7,6 @@ export const createMicrofronend = async () => {
 	
 	};
 };
+
+export	 {HwLanding}
+

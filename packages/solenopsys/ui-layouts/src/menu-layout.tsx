@@ -28,7 +28,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 					>
 						<div class={styles.main_menu_wrapper}>
 							<If when={uiState.left }>
-								ok11
+		
 								<DynamicLazy {...uiState.left} />
 							</If>
 						</div>
@@ -36,7 +36,7 @@ export const MenuLayout: Component<any> = (props: any) => {
 				</div>
 				<div class={styles.main_content}>
 					<If when={uiState.center }>
-						ok21
+				
 						<DynamicLazy {...uiState.center} />
 					</If>
 				</div>

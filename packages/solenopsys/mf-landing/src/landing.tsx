@@ -7,12 +7,16 @@ const frameworks = [
 		description: "Ui framework",
 	},
 	{
-		name: "ShowckWaves",
+		name: "ShockWaves",
 		description: "Distributed computing framework",
 	},
 	{
 		name: "Combinatorics",
 		description: "Industrial framework",
+	},
+	{
+		name: "Robotization",
+		description: "DeFi platform for startups",
 	},
 	{
 		name: "Matrix",

@@ -24,7 +24,7 @@ export const SiteLayout: Component<MdItemComponentProps> = () => {
 						<DynamicLazy {...uiState.top} />
 					</If>
 				</div>
-				 {/* <MenuLayout  /> */}
+				 <MenuLayout  /> 
 				 <div>
 					<If when={uiState.bottom}>
 						<DynamicLazy  {...uiState.bottom} />

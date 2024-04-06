@@ -1,26 +1,23 @@
-import { UiTreeMenu } from "@solenopsys/ui-navigate";
 import {
-	usePromise,
-	useResolved,
-	If,
-	Component,useContext
+	Component, useContext,
+	usePromise
 } from "@solenopsys/converged-renderer";
-import $ from "@solenopsys/converged-reactive";
 import { useNavigate } from "@solenopsys/converged-router";
+import { UiTreeMenu } from "@solenopsys/ui-navigate";
 import { UiContext } from "@solenopsys/ui-state";
 
 import { GROUP_SERVICE } from "./menuservice";
 
-export const ContentMenu: Component<any> = (props: any) => {
+export const MainMenu: Component<any> = (props: any) => {
     const uiState:any = useContext(UiContext);
     const navigate = useNavigate();
 	const onClickLink = (link: string) =>{
-        console.log("LINK1", link);
+    
         navigate(link)
 
        const id = GROUP_SERVICE.urlToId(link);
-       console.log("ID",uiState);
-       uiState.centerData={ipfs:id};
+ 
+       uiState.center.props={ipfs:id};
     } 
 
 	const menuResource = usePromise(GROUP_SERVICE.loadMenu(props.ipfs));
