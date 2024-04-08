@@ -1,4 +1,4 @@
-import { Component, For } from "@solenopsys/converged-renderer";
+import { Component, For, If } from "@solenopsys/converged-renderer";
 
 type FrameworProps = {
 	name: string;
@@ -12,6 +12,13 @@ export const Framework = (props: FrameworProps) => {
 			<div >
 				<p>{props.description}</p>
 			</div>
+
+			<If when={props.link}>
+				<div class="font-size-3">
+					<a href={props.link}>Learn more...</a>
+				</div>
+
+			</If>
 		</div>
 	);
 };

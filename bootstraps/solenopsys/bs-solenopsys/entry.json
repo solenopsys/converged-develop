@@ -33,7 +33,8 @@
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
 					"data": {}
-				}
+				},
+				"left": null
 			},
 			"/robotization": {
 				"center": {

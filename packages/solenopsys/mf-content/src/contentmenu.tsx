@@ -2,18 +2,28 @@ import {
 	Component, useContext,
 	usePromise
 } from "@solenopsys/converged-renderer";
-import { useNavigate } from "@solenopsys/converged-router";
+
 import { UiTreeMenu } from "@solenopsys/ui-navigate";
 import { UiContext } from "@solenopsys/ui-state";
 
 import { GROUP_SERVICE } from "./menuservice";
 
+
+
 export const MainMenu: Component<any> = (props: any) => {
     const uiState:any = useContext(UiContext);
-    const navigate = useNavigate();
+
 	const onClickLink = (link: string) =>{
     
-        navigate(link)
+      //  navigate(link)
+
+	  // change location wisoute reload page
+
+	   
+		//window.location.href=link
+		history.pushState({}, '', link);
+
+
 
        const id = GROUP_SERVICE.urlToId(link);
  
