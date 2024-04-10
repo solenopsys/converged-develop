@@ -1,5 +1,5 @@
 import $ from "@solenopsys/converged-reactive";
-import type { Component } from "@solenopsys/converged-renderer";
+import { If, type Component } from "@solenopsys/converged-renderer";
 // @ts-ignore
 import styles from "./styles/tree-menu.module.css";
 
@@ -10,6 +10,7 @@ export type MenuItemData = {
 	link: string;
 	icon?: string;
 	items?: MenuItemData[];
+	onClickLink: (link: string) => void;
 };
 
 type MenuProps<P = {}> = P & {
@@ -36,32 +37,40 @@ export const UiTreeMenu: MenuComponent = (props: ItemProps) => {
 type ItemProps<P = {}> = P & {
 	collapsed?: boolean;
 	data: MenuItemData[];
-	onClickLink: (link: string) => void;
+
 };
 
 type ParentComponent<P = {}> = Component<ItemProps<P>>;
 
+const MenuItem: ParentComponent<MenuItemData> = (props: MenuItemData) => {
+	const collapsed = $<boolean>(true);
+	return () => (
+		<div class={styles.item}>
+			<a
+				class={styles.link}
+				onClick={(event) => {
+					collapsed(!collapsed());
+					event.preventDefault();
+					props.onClickLink(props.link);
+				}}
+				href={`${props.link}/`}>
+				{props.name}
+			</a>
+
+			<If when={!collapsed()}>
+				<div class={styles.sub_item}>
+					<MenuItemGroup data={props.items} onClickLink={props.onClickLink} />
+				</div>
+			</If>
+		</div>
+	);
+};
+
 const MenuItemGroup: ParentComponent<ItemProps> = (props: ItemProps) => {
-	const collapsed = $<boolean>(props.collapsed ?? false);
 	return () => (
 		<>
 			{props.data.map((item) => (
-				<div class={styles.item}>
-					<a
-						class={styles.link}
-						onClick={(event) => {
-							event.preventDefault();
-							props.onClickLink(item.link);
-						}}
-						href={`${item.link}/`}
-					>
-						{item.name}
-					</a>
-
-					<div class={styles.sub_item}>
-						<MenuItemGroup data={item.items} onClickLink={props.onClickLink} />
-					</div>
-				</div>
+				<MenuItem {...item} onClickLink={props.onClickLink} />
 			))}
 		</>
 	);

@@ -15,5 +15,7 @@ export async function cascadeFetch(menuId: string) {
 		articlesData.push(articleData);
 	}
 
+	//console.log("ARTICLES", JSON.stringify(articlesData) );
+
 	return articlesData;
 }

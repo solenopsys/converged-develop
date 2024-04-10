@@ -29,4 +29,9 @@
         margin-left: 270px;
         padding-top: 60px
     }
+
+    .scrollable {
+        overflow-y: auto;
+        height: 100vh;
+    }
 }

@@ -18,6 +18,10 @@
 					"title": "Main"
 				},
 				{
+					"id": "/technology",
+					"title": "Technology"
+				},
+				{
 					"id": "/solenopsys",
 					"title": "Solenopsys"
 				},
@@ -35,6 +39,20 @@
 					"data": {}
 				},
 				"left": null
+			},
+			"/technology": {
+				"center": {
+					"component": "@solenopsys/mf-content:MdDynamic",
+					"props": {
+						"ipfs": "bafyreie2kiid3xmyx4rqag4mipbe7ihjj4indb4avimge3obqrspujbdcq"
+					}
+				},
+				"left": {
+					"component": "@solenopsys/mf-content:MainMenu",
+					"props": {
+						"ipfs": "bafyreie2kiid3xmyx4rqag4mipbe7ihjj4indb4avimge3obqrspujbdcq"
+					}
+				}
 			},
 			"/robotization": {
 				"center": {

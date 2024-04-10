@@ -5,23 +5,23 @@ const frameworks = [
 	{
 		name: "Converged",
 		description: "Ui framework",
-		link: "/technologies/converged",
+		link: "/technology/converged",
 	},
 	{
-		name: "ShockWaves",
-		description: "Distributed computing framework",
-		link: "/technologies/shockwaves",
+		name: "Detonation",
+		description: "Computing framework",
+		link: "/technology/detonation",
 	},
 	{
 		name: "Combinatorics",
 		description: "Industrial framework",
-		link: "/technologies/combinatorics",
+		link: "/technology/combinatorics",
 	},
 	{
-		name: "Matrix",
-		description: "Code driven rules system",
-		link: "/technologies/matrix",
+		name: "Graphene",
+		description: "Archeture framework",
 	},
+
 ];
 
 
@@ -35,11 +35,12 @@ const ecosistem = [
 		name: "Robotization",
 		description: "DeFi platform for startups",
 	},
-
 	{
-		name: "Graphene",
-		description: "Decentralized, colabarative R&D infrastructure",
+		name: "Matrix",
+		description: "Code driven rules system",
+		link: "/technologies/matrix",
 	},
+
 ];
 
 export const HwLanding: Component = (conf: any) => {

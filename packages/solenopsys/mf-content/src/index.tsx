@@ -7,8 +7,7 @@ export const createMicrofronend = async () => {
 	
 	
 	return {
-		center: MdDynamic,
-		left:MainMenu
+	
 	};
 };
 

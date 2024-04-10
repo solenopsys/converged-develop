@@ -3,6 +3,7 @@ import { Component, For, If } from "@solenopsys/converged-renderer";
 type FrameworProps = {
 	name: string;
 	description: string;
+	link?: string;
 };
 
 export const Framework = (props: FrameworProps) => {

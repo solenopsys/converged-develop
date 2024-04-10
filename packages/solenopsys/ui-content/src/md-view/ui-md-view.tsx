@@ -5,6 +5,7 @@ import styles from "./ui-md-view.module.css";
 
 
 interface MdItemComponentProps {
+  key: string;
   data: {
     type: string;
     children: MdItemComponentProps[];
@@ -16,7 +17,8 @@ interface MdItemComponentProps {
 export const MdView: Component<MdItemComponentProps> = (props) => {
   console.log("MDVIEW",props)
   return (<div class={styles.mdview}>
-    <MdBlock data={props.data[0]} > </MdBlock>
+    <a ancor={props.key}>{props.key}</a>
+    <MdBlock data={props.data} > </MdBlock>
   </div>
     
   );

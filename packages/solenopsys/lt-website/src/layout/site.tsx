@@ -26,6 +26,7 @@ export const Site: Component<Props> = (props) => {
 		() => {
 			const event = UiEvents()
 			if (event.type === "navigate") {
+				console.log("NAVIGATE", event)
 				navigate(`${event.tab}`)
 
 				 const rt = props.routes[event.tab];
@@ -35,7 +36,7 @@ export const Site: Component<Props> = (props) => {
 				
 			
 				for (const key in rt) {
-					
+					console.log("KEY", key)
 					uiState[key] = rt[key];
 				}
 			}

@@ -58,9 +58,10 @@ export class GroupService {
 	}
 
 	transform(tree: any, path: string): MenuIpfsItem {
+		const ancor = tree["ancor"];
 		const pathFragment = tree["path"];
-		if (pathFragment) path = path + "/" + pathFragment;
-		this.idMap[path + "/."] = tree.cid;
+		if (pathFragment) path = path + (ancor ? "#" : "/") + pathFragment;
+		this.idMap[path +  (ancor ? "" : "/.")] = tree.cid;
 		const children = tree["children"]?.map((child: any) =>
 			this.transform(child, path),
 		);
