@@ -10,6 +10,7 @@ type MenuIpfsItem = {
 
 export class GroupService {
 	public menuCache: { [key: string]: MenuIpfsItem } = {};
+	public ancors : { [cid: string]: string } = {};
 	idMap: { [key: string]: string } = {};
 
 	constructor() {}
@@ -58,7 +59,13 @@ export class GroupService {
 	}
 
 	transform(tree: any, path: string): MenuIpfsItem {
+		
 		const ancor = tree["ancor"];
+		if(ancor){
+			const articleCid=tree["articles"][0];
+			const ancorKey=tree["path"];
+			this.ancors[articleCid] = ancorKey;
+		}
 		const pathFragment = tree["path"];
 		if (pathFragment) path = path + (ancor ? "#" : "/") + pathFragment;
 		this.idMap[path +  (ancor ? "" : "/.")] = tree.cid;
