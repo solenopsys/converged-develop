@@ -100,9 +100,20 @@ function startServer(
 		return await remoteResponse(REMOTE_HOST_PINNING, req.path);
 	};
 
+	hendlers["/images/*"] = async (req: { path: string }) => {
+		console.log("IMAGES", req.path)
+		return await fileResponse("./configuration" + req.path);
+	};
+
 	hendlers["*/"] = async (req: { path: string }) => {
 		return await indexResponse(join(rootDir, CONF_DIR), join(rootDir, bsDir));
 	};
+
+	hendlers["*/*"] = async (req: { path: string }) => {
+		return await indexResponse(join(rootDir, CONF_DIR), join(rootDir, bsDir));
+	};
+
+
 
 	const server = Bun.serve({
 		port: port,
