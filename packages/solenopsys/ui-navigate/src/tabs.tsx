@@ -33,16 +33,20 @@ export const UiTabs: TabsComponent = (props: TabsProps) => {
 
 	return () => {
 		return (
-			<div style={{ display: "flex" }}>
+			<div style={{ display: "flex" }} >
 				{tabs()?.map((tab: Tab) => (
+					<div 		class={styles.shadow_transition}>
 					<div
 						onClick={() => tabClickHandler(tab.id)}
 						class={{
 							[tabStyleClass]: true,
 							[selectedClass]: selected() === tab.id,
 						}}
+
+				
 					>
 						{tab.title}
+					</div>
 					</div>
 				))}
 			</div>

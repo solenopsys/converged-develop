@@ -44,9 +44,7 @@ const MdBlock: Component<MdItemComponentProps> = (props) => {
       return  props.data.value;
     case "strong":
       return (
-        <b>
-          <div>{MsgRef()}</div>
-        </b>
+        <b>{MsgRef()}</b>
       );
     case "heading":
       const depth = props.data.params?.depth || 0;
@@ -65,15 +63,16 @@ const MdBlock: Component<MdItemComponentProps> = (props) => {
      
     case "list":
       return (
-        <ul>
-          <div>{MsgRef()}</div>
-        </ul>
+        <ul>{MsgRef()}</ul>
       );
     case "listItem":
       return (
-        <li>
-          <div>{MsgRef()}</div>
-        </li>
+        <li>{MsgRef()}</li>
+      );
+
+    case "image":
+      return (
+        <img src={props.data.value} width={props.data.params?.width} />
       );
     case "table":
       return (

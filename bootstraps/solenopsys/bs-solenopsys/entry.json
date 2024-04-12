@@ -44,13 +44,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreie2kiid3xmyx4rqag4mipbe7ihjj4indb4avimge3obqrspujbdcq"
+						"ipfs": "bafyreiheapningsvtuyocxjkpeu7sgynxxjbgvbytgxsztlbb7bfpkfa2i"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreie2kiid3xmyx4rqag4mipbe7ihjj4indb4avimge3obqrspujbdcq"
+						"ipfs": "bafyreiheapningsvtuyocxjkpeu7sgynxxjbgvbytgxsztlbb7bfpkfa2i"
 					}
 				}
 			},
@@ -58,13 +58,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
+						"ipfs": "bafyreihllretkm4vrmdlsaonvumutabwdbfa6oa5epmo7wbqhmf6hd5rgq"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreiali66aezubcw6qj5m6mrrctih4p7wrgvqe4arooh4rbctfhpwnf4"
+						"ipfs": "bafyreihllretkm4vrmdlsaonvumutabwdbfa6oa5epmo7wbqhmf6hd5rgq"
 					}
 				}
 			},
@@ -72,13 +72,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreif3iw7smjolcgwucw3bgy3s2mbpg4edjj2wlsdjc3quchmwcadtd4"
+						"ipfs": "bafyreicuqybvzu56wvdjgsmqdpprj4aahhksczy5siw767cx5s2mji6rju"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreif3iw7smjolcgwucw3bgy3s2mbpg4edjj2wlsdjc3quchmwcadtd4"
+						"ipfs": "bafyreicuqybvzu56wvdjgsmqdpprj4aahhksczy5siw767cx5s2mji6rju"
 					}
 				}
 			}

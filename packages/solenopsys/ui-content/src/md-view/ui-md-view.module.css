@@ -4,7 +4,6 @@
   margin-bottom: 10px;
 }
 
-
 .header2 {
   font-size: 20px;
   font-weight: bold;
@@ -17,7 +16,6 @@
   padding: 0;
 }
 
-
 .header4 {
   font-size: 14px;
   font-weight: 700;
@@ -27,14 +25,41 @@
 
 .paragraph {
   font-family: "Arial";
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   line-height: 23px;
   font-weight: 300;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
+  margin-top:5px;
+  margin-bottom: 10px;
 }
 
-.mdview{
+.mdview {
   max-width: 800px;
-  margin:40px;
+  margin: 40px;
 }
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li>.paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+td {
+  padding: 10px;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+

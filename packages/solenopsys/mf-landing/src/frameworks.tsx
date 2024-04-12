@@ -1,25 +1,34 @@
 import { Component, For, If } from "@solenopsys/converged-renderer";
+import styles from "./styles/frameworks.module.css";
 
 type FrameworProps = {
 	name: string;
 	description: string;
 	link?: string;
+	image?: string;
 };
 
 export const Framework = (props: FrameworProps) => {
 	return (
-		<div class="pd-10  border-2 shadow-lg rounded-md m-5 p-5 min-w-[200px] min-h-[100px]">
-			<h3>{props.name}</h3>
-			<div >
-				<p>{props.description}</p>
-			</div>
+		<div
+			class={` ${styles.shadow_transition} border-2 rounded-md min-w-[300px]  m-5  min-h-[100px]`}
+		>
+			<If when={props.image}>
+				<img src={props.image} width={300} class="rounded-t-md"  /> 
+			</If>
 
-			<If when={props.link}>
-				<div class="font-size-3">
-					<a href={props.link}>Learn more...</a>
+			<div class="p-7 ">
+				<b>{props.name}</b>
+				<div>
+					<p>{props.description}</p>
 				</div>
 
-			</If>
+				<If when={props.link}>
+					<div class="font-size-3">
+						<a href={props.link}>Learn more...</a>
+					</div>
+				</If>
+			</div>
 		</div>
 	);
 };
