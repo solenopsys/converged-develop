@@ -6,7 +6,8 @@ import {
 	DynamicLazy,
 	If,
 	useContext,
-	lazy, useMemo
+	lazy,
+	useMemo,
 } from "@solenopsys/converged-renderer";
 
 import { UiContext } from "@solenopsys/ui-state";
@@ -19,18 +20,16 @@ export const CenterComponent: Component<any> = (props: any) => {
 	return () => (
 		<div class={styles.main_content}>
 			<If when={uiState.center}>
-
-				<DynamicLazy component={uiState.center?.component} props={uiState.center?.props} />
+				<DynamicLazy
+					component={uiState.center?.component}
+					props={uiState.center?.props}
+				/>
 			</If>
 		</div>
-	)
-
-}
-
-
+	);
+};
 
 export const MenuLayout: Component<any> = (props: any) => {
-
 	console.log("MENU LAYOUT", props);
 	const uiState: any = useContext(UiContext);
 
@@ -39,25 +38,23 @@ export const MenuLayout: Component<any> = (props: any) => {
 	return () => {
 		console.log("MENU LAYOUT STATE2", uiState.center);
 
-
 		return (
-
 			<>
 				<div class={styles.left_block}>
 					<div
 						class={mobileMenu() ? styles.main_menu_mobile : styles.main_menu}
 					>
-						<div class={styles.main_menu_wrapper} >
-							<If when={uiState.left}>
+						<If when={uiState.left}>
+							<div class={styles.main_menu_wrapper}>
 								<div class={styles.scrollable}>
 									<DynamicLazy {...uiState.left} />
 								</div>
-							</If>
-						</div>
+							</div>
+						</If>
 					</div>
 				</div>
 				<CenterComponent />
-			</>)
-
+			</>
+		);
 	};
 };

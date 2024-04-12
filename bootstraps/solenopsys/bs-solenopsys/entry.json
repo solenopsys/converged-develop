@@ -44,13 +44,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreiheapningsvtuyocxjkpeu7sgynxxjbgvbytgxsztlbb7bfpkfa2i"
+						"ipfs": "bafyreielryynoqqyzttxww4pluor5vvgyiyo73dqthe5hvc3mj7uwpx2va"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreiheapningsvtuyocxjkpeu7sgynxxjbgvbytgxsztlbb7bfpkfa2i"
+						"ipfs": "bafyreielryynoqqyzttxww4pluor5vvgyiyo73dqthe5hvc3mj7uwpx2va"
 					}
 				}
 			},
@@ -58,13 +58,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreihllretkm4vrmdlsaonvumutabwdbfa6oa5epmo7wbqhmf6hd5rgq"
+						"ipfs": "bafyreifpf2scpaxig7ghvnvxrwogw6mtuii2il4ydqebvw3tgobor3cxju"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreihllretkm4vrmdlsaonvumutabwdbfa6oa5epmo7wbqhmf6hd5rgq"
+						"ipfs": "bafyreifpf2scpaxig7ghvnvxrwogw6mtuii2il4ydqebvw3tgobor3cxju"
 					}
 				}
 			},
@@ -72,13 +72,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreicuqybvzu56wvdjgsmqdpprj4aahhksczy5siw767cx5s2mji6rju"
+						"ipfs": "bafyreigi6eaoamr2pu4ut3ofrqj2aokxpxqnglddbn64hpaoi6z4dbdii4"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreicuqybvzu56wvdjgsmqdpprj4aahhksczy5siw767cx5s2mji6rju"
+						"ipfs": "bafyreigi6eaoamr2pu4ut3ofrqj2aokxpxqnglddbn64hpaoi6z4dbdii4"
 					}
 				}
 			}
