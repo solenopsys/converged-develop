@@ -13,21 +13,21 @@ export const MdDynamic: Component<Props> = (props: any) => {
 	const mdData = usePromise<any[]>(ftch);
 
 	return () => {
-		const state = mdData();
+		const state:any = mdData();
 		if (state.pending) return <div></div>;
 
-		
+		const articles=state.value.articles
 
-		const items:any[] = state.value;
-		console.log("IMTEM", items[0]);
+
+		console.log("IMTEM",);
 
 		return (
 			<div>
-				<For values={items}>
+				<For values={articles}>
 				 
-					{(value) =><div id={GROUP_SERVICE.ancors[value.cid]}>
+					{(article:any) =><div id={article.key}>
 					
-						<MdView  data={value} />
+						<MdView  data={article} />
 					</div>
 				
 					 }

@@ -15,6 +15,7 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-content": "/packages/solenopsys/ui-content",
 	"@solenopsys/ui-state": "/packages/solenopsys/ui-state",
 	"@solenopsys/lt-website": "/packages/solenopsys/lt-website",
+	"@solenopsys/ui-highlight": "/packages/solenopsys/ui-highlight",
 
 };
 
@@ -29,7 +30,8 @@ export const CORE_LIBS = [
 
 export const DEFAULT_EXTERNAL = [...CORE_LIBS];
 
-export const REMOTE_HOST = "http://solenopsys.org";
+const local=false
+export const REMOTE_HOST =local? "http://localhost:7777" :"http://solenopsys.org";
 export const REMOTE_HOST_PINNING = "http://pinning.solenopsys.org";
 
 export const REMOTE_PREFEIX = "https://zero.node.solenopsys.org/ipfs/";

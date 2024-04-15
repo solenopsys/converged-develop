@@ -18,7 +18,7 @@ export const CenterComponent: Component<any> = (props: any) => {
 	const uiState: any = useContext(UiContext);
 
 	return () => (
-		<div class={styles.main_content}>
+		<div class={styles.main_content} style={{ marginLeft: uiState.left ? "270px" : "20px" }}>
 			<If when={uiState.center}>
 				<DynamicLazy
 					component={uiState.center?.component}

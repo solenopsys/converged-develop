@@ -44,13 +44,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreidqtimgxssxqbzut7lmofeag4iqtn2jcwobiwcie3coq63jxjgtae"
+						"ipfs": "bafyreiegy3zwbucn3c2wl7t7rhsr43xu6pzgfk2b2plylcg7evngvfofla"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreidqtimgxssxqbzut7lmofeag4iqtn2jcwobiwcie3coq63jxjgtae"
+						"ipfs": "bafyreiewsemt6dsgrsm4w4zmy43lzta65ra75j7tch52ojjnq6o3vzh7sm"
 					}
 				}
 			},
@@ -58,13 +58,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreifpf2scpaxig7ghvnvxrwogw6mtuii2il4ydqebvw3tgobor3cxju"
+						"ipfs": "bafyreigztsshv4ql7c3tt2jvxm4ibx2kpgynoojczs5q7bga5viygptdlq"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreifpf2scpaxig7ghvnvxrwogw6mtuii2il4ydqebvw3tgobor3cxju"
+						"ipfs": "bafyreieedu2sj6fo73yo6xm4gv4zt3daglfyhbr424gn3nzedtzvqozyoe"
 					}
 				}
 			},
@@ -72,13 +72,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreigi6eaoamr2pu4ut3ofrqj2aokxpxqnglddbn64hpaoi6z4dbdii4"
+						"ipfs": "bafyreicbj53krv45c623bw42eehanjfpg2ga3fjst6rbhnjuwljyl3ufpm"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreigi6eaoamr2pu4ut3ofrqj2aokxpxqnglddbn64hpaoi6z4dbdii4"
+						"ipfs": "bafyreifflffavxtfpdgdoo7ejxl26memep425rgtm4basefainujilizii"
 					}
 				}
 			}

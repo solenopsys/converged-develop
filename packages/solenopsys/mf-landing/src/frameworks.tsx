@@ -14,7 +14,7 @@ export const Framework = (props: FrameworProps) => {
 			class={` ${styles.shadow_transition} border-2 rounded-md min-w-[300px]  m-5  min-h-[100px]`}
 		>
 			<If when={props.image}>
-				<img src={props.image} width={300} class="rounded-t-md"  /> 
+				<img src={props.image} width={300} class="rounded-t-md" />
 			</If>
 
 			<div class="p-7 ">
@@ -36,10 +36,12 @@ export const Framework = (props: FrameworProps) => {
 export const FrameworksList = (props: { frameworks: FrameworProps[] }) => {
 	return () => {
 		return (
-			<div class="flex flex-row flex-wrap ">
-				{props.frameworks.map((movie: any) => (
-					<Framework {...movie} />
-				))}
+			<div class="content-center w-full">
+				<div class="flex flex-row flex-wrap ">
+					{props.frameworks.map((movie: any) => (
+						<Framework {...movie} />
+					))}
+				</div>
 			</div>
 		);
 	};

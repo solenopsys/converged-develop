@@ -34,10 +34,12 @@ export class GroupService {
 	}
 
 	public urlToId(url: string): string {
+	
 		let urlFixed = url === "/" ? "" : url;
 		if (!urlFixed.endsWith("/.")) {
 			urlFixed = urlFixed + "/.";
 		}
+		console.log("URL TO ID",  this.idMap[urlFixed]);
 		return this.idMap[urlFixed];
 	}
 
@@ -60,15 +62,11 @@ export class GroupService {
 
 	transform(tree: any, path: string): MenuIpfsItem {
 		
-		const ancor = tree["ancor"];
-		if(ancor){
-			const articleCid=tree["articles"][0];
-			const ancorKey=tree["path"];
-			this.ancors[articleCid] = ancorKey;
-		}
+		
 		const pathFragment = tree["path"];
-		if (pathFragment) path = path + (ancor ? "#" : "/") + pathFragment;
-		this.idMap[path +  (ancor ? "" : "/.")] = tree.cid;
+		if (pathFragment) path = path + "/" + pathFragment;
+		console.log("TREE ITEM", tree);
+		this.idMap[path +   "/."] = tree.group;
 		const children = tree["children"]?.map((child: any) =>
 			this.transform(child, path),
 		);

@@ -3,19 +3,10 @@ async function fetchArticle(id:string) {
 	return (await fetch(`/dag?key=md&cid=${id}`)).json();
 }
 
-export async function cascadeFetch(menuId: string) {
-	console.log("MENUID MD FETH", menuId);
+export async function cascadeFetch(groupId: string) {
+	console.log("GROUPID MD FETH", groupId);
 
-	const menuObj = await (await fetch(`/dag?key=object&cid=${menuId}`)).json();
-	const articlesIds = menuObj.articles;
+	
 
-	const articlesData = [];
-	for (const id of articlesIds) {
-		const articleData = await fetchArticle(id);
-		articlesData.push(articleData);
-	}
-
-	//console.log("ARTICLES", JSON.stringify(articlesData) );
-
-	return articlesData;
+	return await (await fetch(`/dag?key=group&cid=${groupId}`)).json();;
 }
