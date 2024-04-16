@@ -9,14 +9,16 @@ export const HwLanding: Component = (conf: any) => {
 	return () => (
 		<>
 			<Banner />
-			<div class="m-10">
-				<div>
-					<h2>Technologies</h2>
-					<FrameworksList frameworks={frameworks}></FrameworksList>
-				</div>
-				<div>
-					<h2>Ecosystem</h2>
-					<FrameworksList frameworks={ecosistem}></FrameworksList>
+			<div class="flex items-center justify-center ">
+				<div class="flex flex-col ">
+					<div>
+						<h2 class="text-center">Technologies</h2>
+						<FrameworksList frameworks={frameworks}></FrameworksList>
+					</div>
+					<div>
+						<h2 class="text-center">Ecosystem</h2>
+						<FrameworksList frameworks={ecosistem}></FrameworksList>
+					</div>
 				</div>
 			</div>
 		</>

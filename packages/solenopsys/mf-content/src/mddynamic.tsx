@@ -22,7 +22,7 @@ export const MdDynamic: Component<Props> = (props: any) => {
 		console.log("IMTEM",);
 
 		return (
-			<div>
+			<div class=" p-10">
 				<For values={articles}>
 				 
 					{(article:any) =><div id={article.key}>
