@@ -1,0 +1,9 @@
+.banner {
+    background-image: url('/images/float2.png');
+    background-size: cover;
+    background-position: center;
+    border-image-width: auto;
+    height: 550px;
+    width: 100%;
+    margin-top: 45px;
+  }
