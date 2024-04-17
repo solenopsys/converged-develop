@@ -23,7 +23,7 @@
     "clear": "rm -rf ../distp",
     "build-prod": "bun ./src/build-prod.ts",
     "build-bs": "bun ./src/build-bs.ts",
-    "acopy": "cp -r ../configuration/images ../distp/images",
+    "acopy": "cp -r ../configuration/images ../distp && cp -r ../configuration/assets ../distp",
     "pub": "xs publish dir ../distp ",
     "build-all": "bun clear && bun build-prod && bun build-bs && bun acopy && bun pub",
     "name": "xs publish name solenopsys.org"

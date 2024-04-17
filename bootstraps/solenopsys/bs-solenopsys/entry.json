@@ -50,7 +50,7 @@
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreiewsemt6dsgrsm4w4zmy43lzta65ra75j7tch52ojjnq6o3vzh7sm"
+						"ipfs": "bafyreiaux5r5hbv6gvgpa4jhnejea2og2mygorkxzrurdqln2mqwsdufmi"
 					}
 				}
 			},

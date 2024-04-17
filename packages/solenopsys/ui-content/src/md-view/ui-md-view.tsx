@@ -69,7 +69,7 @@ const MdBlock: Component<MdItemComponentProps> = (props) => {
 
 		case "image":
 			return (
-				<img
+				<img style="max-width: 800px"
 					src={"https://zero.node.solenopsys.org/ipfs/" + props.data.cid}
 					alt={props.data.alt}
 				/>
