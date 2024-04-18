@@ -12,14 +12,15 @@ import {
 
 import { UiContext } from "@solenopsys/ui-state";
 
-import { Router } from "@solenopsys/converged-router";
+
+
 
 export const CenterComponent: Component<any> = (props: any) => {
 	const uiState: any = useContext(UiContext);
 
 	return () => (
-		<div class={styles.main_content} style={{ marginLeft: uiState.left ? "270px" : "0px" }}>
-			<If when={uiState.center}>
+		<div class={uiState.left? styles.main_content_wm:styles.main_content} >
+			<If when={ uiState.center}>
 				<DynamicLazy
 					component={uiState.center?.component}
 					props={uiState.center?.props}

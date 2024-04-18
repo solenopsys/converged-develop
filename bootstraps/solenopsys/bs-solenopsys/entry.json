@@ -58,13 +58,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreigztsshv4ql7c3tt2jvxm4ibx2kpgynoojczs5q7bga5viygptdlq"
+						"ipfs": "bafyreidnh7j7r5ipvx4gs6oschbmw6rq2tcriz72zn4cefzwxpyem47dca"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreieedu2sj6fo73yo6xm4gv4zt3daglfyhbr424gn3nzedtzvqozyoe"
+						"ipfs": "bafyreihqocczqpnyhracnfz3ny4j3o5jubfzbtodblas6lcms4ru4kf25a"
 					}
 				}
 			},

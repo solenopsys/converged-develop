@@ -36,10 +36,10 @@ export const Framework = (props: FrameworProps) => {
 export const FrameworksList = (props: { frameworks: FrameworProps[] }) => {
 	return () => {
 		return (
-			<div class="content-center w-full">
-				<div class="flex flex-row flex-wrap ">
-					{props.frameworks.map((movie: any) => (
-						<Framework {...movie} />
+			<div class="flex items-center justify-center">
+				<div class="flex flex-row flex-wrap  justify-center">
+					{props.frameworks.map((fw: any) => (
+						<Framework {...fw} />
 					))}
 				</div>
 			</div>
