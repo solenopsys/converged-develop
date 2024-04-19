@@ -1,7 +1,50 @@
 {
-    "layout": {
-        "module":  "@solenopsys/lt-website"
-    }
+	"module": "@solenopsys/lt-website",
+	"state": {
+		"ui": {
+			"top": "@solenopsys/ui-navigate:UiTopPane",
+			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
+		},
+		"page": {
+			"favicon": "/images/favicon.svg",
+			"title": "Robotization vc",
+			"logo": "/images/logo.svg"
+		},
+		"navigation": {
+			"selected": "/",
+			"tree": [
+				{
+					"id": "/",
+					"title": "Main"
+				},
+				{
+					"id": "/robotization",
+					"title": "Robotization"
+				}
+			]
+		},
+		"routes": {
+			"/": {
+				"center": {
+					"component": "@solenopsys/mf-landing:HwLanding",
+					"data": {}
+				},
+				"left": null
+			},
+			"/robotization": {
+				"center": {
+					"component": "@solenopsys/mf-content:MdDynamic",
+					"props": {
+						"ipfs": "bafyreidnh7j7r5ipvx4gs6oschbmw6rq2tcriz72zn4cefzwxpyem47dca"
+					}
+				},
+				"left": {
+					"component": "@solenopsys/mf-content:MainMenu",
+					"props": {
+						"ipfs": "bafyreihqocczqpnyhracnfz3ny4j3o5jubfzbtodblas6lcms4ru4kf25a"
+					}
+				}
+			}
+		}
+	}
 }
-
-

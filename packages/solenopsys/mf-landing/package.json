@@ -10,6 +10,7 @@
         "@solenopsys/converged-renderer": "latest",
         "@solenopsys/converged-style": "latest",
         "@solenopsys/converged-router": "latest",
+        "@solenopsys/ui-landing": "workspace:../ui-landing",
         "typescript": "^5.0.0"
     },
     "scripts": {

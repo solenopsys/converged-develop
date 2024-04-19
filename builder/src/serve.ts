@@ -84,6 +84,10 @@ function startServer(
 	hendlers["/dag*"] = async (req: { path: string }) => {
 		return await remoteResponse(REMOTE_HOST, req.path);
 	};
+
+	hendlers["/cached*"] = async (req: { path: string }) => {
+		return await remoteResponse(REMOTE_HOST, req.path);
+	};
 	hendlers["/ipfs*"] = async (req: { path: string }) => {
 		return await remoteResponse(REMOTE_HOST, req.path);
 	};

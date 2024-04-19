@@ -22,6 +22,7 @@
       "@solenopsys/ui-controls":["./packages/solenopsys/ui-controls"],
       "@solenopsys/ui-state":["./packages/solenopsys/ui-state"],
       "@solenopsys/ui-highlight":["./packages/solenopsys/ui-highlight"],
+      "@solenopsys/ui-landing":["./packages/solenopsys/ui-landing"],
   
     }
   },

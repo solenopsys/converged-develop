@@ -24,19 +24,16 @@
 				{
 					"id": "/solenopsys",
 					"title": "Solenopsys"
-				},
-				{
-					"id": "/robotization",
-					"title": "Robotization"
 				}
-		
 			]
 		},
 		"routes": {
 			"/": {
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
-					"data": {}
+					"props": {
+						"ipfs": "bafyreicxxcm6mkcigelu3dqppoh6aly3aj6y2pewf3rlogjssi4uknvp6m"
+					}
 				},
 				"left": null
 			},
@@ -44,27 +41,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreiegy3zwbucn3c2wl7t7rhsr43xu6pzgfk2b2plylcg7evngvfofla"
+						"ipfs": "bafyreiawvvl2pixk5ptfjpzvdewgqct2ipdl6y6lryhqqjtxqcnhu4cciu"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreiaux5r5hbv6gvgpa4jhnejea2og2mygorkxzrurdqln2mqwsdufmi"
-					}
-				}
-			},
-			"/robotization": {
-				"center": {
-					"component": "@solenopsys/mf-content:MdDynamic",
-					"props": {
-						"ipfs": "bafyreidnh7j7r5ipvx4gs6oschbmw6rq2tcriz72zn4cefzwxpyem47dca"
-					}
-				},
-				"left": {
-					"component": "@solenopsys/mf-content:MainMenu",
-					"props": {
-						"ipfs": "bafyreihqocczqpnyhracnfz3ny4j3o5jubfzbtodblas6lcms4ru4kf25a"
+						"ipfs": "bafyreidgpojvygao3pkllr7gugl5x7t3sef3zrpmzzwdbmovljzrptxf7q"
 					}
 				}
 			},
