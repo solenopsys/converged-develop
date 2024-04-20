@@ -3,8 +3,6 @@ import { Component, For, usePromise } from "@solenopsys/converged-renderer";
 import { MdView } from "@solenopsys/ui-content";
 import { cascadeFetch } from "./fetcher";
 
-
-
 interface Props {
 	menuId: string;
 }
@@ -35,11 +33,14 @@ export const MdDynamic: Component<Props> = (props: any) => {
 					</For>
 				</div>
 				<div class={styles.navList}>
-					<div class={styles.nav} >
+					<div class={styles.nav}>
 						<For values={articles}>
 							{(article: any) => (
 								<div id={article.key} class="p-1 font-size-3">
-									<a href={"#" + article.name} style="overflow-y: auto;"> {article.title}</a>
+									<a href={"#" + article.name} style="overflow-y: auto;">
+										{" "}
+										{article.title}
+									</a>
 								</div>
 							)}
 						</For>

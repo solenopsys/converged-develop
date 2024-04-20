@@ -36,9 +36,10 @@ export class GroupService {
 	public urlToId(url: string): string {
 	
 		let urlFixed = url === "/" ? "" : url;
-		if (!urlFixed.endsWith("/.")) {
-			urlFixed = urlFixed + "/.";
+		if (!urlFixed.endsWith(".")) {
+			urlFixed = urlFixed + ".";
 		}
+		console.log("FIXED", urlFixed);
 		console.log("URL TO ID",  this.idMap[urlFixed]);
 		return this.idMap[urlFixed];
 	}

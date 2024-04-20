@@ -28,6 +28,15 @@ export const Site: Component<Props> = (props) => {
 			if (event.type === "navigate") {
 				console.log("NAVIGATE", event)
 				navigate(`${event.tab}`)
+				
+
+				// wisout reload
+				//window.location.href=`${event.tab}`
+
+
+
+
+				
 
 				 const rt = props.routes[event.tab];
 				// const importPath = rt.module;
@@ -42,7 +51,9 @@ export const Site: Component<Props> = (props) => {
 			}
 		}
 	)
-	UiEvents({ type: "navigate", tab :props.navigation.selected})
+
+	
+//	UiEvents({ type: "navigate", tab :props.navigation.selected})
 	//navigate(props.navigation.selected)
 
 
@@ -51,7 +62,7 @@ export const Site: Component<Props> = (props) => {
 		{
 			logo: { image: props.page.logo },
 			tabs: {
-				selected: props.navigation.selected,
+				selected: window.location.pathname.split("/")[1],
 				tabs: props.navigation.tree.map((item: any) => ({ id: item.id, title: item.title })),
 				tabClick: (tab: any) => {
 					UiEvents({ type: "navigate", tab })

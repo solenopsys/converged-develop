@@ -51,7 +51,7 @@ const MenuItem: ParentComponent<MenuItemData> = (props: MenuItemData) => {
 				onClick={(event) => {
 					collapsed(!collapsed());
 					event.preventDefault();
-					props.onClickLink(props.link);
+					props.onClickLink(`${props.link}/`);
 				}}
 				href={`${props.link}/`}>
 				{props.name}

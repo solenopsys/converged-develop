@@ -18,11 +18,11 @@
 					"title": "Main"
 				},
 				{
-					"id": "/technology",
+					"id": "/technology/",
 					"title": "Technology"
 				},
 				{
-					"id": "/solenopsys",
+					"id": "/solenopsys/",
 					"title": "Solenopsys"
 				}
 			]
@@ -32,12 +32,12 @@
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
 					"props": {
-						"ipfs": "bafyreicxxcm6mkcigelu3dqppoh6aly3aj6y2pewf3rlogjssi4uknvp6m"
+						"ipfs": "bafyreiem4ua7r2ulj5dpwyjwakxpvitebr4kqqf2qxaorwmqlulmr4hm7q"
 					}
 				},
 				"left": null
 			},
-			"/technology": {
+			"/technology/": {
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
@@ -51,7 +51,7 @@
 					}
 				}
 			},
-			"/solenopsys": {
+			"/solenopsys/": {
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
