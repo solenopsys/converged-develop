@@ -8,8 +8,8 @@
     "@solenopsys/converged-renderer": "latest",
     "@solenopsys/converged-style": "latest",
     "@solenopsys/converged-router": "latest",
-    "@solenopsys/ui-content": "workspace:*",
-    "@solenopsys/ui-navigate": "workspace:*",
+    "@solenopsys/ui-content": "workspace:../ui-content",
+    "@solenopsys/ui-navigate": "workspace:../ui-navigate",
     "typescript": "^5.0.0"
   },
   "devDependencies": {

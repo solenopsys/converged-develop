@@ -1,6 +1,6 @@
 import { Component } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
-import styles from "./ui-md-view.module.css";
+import styles from "./styles/md-view.module.css";
 import { Highlight } from "@solenopsys/ui-highlight";
 
 interface MdItemComponentProps {

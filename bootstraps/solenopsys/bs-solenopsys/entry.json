@@ -2,7 +2,7 @@
 	"module": "@solenopsys/lt-website",
 	"state": {
 		"ui": {
-			"top": "@solenopsys/ui-navigate:UiTopPane",
+			"top": "@solenopsys/ui-navigate:UiRoutePane",
 			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
 		},
 		"page": {
@@ -13,10 +13,7 @@
 		"navigation": {
 			"selected": "/",
 			"tree": [
-				{
-					"id": "/",
-					"title": "Main"
-				},
+				
 				{
 					"id": "/technology/",
 					"title": "Technology"

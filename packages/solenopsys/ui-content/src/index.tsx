@@ -1,3 +1,3 @@
-export {MdView} from "./md-view/ui-md-view"
-
+export {MdView} from "./ui-md-view"
+export {MdArticle} from "./ui-article"
  

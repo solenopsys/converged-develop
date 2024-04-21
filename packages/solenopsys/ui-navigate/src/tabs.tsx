@@ -40,7 +40,7 @@ export const UiTabs: TabsComponent = (props: TabsProps) => {
 						onClick={() => tabClickHandler(tab.id)}
 						class={{
 							[tabStyleClass]: true,
-							[selectedClass]: selected() === tab.id,
+							[selectedClass]: selected()?.startsWith(tab.id) ,
 						}}
 
 				
