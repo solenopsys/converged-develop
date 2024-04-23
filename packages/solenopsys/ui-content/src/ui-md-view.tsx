@@ -29,8 +29,6 @@ const MdBlock: Component<MdItemComponentProps> = (props) => {
 		props.data?.children?.map((item, index) => <MdBlock data={item} />),
 	);
 
-
-
 	switch (props.data.type) {
 		case "root":
 			return <>{MsgRef()}</>;
@@ -58,18 +56,32 @@ const MdBlock: Component<MdItemComponentProps> = (props) => {
 		case "list":
 			return <ul>{MsgRef()}</ul>;
 
-    case "link":
-      return <a href="bla">{MsgRef()}</a>;
+		case "link":
+			console.log("LINK", props);
+			return <a href={props.data.value}>{MsgRef()}</a>;
 		case "code":
-			return <Highlight code={props.data.value} language={"typescript"} inline={false} />;
+			return (
+				<Highlight
+					code={props.data.value}
+					language={"typescript"}
+					inline={false}
+				/>
+			);
 		case "inlineCode":
-			return <Highlight code={props.data.value} language={"typescript"} inline={true} />;;
+			return (
+				<Highlight
+					code={props.data.value}
+					language={"typescript"}
+					inline={true}
+				/>
+			);
 		case "listItem":
 			return <li>{MsgRef()}</li>;
 
 		case "image":
 			return (
-				<img style="max-width: 800px"
+				<img
+					style="max-width: 800px"
 					src={"https://zero.node.solenopsys.org/ipfs/" + props.data.cid}
 					alt={props.data.alt}
 				/>

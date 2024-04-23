@@ -1,43 +1,39 @@
 import $ from "@solenopsys/converged-reactive";
-import { If, type Component } from "@solenopsys/converged-renderer";
+import { If, type Component,createContext } from "@solenopsys/converged-renderer";
 // @ts-ignore
 import styles from "./styles/tree-menu.module.css";
 
-type CID = string;
+type Click = {
+	onClickLink: (link: string) => void;
+};
 
 export type MenuItemData = {
 	name: string;
 	link: string;
 	icon?: string;
 	items?: MenuItemData[];
-	onClickLink: (link: string) => void;
-};
+	current?: string;
+} & Click;
 
-type MenuProps<P = {}> = P & {
+type MenuProps = {
 	data: MenuItemData;
-	onClickLink: (link: string) => void;
+} & Click;
+
+
+export const UiRoutedMenu: Component<MenuProps> = (props) => {
+	return <MenuItemGroup data={props.data} onClickLink={props.onClickLink} />;
 };
 
-type MenuComponent<P = {}> = Component<ItemProps<P>>;
+export const UiTreeMenu: Component<MenuProps> = (props) => {
+	// context current path
 
-export const UiTreeMenu: MenuComponent = (props: ItemProps) => {
-	console.log("MENU UiTreeMenu", props.data);
-
-	return (
-		<div>
-			<MenuItemGroup
-				data={props.data}
-				onClickLink={props.onClickLink}
-				baseUrl={props.baseUrl}
-			/>
-		</div>
-	);
+	const loacationContext = createContext ( 123 );
+	return <MenuItemGroup data={props.data} onClickLink={props.onClickLink} />;
 };
 
 type ItemProps<P = {}> = P & {
 	collapsed?: boolean;
 	data: MenuItemData[];
-
 };
 
 type ParentComponent<P = {}> = Component<ItemProps<P>>;
@@ -47,13 +43,14 @@ const MenuItem: ParentComponent<MenuItemData> = (props: MenuItemData) => {
 	return () => (
 		<div class={styles.item}>
 			<a
-				class={styles.link}
+				class={`${styles.link}`}
 				onClick={(event) => {
 					collapsed(!collapsed());
 					event.preventDefault();
-					props.onClickLink(`${props.link}/`);
+					props.onClickLink(props.link);
 				}}
-				href={`${props.link}/`}>
+				href={props.link}
+			>
 				{props.name}
 			</a>
 

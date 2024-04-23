@@ -24,6 +24,8 @@ export const MainMenu: Component<any> = (props: any) => {
 		//window.location.href=link
 
 		history.pushState({}, "", link);
+
+		// todo navigate
  
 
 		const id = GROUP_SERVICE.urlToId(base);

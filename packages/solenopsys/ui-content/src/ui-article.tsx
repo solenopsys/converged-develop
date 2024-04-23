@@ -42,4 +42,4 @@ export const MdArticle: Component<Props> = (props: any) => {
 			</div>
 		);
 	};
-}; //<MdView key={value?.cid} data={value} />;
+};

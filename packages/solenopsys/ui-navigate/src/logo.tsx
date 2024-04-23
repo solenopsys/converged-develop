@@ -11,8 +11,7 @@ export type LogoProps = {
 	alt: string;
 };
 
-export type LogoComponent = Component<LogoProps>;
 
-export const UiLogo: LogoComponent = (props: LogoProps) => {
-	return <img alt={props.alt} class={logo} src={props.image} />;
+export const UiLogo: Component<LogoProps> = (props: LogoProps) => {
+	return (<img alt={props.alt} class={logo} src={props.image} />);
 };

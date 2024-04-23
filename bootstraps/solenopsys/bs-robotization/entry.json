@@ -2,24 +2,21 @@
 	"module": "@solenopsys/lt-website",
 	"state": {
 		"ui": {
-			"top": "@solenopsys/ui-navigate:UiTopPane",
+			"top": "@solenopsys/ui-navigate:UiRoutePane",
 			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
 		},
 		"page": {
 			"favicon": "/images/favicon.svg",
 			"title": "Robotization vc",
-			"logo": "/images/logo.svg"
+			"logo": "/images/robotization.svg"
 		},
 		"navigation": {
 			"selected": "/",
 			"tree": [
+				
 				{
-					"id": "/",
-					"title": "Main"
-				},
-				{
-					"id": "/robotization",
-					"title": "Robotization"
+					"id": "/docs/",
+					"title": "Documentation"
 				}
 			]
 		},
@@ -27,21 +24,23 @@
 			"/": {
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
-					"data": {}
+					"props": {
+						"ipfs": "bafyreifoac3dutu2bxcswcjxp3rjr2srglrlcdbcnqztvcavxuuueilgr4"
+					}
 				},
 				"left": null
 			},
-			"/robotization": {
+			"/docs/": {
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreidnh7j7r5ipvx4gs6oschbmw6rq2tcriz72zn4cefzwxpyem47dca"
+						"ipfs": "bafyreibsepjg6jkm3z6ufylg6ycijxxksxyylkeq2tmrs5qzzauefc5she"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreihqocczqpnyhracnfz3ny4j3o5jubfzbtodblas6lcms4ru4kf25a"
+						"ipfs": "bafyreibsepjg6jkm3z6ufylg6ycijxxksxyylkeq2tmrs5qzzauefc5she"
 					}
 				}
 			}

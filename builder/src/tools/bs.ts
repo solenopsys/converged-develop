@@ -36,7 +36,7 @@ export async function genMap() {
 	const res:any={}
 	for (const dir of all) {
 		const items=dir.split("\/").reverse();
-		res["@solenopsys/"+items[0]]=`./${items[2]}/${items[1]}/${items[0]}/index.js`;
+		res["@solenopsys/"+items[0]]=`/${items[2]}/${items[1]}/${items[0]}/index.js`;
 	}
 	res["@solenopsys/converged-renderer/jsx-dev-runtime"]="/libraries/@solenopsys/converged-renderer/index.js";
 

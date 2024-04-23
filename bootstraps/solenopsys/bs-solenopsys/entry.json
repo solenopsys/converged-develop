@@ -8,7 +8,7 @@
 		"page": {
 			"favicon": "/images/favicon.svg",
 			"title": "Solenopsys vc",
-			"logo": "/images/logo.svg"
+			"logo": "/images/solenopsys.svg"
 		},
 		"navigation": {
 			"selected": "/",
@@ -29,7 +29,7 @@
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
 					"props": {
-						"ipfs": "bafyreiem4ua7r2ulj5dpwyjwakxpvitebr4kqqf2qxaorwmqlulmr4hm7q"
+						"ipfs": "bafyreiaes5c4w42jucnqwkcixbzrkylgsuuw6prgyle6b3emv45d2lqche"
 					}
 				},
 				"left": null
@@ -38,13 +38,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreiawvvl2pixk5ptfjpzvdewgqct2ipdl6y6lryhqqjtxqcnhu4cciu"
+						"ipfs": "bafyreiegy3zwbucn3c2wl7t7rhsr43xu6pzgfk2b2plylcg7evngvfofla"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreidgpojvygao3pkllr7gugl5x7t3sef3zrpmzzwdbmovljzrptxf7q"
+						"ipfs": "bafyreibhjcopyyb6uurgmbiquhj2ww32qy27l6mnrmyvllndnbterbjx3q"
 					}
 				}
 			},

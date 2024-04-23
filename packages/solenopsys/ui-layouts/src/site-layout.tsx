@@ -18,7 +18,7 @@ export const SiteLayout: Component<MdItemComponentProps> = () => {
 
 	return () => {
 		return (
-			<Router>
+			
 		<div class={styles.body_wrapper}>
 			<div class={styles.full_height}>
 				<div class={styles.top_pane_wrapper}>
@@ -33,6 +33,6 @@ export const SiteLayout: Component<MdItemComponentProps> = () => {
 					</If>
 				</div>  
 			</div>
-		</div></Router>)
+		</div>)
 	};
 };

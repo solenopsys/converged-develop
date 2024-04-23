@@ -1,17 +1,16 @@
-
 async function loadModule() {
-    console.log("LOAD MODULE");
-  }
-  
-  loadModule();
-
-import {init} from "@solenopsys/ui-state"
-
-function resFunc(res){
-        console.log("OK")
+	console.log("LOAD MODULE");
 }
 
-function errFunc(e){
-    console.log("ERR", e)
+loadModule();
+
+import { init } from "@solenopsys/ui-state";
+
+function resFunc(res) {
+	console.log("OK");
 }
-init(entry).then( resFunc).catch(errFunc)
+
+function errFunc(e) {
+	console.log("ERR", e);
+}
+init(entry).then(resFunc).catch(errFunc);

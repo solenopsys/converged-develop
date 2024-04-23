@@ -2,7 +2,7 @@
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 18px;
- 
+
 
     height: 29px;
     border-bottom: 4px;
@@ -13,9 +13,10 @@
     border-bottom-color: transparent;
     font-weight: normal;
     color: black;
-    user-select: none;          /* Likely future */
+    user-select: none;
+    /* Likely future */
 
-  
+
 }
 
 .tab_style:hover {
@@ -28,19 +29,19 @@
     font-weight: bold;
     color: rgb(16, 2, 2);
     border-bottom-color: rgb(247, 57, 57);
-      /* gradient from bottom to top */
-      background: linear-gradient(to top, #ffffff, #f3f3f3);
+    /* gradient from bottom to top */
+    background: linear-gradient(to top, #ffffff, #f3f3f3);
 }
 
 .shadow_transition {
     transition: box-shadow 0.2s ease-in-out;
     margin-right: 4px;
-    margin-top:-5px;
+    margin-top: -5px;
 }
 
 .shadow_transition:hover {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
     margin-right: 4px;
-    margin-top:-5px;
+    margin-top: -5px;
 
 }

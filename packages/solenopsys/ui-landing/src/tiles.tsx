@@ -48,7 +48,7 @@ export const TilesGroup = (props: TilesGroupProps) => {
 	return () => {
 		return (
 			<div>
-				<h2 class="text-center">Frameworks for Ecosystem</h2>
+				<h2 class="text-center">{props.title}</h2>
 
 				<div class="flex items-center justify-center">
 					<div class="flex flex-row flex-wrap  justify-center">

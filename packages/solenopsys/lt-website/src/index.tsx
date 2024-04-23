@@ -26,6 +26,8 @@ export const createLayout = (
 	
 	// @ts-ignore
 	render(() => {
+
+		console.log("ROUTER INIT")
 		return (
 			<Router>
 				<Site  {...conf}  />

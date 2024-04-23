@@ -54,6 +54,7 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
 
 import { useLocation } from "@solenopsys/converged-router";
 
+
 export const UiRoutePane: Component<RoutedPaneProps> = (props) => {
 	// $.effect(() => {
 	// 	const event = UiEvents();
@@ -65,19 +66,20 @@ export const UiRoutePane: Component<RoutedPaneProps> = (props) => {
 	// 	UiEvents({ type: "navigate", tab });
 	// }
 	return () => {
+	
 		const location = useLocation();
 		console.log("LOC", location);
 		const inProps: TopPaneProps = {
 			tabs: {
 				...props.tabs,
 				tabClick: (tab: any) => {
-					UiEvents({ type: "navigate", tab });
+					UiEvents({ type: "navigate", location:tab });
 				},
 				selected: location.pathname,
 			},
 			logo: props.logo,
 			logoClick: () => {
-				UiEvents({ type: "navigate", tab: "/" });
+				UiEvents({ type: "navigate", location: "/" });
 			},
 		};
 		return <UiTopPane {...inProps} />;
