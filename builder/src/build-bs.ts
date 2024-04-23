@@ -25,7 +25,10 @@ async function buildHtml(dirBs: string) {
 	return htmlContent;
 }
 
-buildHtml("./bootstraps/solenopsys/bs-solenopsys").then((ht) => {
+const name_parameter= process.argv[2];
+
+
+buildHtml("./bootstraps/solenopsys/"+name_parameter).then((ht) => {
 	//console.log("HTML", ht);
 	console.log("DONE");
 	const dir=`./${PRO_DIST}`

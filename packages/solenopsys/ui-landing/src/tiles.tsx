@@ -20,11 +20,14 @@ export const Tile = (props: TileProps) => {
 			class={` ${styles.shadow_transition} border-2 rounded-md min-w-[300px]  m-5  min-h-[100px]`}
 		>
 			<If when={props.image}>
-				<img src={getImageUrl(props.image)}  width={300} class="rounded-t-md" />
+				<img src={getImageUrl(props.image)}  width={300} class="rounded-t-md bottom-0" />
 			</If>
 
 			<div class="p-7 ">
-				<b>{props.name}</b>
+				<img src={getImageUrl(props.logo)}   />
+				<If when={!props.logo}>
+				 <b>{props.name}</b> 
+				 </If>
 				<div>
 					<p>{props.description}</p>
 				</div>
@@ -35,7 +38,8 @@ export const Tile = (props: TileProps) => {
 					</div>
 				</If>
 			</div>
-		</div>
+
+			</div>
 	);
 };
 

@@ -29,7 +29,7 @@
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
 					"props": {
-						"ipfs": "bafyreiaes5c4w42jucnqwkcixbzrkylgsuuw6prgyle6b3emv45d2lqche"
+						"ipfs": "bafyreicqhqqvd5fh5sypx5i7k63nkxftniiv4cnvxc6jnffufdfgisrgqa"
 					}
 				},
 				"left": null
