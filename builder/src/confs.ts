@@ -15,6 +15,7 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-content": "/packages/solenopsys/ui-content",
 	"@solenopsys/ui-state": "/packages/solenopsys/ui-state",
 	"@solenopsys/lt-website": "/packages/solenopsys/lt-website",
+	"@solenopsys/lt-auth": "/packages/solenopsys/lt-auth",
 	"@solenopsys/ui-highlight": "/packages/solenopsys/ui-highlight",
 	"@solenopsys/ui-landing": "/packages/solenopsys/ui-landing",
 

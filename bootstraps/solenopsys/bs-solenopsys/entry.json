@@ -19,6 +19,10 @@
 					"title": "Technology"
 				},
 				{
+					"id": "/documentation/",
+					"title": "Documentation"
+				},
+				{
 					"id": "/solenopsys/",
 					"title": "Solenopsys"
 				}
@@ -44,7 +48,21 @@
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreibhjcopyyb6uurgmbiquhj2ww32qy27l6mnrmyvllndnbterbjx3q"
+						"ipfs": "bafyreidcmxtmbawoiue43vzwzgg6y56y6gro7krabtej2hj3odvwltbw7m"
+					}
+				}
+			},
+			"/documentation/": {
+				"center": {
+					"component": "@solenopsys/mf-content:MdDynamic",
+					"props": {
+						"ipfs": "bafyreicuczqbb4g3nflos74y2pt5olzdcsn4zwtvpsbjgid2lujea6yigq"
+					}
+				},
+				"left": {
+					"component": "@solenopsys/mf-content:MainMenu",
+					"props": {
+						"ipfs": "bafyreif6iijvezrnboo4qvtr6zroptg7ag2uzx4i6vq6dzv4lirsblu47e"
 					}
 				}
 			},
