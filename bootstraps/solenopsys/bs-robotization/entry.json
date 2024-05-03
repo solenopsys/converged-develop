@@ -6,7 +6,7 @@
 			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
 		},
 		"page": {
-			"favicon": "/images/favicon.svg",
+			"favicon": "/images/robofavicon.svg",
 			"title": "Robotization vc",
 			"logo": "/images/robotization.svg"
 		},
@@ -25,7 +25,7 @@
 				"center": {
 					"component": "@solenopsys/mf-landing:HwLanding",
 					"props": {
-						"ipfs": "bafyreifoac3dutu2bxcswcjxp3rjr2srglrlcdbcnqztvcavxuuueilgr4"
+						"ipfs": "bafyreibmaufy3g6g43iszy3dzrtpi525wchzinu5ks4xhl7lhimwhqigxa"
 					}
 				},
 				"left": null
@@ -34,13 +34,13 @@
 				"center": {
 					"component": "@solenopsys/mf-content:MdDynamic",
 					"props": {
-						"ipfs": "bafyreibsepjg6jkm3z6ufylg6ycijxxksxyylkeq2tmrs5qzzauefc5she"
+						"ipfs": "bafyreidokzad4eulmm6szmgolewvtwqxx23hgl4ilo5hbnjt2uzi33o7f4"
 					}
 				},
 				"left": {
 					"component": "@solenopsys/mf-content:MainMenu",
 					"props": {
-						"ipfs": "bafyreibsepjg6jkm3z6ufylg6ycijxxksxyylkeq2tmrs5qzzauefc5she"
+						"ipfs": "bafyreibff6bjhlab3yqv5oo2nnctrs5asovhdnzhim6m7gfm33qzvszvqy"
 					}
 				}
 			}
