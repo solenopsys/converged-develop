@@ -18,6 +18,8 @@ export const IMPORT_MAP = {
 	"@solenopsys/lt-auth": "/packages/solenopsys/lt-auth",
 	"@solenopsys/ui-highlight": "/packages/solenopsys/ui-highlight",
 	"@solenopsys/ui-landing": "/packages/solenopsys/ui-landing",
+	"@solenopsys/ui-forms": "/packages/solenopsys/ui-forms",
+	"@solenopsys/fl-crypto": "/packages/solenopsys/fl-crypto",
 
 };
 

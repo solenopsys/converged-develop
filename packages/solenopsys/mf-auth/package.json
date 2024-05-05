@@ -10,12 +10,16 @@
         "@solenopsys/converged-renderer": "latest",
         "@solenopsys/converged-style": "latest",
         "@solenopsys/converged-router": "latest",
+        "@solenopsys/ui-forms": "workspace:../ui-forms",
+        "@solenopsys/ui-controls": "workspace:../ui-controls",
         "typescript": "^5.0.0"
     },
     "scripts": {
         "build": "bun ../../../build/build.ts"
     },
     "external": [
-        "@solenopsys/ui-navigate"
+        "@solenopsys/ui-navigate",
+        "@solenopsys/ui-forms",
+        "@solenopsys/ui-controls"
     ]
 }

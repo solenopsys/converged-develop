@@ -6,9 +6,9 @@ import {
 	CryptoTools,
 	buf2hex,
 } from "@solenopsys/fl-crypto";
-import { RegisterData } from "../model";
-import { KeysService } from "../KeysService";
 import { Component } from "@solenopsys/converged-renderer";
+import {UiTextField,UiSelectField,UiMultilineField} from "@solenopsys/ui-forms";
+import {UiButton} from "@solenopsys/ui-controls";
 
 const cw = new CryptoWrapper(window.crypto);
 

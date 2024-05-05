@@ -5,11 +5,11 @@ import {
 	SeedClipper,
 	Tokens,
 } from "@solenopsys/fl-crypto";
-import { SessionsService } from "../SessionsService";
-import { KeysService } from "../KeysService";
 import $ from "@solenopsys/converged-reactive";
-
 import { Component } from "@solenopsys/converged-renderer";
+import { SESSION_SERVICE } from "../services"
+import {UiTextField} from "@solenopsys/ui-forms";
+import {UiButton} from "@solenopsys/ui-controls";
 
 const cw = new CryptoWrapper(window.crypto);
 
