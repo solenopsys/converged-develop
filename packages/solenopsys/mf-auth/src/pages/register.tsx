@@ -14,14 +14,14 @@ const cw = new CryptoWrapper(window.crypto);
 
 const EMAIL = { uid: "email", title: "Email" };
 import $ from "@solenopsys/converged-reactive";
-import {effect} from "@solenopsys/converged-reactive";
+import {effect,Observable} from "@solenopsys/converged-reactive";
 
 class MessagersDataProvider {
 	privateKey: string;
 
 	public fieldWidth = 400;
 
-	data = new BehaviorSubject([{ uid: "log", title: "Log" }, EMAIL]);
+	data = $([{ uid: "log", title: "Log" }, EMAIL]);
 
 	initObserver(str: Observable<string>): Observable<EntityTitle[]> {
 		return this.data;
