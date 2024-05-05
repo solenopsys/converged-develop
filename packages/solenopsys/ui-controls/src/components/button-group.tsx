@@ -1,6 +1,6 @@
 import { Component } from '@solenopsys/converged-renderer';
  
-import {IconButton} from '../icon-button/icon-button'
+import {IconButton} from './icon-button'
 
 export type ActionButton = {
     key: string;

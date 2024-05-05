@@ -3,7 +3,7 @@ import {  Component } from '@solenopsys/converged-renderer';
 import $ from '@solenopsys/converged-reactive';;
 import {EffectFunction} from '@solenopsys/converged-reactive';;
 
-import styles from "./ui-button.module.css";
+import styles from "./styles/ui-button.module.css";
 
 
 
@@ -19,9 +19,6 @@ console.log("CREATE BUTTON")
 
   $.effect(() => console.log('Title', state()));
  
-
-  
-
   return ()=>{
     
   const handleClick = () => {

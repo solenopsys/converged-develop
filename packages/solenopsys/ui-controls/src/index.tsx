@@ -1,7 +1,7 @@
 
-export { UiButton } from "./button/ui-button"
-export { IconButton } from "./icon-button/icon-button"
-export { ButtonGroup } from "./button-group/button-group"
+export { UiButton } from "./components/ui-button"
+export { IconButton } from "./components/icon-button"
+export { ButtonGroup } from "./components/button-group"
  
 
 
