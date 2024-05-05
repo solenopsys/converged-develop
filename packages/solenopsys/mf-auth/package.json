@@ -3,7 +3,12 @@
     "module": "src/index.tsx",
     "description": "Microfrontend landing",
     "type": "module",
-    "dependencies": {},
+    "dependencies": {
+        "gapi": "^0.0.3",
+        "google-one-tap": "^1.0.6",
+        "jsonwebtoken": "^9.0.2",
+        "jwt-decode": "^4.0.0"
+    },
     "devDependencies": {},
     "peerDependencies": {
         "@solenopsys/converged-reactive": "latest",

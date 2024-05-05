@@ -8,11 +8,8 @@
     "@solenopsys/converged-renderer": "latest",
     "@solenopsys/converged-router": "latest",
     "@solenopsys/converged-style": "latest",
-    "@solenopsys/ui-state": "workspace:../ui-state",
-    "gapi": "^0.0.3",
-    "google-one-tap": "^1.0.6",
-    "jsonwebtoken": "^9.0.2",
-    "jwt-decode": "^4.0.0"
+    "@solenopsys/ui-state": "workspace:../ui-state"
+   
   },
   "devDependencies": { "browserslist": "^4.23.0", "lightningcss": "^1.24.1" },
   "peerDependencies": {
