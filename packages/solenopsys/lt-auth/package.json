@@ -8,7 +8,11 @@
     "@solenopsys/converged-renderer": "latest",
     "@solenopsys/converged-router": "latest",
     "@solenopsys/converged-style": "latest",
-    "@solenopsys/ui-state": "workspace:../ui-state"
+    "@solenopsys/ui-state": "workspace:../ui-state",
+    "@solenopsys/ui-navigate": "workspace:../ui-navigate",
+    "@solenopsys/fl-clusters": "workspace:../fl-crypto",
+    "@solenopsys/ui-controls": "workspace:../ui-controls"
+
    
   },
   "devDependencies": { "browserslist": "^4.23.0", "lightningcss": "^1.24.1" },
@@ -19,6 +23,9 @@
     "bundle": "bun build.ts"
   },
   "external": [
-    "@solenopsys/ui-state"
+    "@solenopsys/ui-state",
+    "@solenopsys/ui-navigate",
+    "@solenopsys/fl-clusters",
+    "@solenopsys/ui-controls"
   ]
 }

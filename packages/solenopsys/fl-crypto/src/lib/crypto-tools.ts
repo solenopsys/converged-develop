@@ -31,7 +31,7 @@ export class CryptoTools {
     }
 }
 
-import { Buffer } from 'buffer';
+//import { Buffer } from 'buffer';
 
 export function generateMnemonic() {
 

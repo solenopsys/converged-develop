@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { SeedClipper } from "./seed-crypt";
-import { CryptoWrapper } from "./crypto-wrapper";
+import { SeedClipper } from "../src/lib/seed-crypt";
+import { CryptoWrapper } from "../src/lib/crypto-wrapper";
 
 describe('Encrypt', () => {
     it('should encrypt and decrypt', async () => {

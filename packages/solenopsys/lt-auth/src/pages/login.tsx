@@ -1,4 +1,4 @@
-import { useRouter, useLocation } from "solid-router";
+
 import {
 	CryptoWrapper,
 	Hash,
@@ -7,6 +7,7 @@ import {
 } from "@solenopsys/fl-crypto";
 import $ from "@solenopsys/converged-reactive";
 import { Component } from "@solenopsys/converged-renderer";
+import {useRouter} from "@solenopsys/converged-router";
 import { SESSION_SERVICE } from "../services"
 import {UiTextField} from "@solenopsys/ui-forms";
 import {UiButton} from "@solenopsys/ui-controls";

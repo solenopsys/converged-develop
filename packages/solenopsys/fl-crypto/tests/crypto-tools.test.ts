@@ -1,6 +1,6 @@
-import { CryptoTools, generateMnemonic } from "./crypto-tools";
+import { CryptoTools, generateMnemonic } from "../src/lib/crypto-tools";
 import * as secp256k1 from 'secp256k1';
-import { CryptoWrapper } from "./crypto-wrapper";
+import { CryptoWrapper } from "../src/lib/crypto-wrapper";
 import { describe, it, expect } from 'vitest';
 
 const cw = new CryptoWrapper(new Crypto());

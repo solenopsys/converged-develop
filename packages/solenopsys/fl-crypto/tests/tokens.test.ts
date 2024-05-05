@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { CryptoTools } from "./crypto-tools";
+import { CryptoTools } from "../src/lib/crypto-tools";
 import * as moment from "moment";
-import { CryptoWrapper } from "./crypto-wrapper";
-import { Tokens } from "./tokens";
+import { CryptoWrapper } from "../src/lib/crypto-wrapper";
+import { Tokens } from "../src/lib/tokens";
 
 describe('Tokens Tools', () => {
     it('sing and check', async () => {

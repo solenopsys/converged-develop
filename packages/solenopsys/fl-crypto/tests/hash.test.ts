@@ -1,5 +1,5 @@
-import { CryptoWrapper } from "./crypto-wrapper";
-import { Hash } from "./hash";
+import { CryptoWrapper } from "../src/lib/crypto-wrapper";
+import { Hash } from "../src/lib/hash";
 import { describe, it, expect } from 'vitest';
 
 describe('Encrypt', () => {
