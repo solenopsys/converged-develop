@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'Bun';
 import { SeedClipper } from "../src/lib/seed-crypt";
 import { CryptoWrapper } from "../src/lib/crypto-wrapper";
 

@@ -1,23 +1,26 @@
 {
-	"name": "@solenopsys/fl-crypto",
-	"module": "src/index.tsx",
-	"description": "Microfrontend landing",
-	"type": "module",
-	"dependencies": {},
-	"devDependencies": { "@peculiar/webcrypto": "^1.4.3" },
-	"peerDependencies": {
-		"@solenopsys/converged-reactive": "latest",
-		"@solenopsys/converged-renderer": "latest",
-		"@solenopsys/converged-style": "latest",
-		"@solenopsys/converged-router": "latest",
-		"@solenopsys/ui-forms": "workspace:../ui-forms",
-		"typescript": "^5.0.0",
-		"bip39": "^3.1.0",
-		"moment": "^2.29.4",
-		"secp256k1": "^5.0.0"
-	},
-	"scripts": {
-		"build": "bun ../../../build/build.ts"
-	},
-	"external": ["@solenopsys/ui-navigate", "@solenopsys/ui-forms"]
+  "name": "@solenopsys/fl-crypto",
+  "module": "src/index.tsx",
+  "description": "Cryptography library",
+  "type": "module",
+  "dependencies": {},
+  "devDependencies": {
+    "@peculiar/webcrypto": "^1.4.3",
+    "@types/bun": "^1.0.0",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
+    "@solenopsys/converged-style": "latest",
+    "@solenopsys/converged-router": "latest",
+    "typescript": "^5.0.0",
+    "bip39": "^3.1.0",
+    "moment": "^2.29.4",
+    "secp256k1": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun ../../../build/build.ts"
+  },
+  "external": []
 }

@@ -10,10 +10,9 @@
     "@solenopsys/converged-style": "latest",
     "@solenopsys/ui-state": "workspace:../ui-state",
     "@solenopsys/ui-navigate": "workspace:../ui-navigate",
-    "@solenopsys/fl-clusters": "workspace:../fl-crypto",
-    "@solenopsys/ui-controls": "workspace:../ui-controls"
-
-   
+    "@solenopsys/fl-crypto": "workspace:../fl-crypto",
+    "@solenopsys/ui-controls": "workspace:../ui-controls",
+    "@solenopsys/ui-forms": "workspace:../ui-forms"
   },
   "devDependencies": { "browserslist": "^4.23.0", "lightningcss": "^1.24.1" },
   "peerDependencies": {

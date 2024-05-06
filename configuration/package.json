@@ -10,8 +10,8 @@
   },
   "devDependencies": {},
   "peerDependencies": {
-    "@solenopsys/converged-reactive": "^1.0.7",
-    "@solenopsys/converged-renderer": "^1.0.4",
+    "@solenopsys/converged-reactive": "latest",
+    "@solenopsys/converged-renderer": "latest",
     "typescript": "^5.0.0"
   }
 }

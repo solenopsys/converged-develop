@@ -1,6 +1,6 @@
 import { CryptoWrapper } from "../src/lib/crypto-wrapper";
 import { Hash } from "../src/lib/hash";
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'Bun';
 
 describe('Encrypt', () => {
     it('should encrypt', async () => {
