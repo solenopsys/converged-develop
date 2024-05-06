@@ -20,6 +20,7 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-landing": "/packages/solenopsys/ui-landing",
 	"@solenopsys/ui-forms": "/packages/solenopsys/ui-forms",
 	"@solenopsys/fl-crypto": "/packages/solenopsys/fl-crypto",
+	"@solenopsys/ui-qr": "/packages/solenopsys/ui-qr",
 
 };
 
