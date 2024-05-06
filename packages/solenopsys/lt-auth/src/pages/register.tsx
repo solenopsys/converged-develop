@@ -17,6 +17,8 @@ import $ from "@solenopsys/converged-reactive";
 import {effect,Observable} from "@solenopsys/converged-reactive";
 import {KEY_SERVICE} from "../services"
 
+import fieldsStyles from "./styles/fields.module.scss"
+
 class MessagersDataProvider {
 	privateKey: string;
 
@@ -110,7 +112,7 @@ const RegisterComponent: Component = () => {
 				{!success() && (
 					<>
 						<h4>Seed phase.</h4>
-						<div class="field-block">
+						<div class={fieldsStyles.fieldBlock}>
 							<div>
 								<div>
 									<UiMultilineField
@@ -122,7 +124,7 @@ const RegisterComponent: Component = () => {
 									/>
 								</div>
 							</div>
-							<div class="field-description">
+							<div class={fieldsStyles.fieldDescription}>
 								With the help of this phrase, you can perform any important
 								action in Solenopsys, such as logging in, sending money, and
 								controlling your clusters. You can imagine your own seed phase
@@ -143,20 +145,20 @@ const RegisterComponent: Component = () => {
 						{mnemonic() && (
 							<>
 								<h4>Password</h4>
-								<div class="field-block">
+								<div class={fieldsStyles.fieldBlock}>
 									<div>
 										<div>
 											<UiTextField
 												width={fieldWidth()}
 												value={password()}
-												onInput={(e) => password(e.target.value)}
-												onValueChange={(e) => regenerate({})}
+												onInput={(e:any) => password(e.target.value)}
+												onValueChange={(e:any) => regenerate({})}
 												password={true}
 												title="Password"
 											/>
 										</div>
 									</div>
-									<div class="field-description">
+									<div class={fieldsStyles.fieldDescription}>
 										to protect the seed phase. The seed phase is always stored
 										and transferred in an encrypted
 									</div>
@@ -164,20 +166,20 @@ const RegisterComponent: Component = () => {
 								{password() && (
 									<>
 										<h4>Encrypted seed</h4>
-										<div class="field-block">
+										<div class={fieldsStyles.fieldBlock}>
 											<div
 												style={{ minWidth: fieldWidth() + "px" }}
 												class="qr-wrapper"
 											>
 												<UiQrcode data={encryptedKey()} />
 											</div>
-											<div class="field-description">
+											<div class={fieldsStyles.fieldDescription}>
 												You are can save this QR code to restore your seed phase
 												in the future.
 											</div>
 										</div>
 										<h4>Messenger</h4>
-										<div class="field-block">
+										<div class={fieldsStyles.fieldBlock}>
 											<div>
 												<UiSelectField
 													width={fieldWidth()}
@@ -186,25 +188,25 @@ const RegisterComponent: Component = () => {
 													onValueChange={transport}
 												/>
 											</div>
-											<div class="field-description">
+											<div class={fieldsStyles.fieldDescription}>
 												What is the most convenient way for you to authenticate?
 											</div>
 										</div>
 										<h4>Account</h4>
-										<div class="field-block">
+										<div class={fieldsStyles.fieldBlock}>
 											<div>
 												<div>
 													<UiTextField
 														title="Login"
 														width={fieldWidth()}
 														value={login()}
-														onInput={(e) => login(e.target.value)}
+														onInput={(e:any) => login(e.target.value)}
 													/>
 												</div>
 											</div>
-											<div class="field-description">name in your massager</div>
+											<div class={fieldsStyles.fieldDescription}>name in your massager</div>
 										</div>
-										<div class="field-block">
+										<div class={fieldsStyles.fieldBlock}>
 											{login() && (
 												<UiButton
 													title="Зарегистрироваться"
@@ -212,7 +214,7 @@ const RegisterComponent: Component = () => {
 												/>
 											)}
 										</div>
-										<div class="field-block">
+										<div class={fieldsStyles.fieldBlock}>
 											{error() && `Error: ${error().message}`}
 										</div>
 									</>

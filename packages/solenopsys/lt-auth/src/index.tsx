@@ -5,8 +5,9 @@ import LoginComponent from "./pages/login";
 import RegisterComponent from "./pages/register";
 import ConfirmComponent from "./pages/confirm";
 import { UiLogo } from "@solenopsys/ui-navigate";
-//import { ColorSchemesService } from "@solenopsys/ui-themes";
+import styles from "./styles/template.module.scss"
 
+//import { ColorSchemesService } from "@solenopsys/ui-themes";
 //const cs = store(ColorSchemesService);
 //cs.initColors(ref.style);
 
@@ -32,9 +33,9 @@ export const createLayout = (
 	// @ts-ignore
 	render(() => {
 		return (
-			<body class="body-wrapper">
+			<body class={styles.bodyWrapper}>
 				<Router>
-					<div class="panel">
+					<div class={styles.panel}>
 						<UiLogo logo={logo()} />
 						<Routes>
 							<Route path="/register" element={<RegisterComponent />} />

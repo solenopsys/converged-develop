@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'Bun';
+import { describe, it, expect } from "bun:test";
 import { CryptoTools } from "../src/lib/crypto-tools";
 import * as moment from "moment";
 import { CryptoWrapper } from "../src/lib/crypto-wrapper";

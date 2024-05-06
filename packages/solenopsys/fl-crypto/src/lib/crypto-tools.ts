@@ -31,11 +31,13 @@ export class CryptoTools {
     }
 }
 
-//import { Buffer } from 'buffer';
+
+//@ts-ignore
+import  Buffer  from 'buffer';
 
 export function generateMnemonic() {
 
-    window.Buffer = Buffer;
+//    window.Buffer = Buffer;
     const entropy = new Uint8Array(32)
 
     window.crypto.getRandomValues(entropy);

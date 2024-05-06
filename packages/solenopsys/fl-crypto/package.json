@@ -3,7 +3,7 @@
   "module": "src/index.tsx",
   "description": "Cryptography library",
   "type": "module",
-  "dependencies": {},
+  "dependencies": { "buffer": "^6.0.3" },
   "devDependencies": {
     "@peculiar/webcrypto": "^1.4.3",
     "@types/bun": "^1.0.0",
@@ -15,9 +15,9 @@
     "@solenopsys/converged-style": "latest",
     "@solenopsys/converged-router": "latest",
     "typescript": "^5.0.0",
-    "bip39": "^3.1.0",
+    "bip39": "latest",
     "moment": "^2.29.4",
-    "secp256k1": "^5.0.0"
+    "secp256k1": "latest"
   },
   "scripts": {
     "build": "bun ../../../build/build.ts"

@@ -1,4 +1,3 @@
-
 import {
 	CryptoWrapper,
 	Hash,
@@ -11,6 +10,9 @@ import {useNavigate} from "@solenopsys/converged-router";
 import { SESSION_SERVICE } from "../services"
 import {UiTextField} from "@solenopsys/ui-forms";
 import {UiButton} from "@solenopsys/ui-controls";
+
+import fieldsStyles from "./styles/fields.module.scss"
+import styles from "./styles/login.module.scss"
 
 
 const cw = new CryptoWrapper(window.crypto);
@@ -63,34 +65,34 @@ const LoginComponent: Component = () => {
 	return (
 		<div>
 			<h4>Login</h4>
-			<div class="field-block">
+			<div class={fieldsStyles.fieldBlock}>
 				<div>
 					<UiTextField
 						title="Login"
 						value={login()}
-						onInput={(e) => login(e.target.value)}
+						onInput={(e:any) => login(e.target.value)}
 					/>
 				</div>
-				<div class="field-description">Account name</div>
+				<div class={fieldsStyles.fieldDescription}>Account name</div>
 			</div>
 			{login() && (
 				<>
 					<h4>Password</h4>
-					<div class="field-block">
+					<div class={fieldsStyles.fieldBlock}>
 						<div>
 							<UiTextField
 								title="Password"
 								password={true}
 								value={password()}
-								onInput={(e) => password(e.target.value)}
+								onInput={(e:any) => password(e.target.value)}
 							/>
 						</div>
-						<div class="field-description">password for seed decryption</div>
+						<div class={fieldsStyles.fieldDescription}>password for seed decryption</div>
 					</div>
 					{password() && <UiButton title="Login" onClick={load} />}
 				</>
 			)}
-			<div class="field-block">
+			<div class={fieldsStyles.fieldBlock}>
 				<a
 					style={{
 						cursor: "pointer",
@@ -102,7 +104,7 @@ const LoginComponent: Component = () => {
 					register
 				</a>
 			</div>
-			<div class="field-block">{error() && `Error: ${error().message}`}</div>
+			<div class={fieldsStyles.fieldBlock}>{error() && `Error: ${error().message}`}</div>
 		</div>
 	);
 };
