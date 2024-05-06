@@ -7,7 +7,7 @@ import {
 } from "@solenopsys/fl-crypto";
 import $ from "@solenopsys/converged-reactive";
 import { Component } from "@solenopsys/converged-renderer";
-import {useRouter} from "@solenopsys/converged-router";
+import {useNavigate} from "@solenopsys/converged-router";
 import { SESSION_SERVICE } from "../services"
 import {UiTextField} from "@solenopsys/ui-forms";
 import {UiButton} from "@solenopsys/ui-controls";
@@ -20,8 +20,7 @@ const LoginComponent: Component = () => {
 	const error = $(undefined);
 	const clipper = $(null);
 	const result = $("");
-	const [, { navigate }] = useRouter();
-
+	const navigate = useNavigate();
 	const load = async () => {
 		const h = new Hash(cw);
 		const hash = await h.genHash(password(), login());

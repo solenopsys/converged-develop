@@ -1,7 +1,7 @@
 import $ from "@solenopsys/converged-reactive";
 import { Component } from "@solenopsys/converged-renderer";
 
-const TextFieldComponent: Component<any> = (props: any) => {
+export const UiTextField: Component<any> = (props: any) => {
 	const value = $(props.value || "");
 	const password = $(props.password || false);
 
@@ -21,5 +21,3 @@ const TextFieldComponent: Component<any> = (props: any) => {
 		/>
 	);
 };
-
-export default TextFieldComponent;

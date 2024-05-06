@@ -1,6 +1,6 @@
 import { If, render } from "@solenopsys/converged-renderer";
 import $ from "@solenopsys/converged-reactive";
-import {  Routes, Route } from "@solenopsys/converged-router";
+import { Routes, Route, Router } from "@solenopsys/converged-router";
 import LoginComponent from "./pages/login";
 import RegisterComponent from "./pages/register";
 import ConfirmComponent from "./pages/confirm";
@@ -9,7 +9,6 @@ import { UiLogo } from "@solenopsys/ui-navigate";
 
 //const cs = store(ColorSchemesService);
 //cs.initColors(ref.style);
-
 
 function setPageTitle(title: string) {
 	document.title = title;
@@ -34,14 +33,16 @@ export const createLayout = (
 	render(() => {
 		return (
 			<body class="body-wrapper">
-				<div class="panel">
-					<UiLogo logo={logo()} />
-					<Routes>
-						<Route path="/register" element={<RegisterComponent />} />
-						<Route path="/" element={<LoginComponent />} />
-						<Route path="/confirm" element={<ConfirmComponent />} />
-					</Routes>
-				</div>
+				<Router>
+					<div class="panel">
+						<UiLogo logo={logo()} />
+						<Routes>
+							<Route path="/register" element={<RegisterComponent />} />
+							<Route path="/" element={<LoginComponent />} />
+							<Route path="/confirm" element={<ConfirmComponent />} />
+						</Routes>
+					</div>
+				</Router>
 			</body>
 		);
 	}, document.getElementById(tagId));

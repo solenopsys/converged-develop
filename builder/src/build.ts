@@ -46,7 +46,10 @@ export async function compileModule(
 		const entryPoint = join(rootDir, path, entry);
 		const packagesFromExternal = tsConfigJson["external"];
 
+
+	
 		const combinedExternal = packagesFromExternal.concat(DEFAULT_EXTERNAL);
+		console.log("EXTERNAL",combinedExternal)
 		const out: any = await Bun.build({
 			sourcemap: "none",
 			entrypoints: [entryPoint],
@@ -140,6 +143,8 @@ export async function copileLocalLibrary(
 
 		 const combinedExternal = packagesFromExternal.concat(DEFAULT_EXTERNAL);
 	
+
+		 console.log("ENTRY",entryPoint)
 		const out: any = await Bun.build({
 			sourcemap: "none",
 			entrypoints: [entryPoint],

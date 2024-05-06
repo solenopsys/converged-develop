@@ -1,7 +1,7 @@
 import $ from "@solenopsys/converged-reactive";
 import { Component } from "@solenopsys/converged-renderer";
 
-const MultilineFieldComponent: Component = (props: any) => {
+export const UiMultilineField: Component = (props: any) => {
 	const value = $(props.value || "");
 
 	const handleChange = (event: any) => {
@@ -21,4 +21,3 @@ const MultilineFieldComponent: Component = (props: any) => {
 	);
 };
 
-export default MultilineFieldComponent;

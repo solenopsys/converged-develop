@@ -1,7 +1,7 @@
 import $ from "@solenopsys/converged-reactive";
 import { Component } from "@solenopsys/converged-renderer";
 
-const SelectFieldComponent: Component = (props: any) => {
+export const UiSelectField: Component = (props: any) => {
 	const value = $(props.value || {});
 	const titleInf = $("");
 	const visible = $(false);
@@ -66,5 +66,3 @@ const SelectFieldComponent: Component = (props: any) => {
 		</div>
 	);
 };
-
-export default SelectFieldComponent;
