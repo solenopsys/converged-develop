@@ -12,21 +12,25 @@ import { SESSION_SERVICE } from "../services"
 import {UiTextField} from "@solenopsys/ui-forms";
 import {UiButton} from "@solenopsys/ui-controls";
 
+
 const cw = new CryptoWrapper(window.crypto);
 
 const LoginComponent: Component = () => {
 	const login = $("");
 	const password = $("");
 	const error = $(undefined);
-	const clipper = $(null);
+	
 	const result = $("");
 	const navigate = useNavigate();
+
+	const clipper=new SeedClipper(new SeedClipper("AES-CBC", cw));
+
 	const load = async () => {
 		const h = new Hash(cw);
 		const hash = await h.genHash(password(), login());
 		try {
 			const res = await SESSION_SERVICE.key(hash);
-			const privateKey = await clipper().decryptData(
+			const privateKey = await clipper.decryptData(
 				res.encryptedKey,
 				password(),
 			);
@@ -53,7 +57,7 @@ const LoginComponent: Component = () => {
 	};
 
 	
-	setClipper(new SeedClipper("AES-CBC", cw));
+	
 	
 
 	return (

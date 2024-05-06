@@ -15,6 +15,7 @@ const cw = new CryptoWrapper(window.crypto);
 const EMAIL = { uid: "email", title: "Email" };
 import $ from "@solenopsys/converged-reactive";
 import {effect,Observable} from "@solenopsys/converged-reactive";
+import {KEY_SERVICE} from "../services"
 
 class MessagersDataProvider {
 	privateKey: string;
@@ -38,7 +39,8 @@ const RegisterComponent: Component = () => {
 	const password = $("");
 	const mnemonic = $("");
 	const login = $("");
-	const clipper= $(null);
+	
+	const clipper=new SeedClipper(new SeedClipper("AES-CBC", cw));
 	const encryptedKey= $("");
 	const regenerate = $(null);
 	const transport= $(EMAIL);
@@ -51,7 +53,7 @@ const RegisterComponent: Component = () => {
 	const error = $(null);
 	const fieldWidth = $(300);
 
-	const ks = new KeysService();
+	
 
 	async function sendCode() {
 		const tr = transport().uid;
@@ -71,7 +73,7 @@ const RegisterComponent: Component = () => {
 
 		console.log(registerData);
 
-		ks.register(registerData)
+		KEY_SERVICE.register(registerData)
 			.then((res:string) => {
 				success(true);
 				console.log(res);
@@ -91,16 +93,16 @@ const RegisterComponent: Component = () => {
 		if (regenerate()) {
 			(async () => {
 				privateKey(await new CryptoTools(cw).privateKeyFromSeed(mnemonic()));
-				encryptedKey(await clipper().encryptData(privateKey(), password()));
+				encryptedKey(await clipper.encryptData(privateKey(), password()));
 			})();
 		}
 	});
 
 
-  setClipper(new SeedClipper("AES-CBC", cw));
+ 
 	
 
-	onCleanup(() => {});
+//	onCleanup(() => {});
 
 	return (
 		<div style={{ display: "flex" }}>
@@ -115,8 +117,8 @@ const RegisterComponent: Component = () => {
 										width={fieldWidth()}
 										title="Seed phase"
 										value={mnemonic()}
-										onValueChange={(e) => mnemonic(e.target.value)}
-										onInput={(e) => regenerate({})}
+										onValueChange={(e:any) => mnemonic(e.target.value)}
+										onInput={(e:any) => regenerate({})}
 									/>
 								</div>
 							</div>
