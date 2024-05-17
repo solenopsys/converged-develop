@@ -21,6 +21,9 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-forms": "/packages/solenopsys/ui-forms",
 	"@solenopsys/fl-crypto": "/packages/solenopsys/fl-crypto",
 	"@solenopsys/ui-qr": "/packages/solenopsys/ui-qr",
+	"@solenopsys/ui-3d": "/packages/solenopsys/ui-3d",
+	"@solenopsys/mf-visualize": "/packages/solenopsys/mf-visualize",
+
 
 };
 

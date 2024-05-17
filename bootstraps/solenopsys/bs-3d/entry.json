@@ -11,7 +11,7 @@
 			"logo": "/images/solenopsys.svg"
 		},
 		"navigation": {
-			"selected": "/stl",
+			"selected": "/stl/",
 			"tree": [
 				{
 					"id": "/stl/",
@@ -26,6 +26,17 @@
 					"title": "Combinatorics"
 				}
 			]
+		},
+		"routes": {
+			"/stl/": {
+				"center": {
+					"component": "@solenopsys/mf-visualize:Visual",
+					"props": {
+						"file": "/assets/3d/USB3.3MF",
+						"texture": "/assets/3d/blouberg_sunrise_2_1k.hdr"
+					}
+				}
+			}
 		}
 	}
 }
