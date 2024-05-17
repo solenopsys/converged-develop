@@ -23,6 +23,7 @@ export const IMPORT_MAP = {
 	"@solenopsys/ui-qr": "/packages/solenopsys/ui-qr",
 	"@solenopsys/ui-3d": "/packages/solenopsys/ui-3d",
 	"@solenopsys/mf-visualize": "/packages/solenopsys/mf-visualize",
+	"@solenopsys/mf-graphene": "/packages/solenopsys/mf-graphene",
 
 
 };
