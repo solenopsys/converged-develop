@@ -1,0 +1,31 @@
+{
+	"module": "@solenopsys/lt-website",
+	"state": {
+		"ui": {
+			"top": "@solenopsys/ui-navigate:UiRoutePane",
+			"menu": "@solenopsys/ui-layouts:UiTreeMenu"
+		},
+		"page": {
+			"favicon": "/images/favicon.svg",
+			"title": "Solenopsys vc",
+			"logo": "/images/solenopsys.svg"
+		},
+		"navigation": {
+			"selected": "/stl",
+			"tree": [
+				{
+					"id": "/stl/",
+					"title": "Stl"
+				},
+				{
+					"id": "/graphene/",
+					"title": "Graphene"
+				},
+				{
+					"id": "/combinatorics/",
+					"title": "Combinatorics"
+				}
+			]
+		}
+	}
+}
