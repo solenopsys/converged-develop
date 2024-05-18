@@ -42,6 +42,11 @@
 					"component": "@solenopsys/mf-graphene:Ocean3D"
 					
 				}
+			},"/combinatorics/": {
+				"center": {
+					"component": "@solenopsys/mf-generator:TechnologyComponent"
+					
+				}
 			}
 		}
 	}
