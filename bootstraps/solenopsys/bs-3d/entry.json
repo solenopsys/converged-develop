@@ -36,6 +36,12 @@
 						"texture": "/assets/3d/blouberg_sunrise_2_1k.hdr"
 					}
 				}
+			},
+			"/graphene/": {
+				"center": {
+					"component": "@solenopsys/mf-graphene:Ocean3D"
+					
+				}
 			}
 		}
 	}
