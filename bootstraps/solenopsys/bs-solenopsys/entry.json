@@ -32,6 +32,16 @@
 				
 			]
 		},
+
+		"actions": [
+			{
+				"key": "/login/",
+				"title": "Login",
+				"icon": "login.svg"
+			}
+		
+		],
+		
 		"routes": {
 			"/": {
 				"center": {

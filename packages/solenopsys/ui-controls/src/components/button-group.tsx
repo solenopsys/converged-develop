@@ -15,6 +15,7 @@ interface ButtonGroupProps {
 }
 
 export const ButtonGroup: Component<ButtonGroupProps> = (props) => {
+  console.log("BUTTON GROUP", props);
   return (
     <>
       {props.actions.map((action) => (
@@ -22,8 +23,7 @@ export const ButtonGroup: Component<ButtonGroupProps> = (props) => {
           key={action.key}
           icon={action.icon}
           title={action.title}
-          onClick={() => props.emmitAction(action.key)}
-        />
+          click={(e:any)=> props.emmitAction(action.key)}  />
       ))}
     </>
   );

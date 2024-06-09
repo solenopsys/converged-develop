@@ -5,7 +5,8 @@
   "dependencies": {
     "@solenopsys/converged-reactive": "latest",
     "@solenopsys/converged-renderer": "latest",
-    "@solenopsys/converged-style": "latest"
+    "@solenopsys/converged-style": "latest",
+    "@solenopsys/ui-controls": "workspace:../ui-controls"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -14,9 +15,9 @@
     "@types/bun": "^1.0.10"
   },
   "external": [
-    "@solenopsys/converged-ui-navigate",
-    "@solenopsys/converged-ui-controls",
-    "@solenopsys/converged-ui-layouts"
+    "@solenopsys/ui-navigate",
+    "@solenopsys/ui-controls",
+    "@solenopsys/ui-layouts"
   ],
   "scripts": {
     "tests": " bun test  "

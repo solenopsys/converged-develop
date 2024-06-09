@@ -4,6 +4,7 @@ import $ from "@solenopsys/converged-reactive";
 import styles from "./styles/toppane.module.css";
 import { TabsProps, UiTabs } from "./tabs";
 import { UiLogo } from "./logo";
+import { ButtonGroup,ActionButton } from "@solenopsys/ui-controls";
 
 interface RoutedPaneProps {
 	logo: { image: string };
@@ -11,13 +12,14 @@ interface RoutedPaneProps {
 }
 
 interface TopPaneProps extends RoutedPaneProps {
-	//actions: ActionButton[];
+	actions: ActionButton[];
 	//tabSelect: (tab: string) => void;
 	logoClick: () => void;
-	//	actionSelect: (action: string) => void;
+		actionSelect: (action: string) => void;
 }
 
 export const UiTopPane: Component<TopPaneProps> = (props) => {
+	console.log("TOP PANE", props);
 	return () => {
 		return (
 			<div class={styles["top-pane"]}>
@@ -42,10 +44,7 @@ export const UiTopPane: Component<TopPaneProps> = (props) => {
 				</If>
 
 				<div class={styles["actions-container"]}>
-					{/* <ui-button-group
-          actions={props.config.actions}
-          emmitAction={(event) => props.actionSelect(event)}
-        ></ui-button-group> */}
+					 <ButtonGroup actions={props.actions} emmitAction={(event:any) => props.actionSelect(event)}></ButtonGroup> 
 				</div>
 			</div>
 		);
@@ -77,7 +76,11 @@ export const UiRoutePane: Component<RoutedPaneProps> = (props) => {
 				},
 				selected: location.pathname,
 			},
+			actions: props.actions,
 			logo: props.logo,
+			actionSelect: (action: string) => {
+				UiEvents({ type: "external", action: "login" });
+			},
 			logoClick: () => {
 				UiEvents({ type: "navigate", location: "/" });
 			},

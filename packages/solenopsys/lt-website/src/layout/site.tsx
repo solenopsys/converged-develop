@@ -23,6 +23,8 @@ export const Site: Component<Props> = (props) => {
 					title: item.title,
 				})),
 			},
+			actions: props.actions
+
 		},
 	};
 

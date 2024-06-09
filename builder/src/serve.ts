@@ -109,10 +109,15 @@ function startServer(
 		return await fileResponse("./configuration" + req.path);
 	};
 
+	// hendlers["/assets/scipts/**"] = async (req: { path: string }) => {
+	// 	return await fileResponse(join("./configuration",  req.path));
+	// };
+
 	hendlers["/assets/*"] = async (req: { path: string }) => {
 		return await fileResponse(join("./configuration",  req.path));
 	};
 
+	
 
 
 	hendlers["*/"] = async (req: { path: string }) => {
